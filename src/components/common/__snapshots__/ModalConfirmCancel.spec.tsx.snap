@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModalConfirmCancel should equal saved snapshot 1`] = `
+<ForwardRef(Dialog)
+  id="modal-confirm-cancel"
+  onClose={[Function]}
+  open={true}
+>
+  <ForwardRef(DialogTitle)>
+    header
+  </ForwardRef(DialogTitle)>
+  <ForwardRef(DialogContent)>
+    <ForwardRef(DialogContentText)>
+      body
+    </ForwardRef(DialogContentText)>
+  </ForwardRef(DialogContent)>
+  <ForwardRef(DialogActions)>
+    <ForwardRef(Button)
+      autoFocus={true}
+      color="primary"
+      id="modal-confirm-cancel-button-confirm"
+      onClick={[Function]}
+    >
+      confirm
+    </ForwardRef(Button)>
+    <ForwardRef(Button)
+      color="secondary"
+      id="modal-confirm-cancel-button-cancel"
+      onClick={[Function]}
+    >
+      cancel
+    </ForwardRef(Button)>
+  </ForwardRef(DialogActions)>
+</ForwardRef(Dialog)>
+`;

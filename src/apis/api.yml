@@ -1,0 +1,521 @@
+openapi: 3.0.1
+info:
+  title: API Swagger
+  version: 1.0.0
+servers:
+  - url: http://localhost:5000
+    description: dev
+  - url: http://localhost:5000
+    description: prod
+  - url: http://localhost:5000
+    description: test
+paths:
+  /todos:
+    get:
+      tags:
+      - Todos
+      summary: Read all todos.
+      description: Read all todos.
+      operationId: readTodos
+      responses: 
+        200:
+          $ref: "#/components/responses/SuccessfulManyTodosResponse"
+        400:
+          $ref: "#/components/responses/ErrorResponse"
+        500:
+          $ref: "#/components/responses/ErrorResponse"
+    post:
+      tags:
+        - Todos
+      summary: Creates a new todo.
+      description: Creates a new todos.
+      operationId: createTodo
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateTodo"
+      responses:
+        200:
+          $ref: "#/components/responses/SuccessfulOneTodoResponse"
+        400:
+          $ref: "#/components/responses/ErrorResponse"
+        500:
+          $ref: "#/components/responses/ErrorResponse"
+
+  /todos/{id}:
+    get:
+      tags:
+      - Todos
+      summary: Read a todo.
+      description: Read a todo.
+      operationId: readTodo
+      parameters:
+        - $ref: "#/components/parameters/idPathParam"
+      responses: 
+        200:
+          $ref: "#/components/responses/SuccessfulOneTodoResponse"
+        400:
+          $ref: "#/components/responses/ErrorResponse"
+        404:
+          $ref: "#/components/responses/ErrorResponse"
+        500:
+          $ref: "#/components/responses/ErrorResponse"
+    put:
+      tags:
+      - Todos
+      summary: Replace a todo.
+      description: Replace a todo.
+      operationId: replaceTodo
+      parameters:
+        - $ref: "#/components/parameters/idPathParam"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateTodo"
+      responses: 
+        200:
+          $ref: "#/components/responses/SuccessfulOneTodoResponse"
+        400:
+          $ref: "#/components/responses/ErrorResponse"
+        404:
+          $ref: "#/components/responses/ErrorResponse"
+        500:
+          $ref: "#/components/responses/ErrorResponse"
+    patch:
+      tags:
+      - Todos
+      summary: Update a todo.
+      description: Update a todo.
+      operationId: updateTodo
+      parameters:
+        - $ref: "#/components/parameters/idPathParam"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateTodo"
+      responses: 
+        200:
+          $ref: "#/components/responses/SuccessfulOneTodoResponse"
+        400:
+          $ref: "#/components/responses/ErrorResponse"
+        404:
+          $ref: "#/components/responses/ErrorResponse"
+        500:
+          $ref: "#/components/responses/ErrorResponse"
+    delete:
+      tags:
+      - Todos
+      summary: Delete a todo.
+      description: Delete a todo.
+      operationId: deleteTodo
+      parameters:
+        - $ref: "#/components/parameters/idPathParam"
+      responses: 
+        204:
+          $ref: "#/components/responses/SuccessfulDeletedResponse"
+        400:
+          $ref: "#/components/responses/ErrorResponse"
+        404:
+          $ref: "#/components/responses/ErrorResponse"
+        500:
+          $ref: "#/components/responses/ErrorResponse"
+
+  /users:
+    get:
+      tags:
+      - Users
+      summary: Read all users.
+      description: Read all users.
+      operationId: readUsers
+      responses: 
+        200:
+          $ref: "#/components/responses/SuccessfulManyUsersResponse"
+        400:
+          $ref: "#/components/responses/ErrorResponse"
+        500:
+          $ref: "#/components/responses/ErrorResponse"
+    post:
+      tags:
+        - Users
+      summary: Creates a new user.
+      description: Creates a new user.
+      operationId: createUser
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateUser"
+      responses:
+        200:
+          $ref: "#/components/responses/SuccessfulOneUserResponse"
+        400:
+          $ref: "#/components/responses/ErrorResponse"
+        500:
+          $ref: "#/components/responses/ErrorResponse"
+
+  /users/{id}:
+    get:
+      tags:
+      - Users
+      summary: Read a user.
+      description: Read a user.
+      operationId: readUser
+      parameters:
+        - $ref: "#/components/parameters/idPathParam"
+      responses: 
+        200:
+          $ref: "#/components/responses/SuccessfulOneUserResponse"
+        400:
+          $ref: "#/components/responses/ErrorResponse"
+        404:
+          $ref: "#/components/responses/ErrorResponse"
+        500:
+          $ref: "#/components/responses/ErrorResponse"
+    put:
+      tags:
+      - Users
+      summary: Replace a user.
+      description: Replace a user.
+      operationId: replaceUser
+      parameters:
+        - $ref: "#/components/parameters/idPathParam"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateUser"
+      responses: 
+        200:
+          $ref: "#/components/responses/SuccessfulOneUserResponse"
+        400:
+          $ref: "#/components/responses/ErrorResponse"
+        404:
+          $ref: "#/components/responses/ErrorResponse"
+        500:
+          $ref: "#/components/responses/ErrorResponse"
+    patch:
+      tags:
+      - Users
+      summary: Update a user.
+      description: Update a user.
+      operationId: updateUser
+      parameters:
+        - $ref: "#/components/parameters/idPathParam"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateUser"
+      responses: 
+        200:
+          $ref: "#/components/responses/SuccessfulOneUserResponse"
+        400:
+          $ref: "#/components/responses/ErrorResponse"
+        404:
+          $ref: "#/components/responses/ErrorResponse"
+        500:
+          $ref: "#/components/responses/ErrorResponse"
+    delete:
+      tags:
+      - Users
+      summary: Delete a user.
+      description: Delete a user.
+      operationId: deleteUser
+      parameters:
+        - $ref: "#/components/parameters/idPathParam"
+      responses: 
+        204:
+          $ref: "#/components/responses/SuccessfulDeletedResponse"
+        400:
+          $ref: "#/components/responses/ErrorResponse"
+        404:
+          $ref: "#/components/responses/ErrorResponse"
+        500:
+          $ref: "#/components/responses/ErrorResponse"
+
+components:
+  parameters:
+    idPathParam:
+      name: id
+      in: path
+      description: Technical id of an entity.
+      required: true
+      schema:
+        type: number
+  schemas:
+    Todo:
+      title: Todo
+      type: object
+      required:
+        - id
+        - tsCreate
+        - tsUpdate
+        - owner
+        - dueDate
+        - description
+        - completed
+      properties:
+        id:
+          type: number
+          example: 1
+          description: Technical id of an entity.
+        tsCreate:
+          type: string
+          example: "2022-12-01T15:02:28"
+          description: Create timestamp.
+        tsUpdate:
+          type: string
+          example: "2022-12-01T15:02:28"
+          description: Update timestamp.
+        owner:
+          type: string
+          example: "Kerstin Barth"
+          description: Owner of the todo.
+        dueDate:
+          type: string
+          example: "2022-12-24T08:00:00"
+          description: Due date of the todo.
+        description:
+          type: string
+          example: "Weihnachtsgeschenk besorgen"
+          description: Description of the todo.
+        completed:
+          type: boolean
+          example: true
+          description: Completed status of the todo.
+    CreateTodo:
+      title: CreateTodo
+      type: object
+      required:
+        - owner
+        - dueDate
+        - description
+        - completed
+      properties:
+        owner:
+          type: string
+          example: "Kerstin Barth"
+          description: Owner of the todo.
+        dueDate:
+          type: string
+          example: "2022-12-24T08:00:00"
+          description: Due date of the todo.
+        description:
+          type: string
+          example: "Weihnachtsgeschenk besorgen"
+          description: Description of the todo.
+        completed:
+          type: boolean
+          example: true
+          description: Completed status of the todo.
+    UpdateTodo:
+      title: UpdateTodo
+      type: object
+      properties:
+        owner:
+          type: string
+          example: "Kerstin Barth"
+          description: Owner of the todo.
+        dueDate:
+          type: string
+          example: "2022-12-24T08:00:00"
+          description: Due date of the todo.
+        description:
+          type: string
+          example: "Weihnachtsgeschenk besorgen"
+          description: Description of the todo.
+        completed:
+          type: boolean
+          example: true
+          description: Completed status of the todo.
+    User:
+      title: User
+      type: object
+      required:
+        - id
+        - tsCreate
+        - tsUpdate
+        - name
+        - dateOfBirth
+        - size
+        - weight
+        - email
+        - phone
+      properties:
+        id:
+          type: number
+          example: 1
+          description: Technical id of an entity.
+        tsCreate:
+          type: string
+          example: "2022-12-01T15:02:28"
+          description: Create timestamp.
+        tsUpdate:
+          type: string
+          example: "2022-12-01T15:02:28"
+          description: Update timestamp.
+        name:
+          type: string
+          example: "Kerstin Barth"
+          description: Full name of the user.
+        dateOfBirth:
+          type: string
+          example: "1945-09-04T00:00:00"
+          description: Date of birth of the user.
+        size:
+          type: number
+          example: 165
+          description: Body size in cm of the user.
+        weight:
+          type: number
+          example: 65.56
+          description: Body weight in kg of the user.
+        email:
+          type: string
+          example: KerstinBarth@dayrep.com
+          description: E-mail adress of the user.
+        phone:
+          type: string
+          example: "+496563941489"
+          description: Phone number of the user.
+    CreateUser:
+      title: CreateUser
+      type: object
+      required:
+        - name
+        - dateOfBirth
+        - size
+        - weight
+        - email
+        - phone
+      properties:
+        name:
+          type: string
+          example: "Kerstin Barth"
+          description: Full name of the user.
+        dateOfBirth:
+          type: string
+          example: "1945-09-04T00:00:00"
+          description: Date of birth of the user.
+        size:
+          type: number
+          example: 165
+          description: Body size in cm of the user.
+        weight:
+          type: number
+          example: 65.56
+          description: Body weight in kg of the user.
+        email:
+          type: string
+          example: KerstinBarth@dayrep.com
+          description: E-mail adress of the user.
+        phone:
+          type: string
+          example: "+496563941489"
+          description: Phone number of the user.
+    UpdateUser:
+      title: UpdateUser
+      type: object
+      properties:
+        name:
+          type: string
+          example: "Kerstin Barth"
+          description: Full name of the user.
+        dateOfBirth:
+          type: string
+          example: "1945-09-04T00:00:00"
+          description: Date of birth of the user.
+        size:
+          type: number
+          example: 165
+          description: Body size in cm of the user.
+        weight:
+          type: number
+          example: 65.56
+          description: Body weight in kg of the user.
+        email:
+          type: string
+          example: KerstinBarth@dayrep.com
+          description: E-mail adress of the user.
+        phone:
+          type: string
+          example: "+496563941489"
+          description: Phone number of the user.
+    Error:
+      title: Error
+      type: object
+      required:
+        - type
+        - title
+        - status
+        - detail
+        - instance
+      properties:
+        type:
+          type: string
+          description: A URI reference that identifies the problem type.
+          example: https://example.com/probs/out-of-credit
+        title:
+          type: string
+          description: A short, human-readable summary of the problem type.
+          example: You do not have enough credit.
+        status:
+          type: number
+          description: The HTTP status code generated by the origin server for this occurrence of the problem.
+          example: 400
+        detail:
+          type: string
+          description: A human-readable explanation specific to this occurrence of the problem.
+          example: Your current balance is 30, but that costs 50.
+        instance:
+          type: string
+          description: A URI reference that identifies the specific occurrence of the problem.
+          example: /account/12345/msgs/abc
+      description: Informations about an error that has occurred.
+            
+  responses:
+    SuccessfulOneTodoResponse:
+      description: Successful response containing a todo.
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Todo"
+    SuccessfulManyTodosResponse:
+      description: Successful response containing an array of todos.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "#/components/schemas/Todo"
+    SuccessfulOneUserResponse:
+      description: Successful response containing a user.
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/User"
+    SuccessfulManyUsersResponse:
+      description: Successful response containing an array of users.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "#/components/schemas/User"
+    SuccessfulDeletedResponse:
+      description: Successful empty response.
+    ErrorResponse:
+      description: Error response containing an error.
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"

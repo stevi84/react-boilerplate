@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header should equal saved snapshot 1`] = `
+<div
+  className="header-container"
+>
+  <div
+    className="header-item header-icon"
+    data-testid="header-logo"
+  >
+    🌐
+  </div>
+  <div
+    className="header-item header-text"
+  >
+    React-App
+  </div>
+  <div
+    className="header-item"
+  >
+    <input
+      checked={true}
+      id="header-logo-checkbox"
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <label
+      htmlFor="header-logo-checkbox"
+    >
+      Logo
+    </label>
+  </div>
+  <div
+    className="header-item"
+  >
+    <input
+      id="header-table-checkbox"
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <label
+      htmlFor="header-table-checkbox"
+    >
+      Tabelle
+    </label>
+  </div>
+  <div
+    className="header-item"
+  >
+    <LanguageSwitch />
+  </div>
+</div>
+`;

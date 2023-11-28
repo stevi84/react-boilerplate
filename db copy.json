@@ -1,0 +1,66 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "owner": "Kerstin Barth",
+      "dueDate": "2022-12-24T08:00:00",
+      "description": "Weihnachtsgeschenk besorgen",
+      "completed": true,
+      "tsCreate": "2022-12-01T15:02:28",
+      "tsUpdate": "2022-12-01T15:02:28"
+    },
+    {
+      "id": 2,
+      "owner": "Kerstin Barth",
+      "dueDate": "2023-02-05T12:00:00",
+      "description": "Geburtstag",
+      "completed": false,
+      "tsCreate": "2022-12-01T15:02:28",
+      "tsUpdate": "2022-12-01T15:02:28"
+    },
+    {
+      "id": 3,
+      "owner": "Gabriele Barth",
+      "dueDate": "2023-12-24T00:00:00",
+      "description": "Weihnachtsgeschenke besorgen",
+      "completed": true,
+      "tsCreate": "2022-12-01T15:02:28",
+      "tsUpdate": "2022-12-01T15:02:28"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "Kerstin Barth",
+      "dateOfBirth": "1945-09-04T12:00:00",
+      "size": 165,
+      "weight": 65.56,
+      "email": "KerstinBarth@dayrep.com",
+      "phone": "+496563941489",
+      "tsCreate": "2022-12-01T15:02:28",
+      "tsUpdate": "2022-12-01T15:02:28"
+    },
+    {
+      "id": 2,
+      "name": "Susanne Baer",
+      "dateOfBirth": "1968-12-04T12:00:00",
+      "size": 170,
+      "weight": 88,
+      "email": "SusanneBaer@rhyta.com",
+      "phone": "+499632814023",
+      "tsCreate": "2022-12-01T15:02:28",
+      "tsUpdate": "2022-12-01T15:02:28"
+    },
+    {
+      "id": 3,
+      "name": "Gabriele Barth",
+      "dateOfBirth": "1961-09-20T12:00:00",
+      "size": 153,
+      "weight": 55.1,
+      "email": "GabrieleBarth@jourrapide.com",
+      "phone": "+49391961783",
+      "tsCreate": "2022-12-01T15:02:28",
+      "tsUpdate": "2022-12-01T15:02:28"
+    }
+  ]
+}
