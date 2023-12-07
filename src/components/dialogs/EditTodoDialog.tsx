@@ -17,13 +17,15 @@ import CloseIcon from '@mui/icons-material/Close';
 import { isReadingSelector, isSubmittingSelector } from '../../reducers/ApiCallsReducer';
 import { Working } from '../common/Working';
 import { MainLayout } from '../common/MainLayout';
+import { Locale } from '../../globals/Translations';
 
 export const EditTodoDialog = () => {
   const isReading: boolean = useAppSelector(isReadingSelector);
   const isSubmitting: boolean = useAppSelector(isSubmittingSelector);
   const [todo, setTodo] = useState<Todo>(getEmptyTodo());
   const { id } = useParams();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const lang: Locale = i18n.language as Locale;
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
@@ -31,18 +33,18 @@ export const EditTodoDialog = () => {
   useEffect(() => {
     (async () => {
       if (mode === CrudMode.UPDATE) {
-        setTodo(await readTodo(Number(id), dispatch));
+        setTodo(await readTodo(Number(id), lang, dispatch));
       }
     })();
-  }, [dispatch, id, mode]);
+  }, []);
 
   const save = (values: Todo, form: FormikHelpers<Todo>) => {
     switch (mode) {
       case CrudMode.CREATE:
-        dispatch(createTodo(values));
+        dispatch(createTodo(values, lang));
         break;
       case CrudMode.UPDATE:
-        dispatch(updateTodo(values));
+        dispatch(updateTodo(values, lang));
     }
     doCancel(form)();
   };
@@ -121,7 +123,7 @@ export const EditTodoDialog = () => {
             )}
           </Formik>
         )}
-        {(isReading || isSubmitting) && <Working isReading isSubmitting />}
+        {(isReading || isSubmitting) && <Working isReading={isReading} isSubmitting={isSubmitting} />}
       </Paper>
     </MainLayout>
   );

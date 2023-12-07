@@ -21,9 +21,9 @@ export const UserDialog = () => {
 
   useEffect(() => {
     if (users.length === 0) {
-      dispatch(readUsers());
+      dispatch(readUsers(lang));
     }
-  }, [dispatch, users]);
+  }, []);
 
   return (
     <MainLayout>
@@ -66,7 +66,7 @@ export const UserDialog = () => {
           rowsData={users}
           manager={{
             create: () => navigate('/users/new'),
-            read: () => dispatch(readUsers()),
+            read: () => dispatch(readUsers(lang)),
             update: (entity: User) => navigate(`/users/${entity.id}`),
             delete: (entity: User) => setDeleteModalState({ visible: true, entityId: entity.id }),
             getEmpty: getEmptyUser,
@@ -79,7 +79,7 @@ export const UserDialog = () => {
           confirmButtonText={t('delete')}
           cancelButtonText={t('cancel')}
           confirmAction={() => {
-            dispatch(deleteUser(deleteModalState.entityId));
+            dispatch(deleteUser(deleteModalState.entityId, lang));
             setDeleteModalState({ visible: false, entityId: -1 });
           }}
           cancelAction={() => setDeleteModalState({ visible: false, entityId: -1 })}

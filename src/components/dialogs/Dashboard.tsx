@@ -11,23 +11,27 @@ import { Working } from '../common/Working';
 import { MainLayout } from '../common/MainLayout';
 import { User } from '../../models/User';
 import { readUsers, usersSelector } from '../../reducers/UsersReducer';
+import { useTranslation } from 'react-i18next';
+import { Locale } from '../../globals/Translations';
 
 export const Dashboard = () => {
   const todos: Todo[] = useAppSelector(todosSelector);
   const users: User[] = useAppSelector(usersSelector);
   const isReading: boolean = useAppSelector(isReadingSelector);
   const isSubmitting: boolean = useAppSelector(isSubmittingSelector);
+  const { i18n } = useTranslation();
+  const lang: Locale = i18n.language as Locale;
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
   useEffect(() => {
     if (todos.length === 0) {
-      dispatch(readTodos());
+      dispatch(readTodos(lang));
     }
     if (users.length === 0) {
-      dispatch(readUsers());
+      dispatch(readUsers(lang));
     }
-  }, [dispatch, todos, users]);
+  }, []);
 
   return (
     <MainLayout>
@@ -60,7 +64,7 @@ export const Dashboard = () => {
             </Grid>
           </Grid>
         )}
-        {(isReading || isSubmitting) && <Working isReading isSubmitting />}
+        {(isReading || isSubmitting) && <Working isReading={isReading} isSubmitting={isSubmitting} />}
       </Paper>
     </MainLayout>
   );

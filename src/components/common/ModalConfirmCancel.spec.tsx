@@ -1,4 +1,5 @@
-/*import { fireEvent, render, screen } from '@testing-library/react';
+import { describe, it, expect, vi } from 'vitest';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { createRenderer, ShallowRenderer } from 'react-test-renderer/shallow';
 import { ModalConfirmCancel } from './ModalConfirmCancel';
 
@@ -14,15 +15,15 @@ describe('ModalConfirmCancel', () => {
         cancelButtonText={'cancel'}
         confirmAction={() => {}}
         cancelAction={() => {}}
-      />,
+      />
     );
     const tree = renderer.getRenderOutput();
     expect(tree).toMatchSnapshot();
   });
 
   it('should execute confirm when confirmButton is pressed', () => {
-    const confirmAction = jest.fn();
-    const cancelAction = jest.fn();
+    const confirmAction = vi.fn();
+    const cancelAction = vi.fn();
     render(
       <ModalConfirmCancel
         isOpen={true}
@@ -32,7 +33,7 @@ describe('ModalConfirmCancel', () => {
         cancelButtonText={'cancel'}
         confirmAction={confirmAction}
         cancelAction={cancelAction}
-      />,
+      />
     );
     fireEvent.click(screen.getByText('confirm'));
     expect(confirmAction.mock.calls.length).toEqual(1);
@@ -40,8 +41,8 @@ describe('ModalConfirmCancel', () => {
   });
 
   it('should execute cancel when cancelButton is pressed', () => {
-    const confirmAction = jest.fn();
-    const cancelAction = jest.fn();
+    const confirmAction = vi.fn();
+    const cancelAction = vi.fn();
     render(
       <ModalConfirmCancel
         isOpen={true}
@@ -51,11 +52,10 @@ describe('ModalConfirmCancel', () => {
         cancelButtonText={'cancel'}
         confirmAction={confirmAction}
         cancelAction={cancelAction}
-      />,
+      />
     );
     fireEvent.click(screen.getByText('cancel'));
     expect(confirmAction.mock.calls.length).toEqual(0);
     expect(cancelAction.mock.calls.length).toEqual(1);
   });
 });
-*/

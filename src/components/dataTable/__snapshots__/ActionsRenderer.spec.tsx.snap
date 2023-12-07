@@ -1,0 +1,32 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ActionsRenderer > should equal saved snapshot 1`] = `
+<React.Fragment>
+  <ForwardRef(Tooltip)
+    title="edit"
+  >
+    <span>
+      <ForwardRef(IconButton)
+        color="primary"
+        id="id-1-button-edit"
+        onClick={[Function]}
+      >
+        <Memo />
+      </ForwardRef(IconButton)>
+    </span>
+  </ForwardRef(Tooltip)>
+  <ForwardRef(Tooltip)
+    title="delete"
+  >
+    <span>
+      <ForwardRef(IconButton)
+        color="primary"
+        id="id-1-button-delete"
+        onClick={[Function]}
+      >
+        <Memo />
+      </ForwardRef(IconButton)>
+    </span>
+  </ForwardRef(Tooltip)>
+</React.Fragment>
+`;

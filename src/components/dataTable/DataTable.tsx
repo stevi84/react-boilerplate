@@ -73,7 +73,7 @@ export const DataTable = <EntityType extends BaseEntity>(props: DataTableOwnProp
           />
         </Box>
       )}
-      {(isReading || isSubmitting) && <Working isReading isSubmitting />}
+      {(isReading || isSubmitting) && <Working isReading={isReading} isSubmitting={isSubmitting} />}
     </>
   );
 };

@@ -16,6 +16,7 @@ import Home from '@mui/icons-material/Home';
 import People from '@mui/icons-material/People';
 import EditNote from '@mui/icons-material/EditNote';
 import { useNavigate } from 'react-router-dom';
+import { getEnv } from '../../globals/Environments';
 
 export const Header = () => {
   const navigate = useNavigate();
@@ -60,7 +61,7 @@ export const Header = () => {
             React Boilerplate
           </Typography>
           <Typography variant="body1" component="div" sx={{ mr: 1 }}>
-            Environment: {import.meta.env.VITE_ENV}
+            Environment: {getEnv()}
           </Typography>
           <LanguageSwitch />
         </Toolbar>

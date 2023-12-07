@@ -1,0 +1,29 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`DateEdit > should equal saved snapshot 1`] = `
+<LocalizationProvider
+  dateAdapter={[Function]}
+>
+  <ForwardRef(DatePicker)
+    format="dateFormat"
+    label="label"
+    onChange={[Function]}
+    slotProps={
+      {
+        "textField": {
+          "error": true,
+          "helperText": "error",
+          "id": "id",
+          "variant": "outlined",
+        },
+      }
+    }
+    sx={
+      {
+        "margin": 1,
+      }
+    }
+    value={2020-12-03T13:02:28.000Z}
+  />
+</LocalizationProvider>
+`;

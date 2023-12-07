@@ -8,7 +8,7 @@ import { notificationsSelector, removeSnackbar } from '../reducers/SnackbarsRedu
 
 let displayed: SnackbarKey[] = [];
 
-const useNotifier = () => {
+export const useNotifier = () => {
   const dispatch = useAppDispatch();
   const notifications = useAppSelector(notificationsSelector);
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
@@ -51,5 +51,3 @@ const useNotifier = () => {
     });
   }, [notifications, closeSnackbar, enqueueSnackbar, dispatch]);
 };
-
-export default useNotifier;

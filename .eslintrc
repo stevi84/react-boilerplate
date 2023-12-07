@@ -7,6 +7,9 @@
   "plugins": ["prettier"],
   "rules": {
     "prettier/prettier": "error",
-    "react/jsx-no-target-blank": "off"
+    "react/jsx-no-target-blank": "off",
+    "react-hooks/exhaustive-deps": "off",
+    "testing-library/render-result-naming-convention": "off",
+    "testing-library/no-debugging-utils": "off"
   }
 }

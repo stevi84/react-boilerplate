@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { createMessage } from '../globals/Translations';
+import { createMessage, Locale } from '../globals/Translations';
 import { AppDispatch, AppThunk, RootState } from './Store';
 import { decreaseReads, decreaseSubmits, increaseReads, increaseSubmits } from './ApiCallsReducer';
 import { enqueueSnackbar } from './SnackbarsReducer';
@@ -32,53 +32,65 @@ const { actions, reducer } = usersSlice;
 export const { setUsers, addUser, changeUser, removeUser } = actions;
 export { reducer as usersReducer };
 
-export const usersSelector = (state: RootState): User[] => state.users;
+export const usersSelector = (state: RootState): User[] => state?.users || [];
 
 export const createUser =
-  (user: User): AppThunk<Promise<User>> =>
+  (user: User, lang: Locale): AppThunk<Promise<User>> =>
   async (dispatch) => {
     dispatch(increaseSubmits());
     try {
       const client = await api.getClient<Client>();
       const response = await client.createUser({}, user);
       dispatch(addUser(response.data));
-      dispatch(enqueueSnackbar(createMessage('create', 'user', true), { variant: 'success', autoHideDuration: 2000 }));
+      dispatch(
+        enqueueSnackbar(createMessage('create', 'user', true, lang), { variant: 'success', autoHideDuration: 2000 })
+      );
       return response.data;
     } catch (error) {
-      dispatch(enqueueSnackbar(createMessage('create', 'user', false), { variant: 'error', autoHideDuration: null }));
+      dispatch(
+        enqueueSnackbar(createMessage('create', 'user', false, lang), { variant: 'error', autoHideDuration: null })
+      );
       throw error;
     } finally {
       dispatch(decreaseSubmits());
     }
   };
 
-export const readUsers = (): AppThunk<Promise<User[]>> => async (dispatch) => {
-  dispatch(increaseReads());
-  try {
-    const client = await api.getClient<Client>();
-    const response = await client.readUsers();
-    dispatch(setUsers(response.data));
-    return response.data;
-  } catch (error) {
-    dispatch(enqueueSnackbar(createMessage('read', 'user', false), { variant: 'error', autoHideDuration: null }));
-    throw error;
-  } finally {
-    dispatch(decreaseReads());
-  }
-};
+export const readUsers =
+  (lang: Locale): AppThunk<Promise<User[]>> =>
+  async (dispatch) => {
+    dispatch(increaseReads());
+    try {
+      const client = await api.getClient<Client>();
+      const response = await client.readUsers();
+      dispatch(setUsers(response.data));
+      return response.data;
+    } catch (error) {
+      dispatch(
+        enqueueSnackbar(createMessage('read', 'user', false, lang), { variant: 'error', autoHideDuration: null })
+      );
+      throw error;
+    } finally {
+      dispatch(decreaseReads());
+    }
+  };
 
 export const updateUser =
-  (user: User): AppThunk<Promise<User>> =>
+  (user: User, lang: Locale): AppThunk<Promise<User>> =>
   async (dispatch) => {
     dispatch(increaseSubmits());
     try {
       const client = await api.getClient<Client>();
       const response = await client.updateUser({ id: user.id }, user);
       dispatch(changeUser(response.data));
-      dispatch(enqueueSnackbar(createMessage('update', 'user', true), { variant: 'success', autoHideDuration: 2000 }));
+      dispatch(
+        enqueueSnackbar(createMessage('update', 'user', true, lang), { variant: 'success', autoHideDuration: 2000 })
+      );
       return response.data;
     } catch (error) {
-      dispatch(enqueueSnackbar(createMessage('update', 'user', false), { variant: 'error', autoHideDuration: null }));
+      dispatch(
+        enqueueSnackbar(createMessage('update', 'user', false, lang), { variant: 'error', autoHideDuration: null })
+      );
       throw error;
     } finally {
       dispatch(decreaseSubmits());
@@ -86,31 +98,34 @@ export const updateUser =
   };
 
 export const deleteUser =
-  (userId: number): AppThunk<Promise<void>> =>
+  (userId: number, lang: Locale): AppThunk<Promise<void>> =>
   async (dispatch) => {
     dispatch(increaseSubmits());
     try {
       const client = await api.getClient<Client>();
       await client.deleteUser({ id: userId });
       dispatch(removeUser(userId));
-      dispatch(enqueueSnackbar(createMessage('delete', 'user', true), { variant: 'success', autoHideDuration: 2000 }));
+      dispatch(
+        enqueueSnackbar(createMessage('delete', 'user', true, lang), { variant: 'success', autoHideDuration: 2000 })
+      );
     } catch (error) {
-      dispatch(enqueueSnackbar(createMessage('delete', 'user', false), { variant: 'error', autoHideDuration: null }));
+      dispatch(
+        enqueueSnackbar(createMessage('delete', 'user', false, lang), { variant: 'error', autoHideDuration: null })
+      );
       throw error;
     } finally {
       dispatch(decreaseSubmits());
     }
   };
 
-export const readUser = async (userId: number, dispatch: AppDispatch): Promise<User> => {
+export const readUser = async (userId: number, lang: Locale, dispatch: AppDispatch): Promise<User> => {
   dispatch(increaseReads());
   try {
     const client = await api.getClient<Client>();
     const response = await client.readUser({ id: userId });
-    dispatch(enqueueSnackbar(createMessage('read', 'user', true), { variant: 'success', autoHideDuration: 2000 }));
     return response.data;
   } catch (error) {
-    dispatch(enqueueSnackbar(createMessage('read', 'user', false), { variant: 'error', autoHideDuration: null }));
+    dispatch(enqueueSnackbar(createMessage('read', 'user', false, lang), { variant: 'error', autoHideDuration: null }));
     throw error;
   } finally {
     dispatch(decreaseReads());

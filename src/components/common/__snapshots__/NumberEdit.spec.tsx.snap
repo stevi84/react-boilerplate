@@ -1,0 +1,17 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`NumberEdit > should equal saved snapshot 1`] = `
+<ForwardRef(TextField)
+  error={true}
+  helperText="error"
+  id="id"
+  label="label"
+  onChange={[Function]}
+  sx={
+    {
+      "margin": 1,
+    }
+  }
+  value="1,01"
+/>
+`;

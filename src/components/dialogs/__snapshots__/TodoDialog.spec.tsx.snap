@@ -1,0 +1,73 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`TodoDialog > should equal saved snapshot 1`] = `
+<MainLayout>
+  <ForwardRef(Paper)
+    sx={
+      {
+        "margin": 1,
+      }
+    }
+  >
+    <DataTable
+      columns={
+        [
+          {
+            "cellDataType": "text",
+            "field": "owner",
+            "headerName": "owner",
+          },
+          {
+            "cellDataType": "text",
+            "field": "dueDate",
+            "headerName": "dueDate",
+            "valueFormatter": [Function],
+          },
+          {
+            "cellDataType": "text",
+            "field": "description",
+            "headerName": "description",
+          },
+          {
+            "cellDataType": "boolean",
+            "field": "completed",
+            "headerName": "completed",
+          },
+        ]
+      }
+      id="todo-table"
+      manager={
+        {
+          "create": [Function],
+          "delete": [Function],
+          "getEmpty": [Function],
+          "read": [Function],
+          "update": [Function],
+        }
+      }
+      rowsData={
+        [
+          {
+            "completed": true,
+            "description": "Weihnachtsgeschenke besorgen",
+            "dueDate": "2022-12-24T08:00:00",
+            "id": 1,
+            "owner": "Kerstin Barth",
+            "tsCreate": "2022-12-01T15:02:28",
+            "tsUpdate": "2022-12-01T15:02:28",
+          },
+        ]
+      }
+    />
+    <ModalConfirmCancel
+      bodyText="dialog_delete_text"
+      cancelAction={[Function]}
+      cancelButtonText="cancel"
+      confirmAction={[Function]}
+      confirmButtonText="delete"
+      headerText="delete"
+      isOpen={false}
+    />
+  </ForwardRef(Paper)>
+</MainLayout>
+`;

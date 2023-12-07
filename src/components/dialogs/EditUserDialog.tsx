@@ -17,13 +17,15 @@ import { isReadingSelector, isSubmittingSelector } from '../../reducers/ApiCalls
 import { Working } from '../common/Working';
 import { MainLayout } from '../common/MainLayout';
 import { NumberEdit } from '../common/NumberEdit';
+import { Locale } from '../../globals/Translations';
 
 export const EditUserDialog = () => {
   const isReading: boolean = useAppSelector(isReadingSelector);
   const isSubmitting: boolean = useAppSelector(isSubmittingSelector);
   const [user, setUser] = useState<User>(getEmptyUser());
   const { id } = useParams();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const lang: Locale = i18n.language as Locale;
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
@@ -31,18 +33,18 @@ export const EditUserDialog = () => {
   useEffect(() => {
     (async () => {
       if (mode === CrudMode.UPDATE) {
-        setUser(await readUser(Number(id), dispatch));
+        setUser(await readUser(Number(id), lang, dispatch));
       }
     })();
-  }, [dispatch, id, mode]);
+  }, []);
 
   const save = (values: User, form: FormikHelpers<User>) => {
     switch (mode) {
       case CrudMode.CREATE:
-        dispatch(createUser(values));
+        dispatch(createUser(values, lang));
         break;
       case CrudMode.UPDATE:
-        dispatch(updateUser(values));
+        dispatch(updateUser(values, lang));
     }
     doCancel(form)();
   };
@@ -125,7 +127,7 @@ export const EditUserDialog = () => {
             )}
           </Formik>
         )}
-        {(isReading || isSubmitting) && <Working isReading isSubmitting />}
+        {(isReading || isSubmitting) && <Working isReading={isReading} isSubmitting={isSubmitting} />}
       </Paper>
     </MainLayout>
   );

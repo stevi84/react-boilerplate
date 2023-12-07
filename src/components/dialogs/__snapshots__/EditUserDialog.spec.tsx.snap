@@ -1,0 +1,267 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`EditUserDialog > should equal saved snapshot 1`] = `
+<MainLayout>
+  <ForwardRef(Paper)
+    sx={
+      {
+        "margin": 1,
+      }
+    }
+  >
+    <Formik
+      enableReinitialize={true}
+      initialValues={
+        {
+          "dateOfBirth": "",
+          "email": "",
+          "id": 0,
+          "name": "",
+          "phone": "",
+          "size": 0,
+          "tsCreate": "",
+          "tsUpdate": "",
+          "weight": 0,
+        }
+      }
+      onSubmit={[Function]}
+      validationSchema={
+        ObjectSchema {
+          "_blacklist": Set {},
+          "_excludedEdges": [],
+          "_mutate": undefined,
+          "_nodes": [
+            "phone",
+            "email",
+            "weight",
+            "size",
+            "dateOfBirth",
+            "name",
+          ],
+          "_sortErrors": [Function],
+          "_typeCheck": [Function],
+          "_whitelist": Set {},
+          "conditions": [],
+          "deps": [],
+          "exclusiveTests": {},
+          "fields": {
+            "dateOfBirth": StringSchema {
+              "_blacklist": Set {},
+              "_typeCheck": [Function],
+              "_whitelist": Set {},
+              "conditions": [],
+              "deps": [],
+              "exclusiveTests": {
+                "isIsoDate": false,
+                "required": false,
+              },
+              "internalTests": {
+                "nullable": [Function],
+                "optionality": [Function],
+                "typeError": [Function],
+              },
+              "spec": {
+                "abortEarly": true,
+                "coerce": true,
+                "disableStackTrace": false,
+                "nullable": false,
+                "optional": false,
+                "recursive": true,
+                "strict": false,
+                "strip": false,
+              },
+              "tests": [
+                [Function],
+                [Function],
+              ],
+              "transforms": [
+                [Function],
+              ],
+              "type": "string",
+            },
+            "email": StringSchema {
+              "_blacklist": Set {},
+              "_typeCheck": [Function],
+              "_whitelist": Set {},
+              "conditions": [],
+              "deps": [],
+              "exclusiveTests": {
+                "email": false,
+                "required": false,
+              },
+              "internalTests": {
+                "nullable": [Function],
+                "optionality": [Function],
+                "typeError": [Function],
+              },
+              "spec": {
+                "abortEarly": true,
+                "coerce": true,
+                "disableStackTrace": false,
+                "nullable": false,
+                "optional": false,
+                "recursive": true,
+                "strict": false,
+                "strip": false,
+              },
+              "tests": [
+                [Function],
+                [Function],
+              ],
+              "transforms": [
+                [Function],
+              ],
+              "type": "string",
+            },
+            "name": StringSchema {
+              "_blacklist": Set {},
+              "_mutate": undefined,
+              "_typeCheck": [Function],
+              "_whitelist": Set {},
+              "conditions": [],
+              "deps": [],
+              "exclusiveTests": {
+                "required": false,
+              },
+              "internalTests": {
+                "nullable": [Function],
+                "optionality": [Function],
+                "typeError": [Function],
+              },
+              "spec": {
+                "abortEarly": true,
+                "coerce": true,
+                "disableStackTrace": false,
+                "nullable": false,
+                "optional": false,
+                "recursive": true,
+                "strict": false,
+                "strip": false,
+              },
+              "tests": [
+                [Function],
+              ],
+              "transforms": [
+                [Function],
+              ],
+              "type": "string",
+            },
+            "phone": StringSchema {
+              "_blacklist": Set {},
+              "_mutate": undefined,
+              "_typeCheck": [Function],
+              "_whitelist": Set {},
+              "conditions": [],
+              "deps": [],
+              "exclusiveTests": {
+                "required": false,
+              },
+              "internalTests": {
+                "nullable": [Function],
+                "optionality": [Function],
+                "typeError": [Function],
+              },
+              "spec": {
+                "abortEarly": true,
+                "coerce": true,
+                "disableStackTrace": false,
+                "nullable": false,
+                "optional": false,
+                "recursive": true,
+                "strict": false,
+                "strip": false,
+              },
+              "tests": [
+                [Function],
+              ],
+              "transforms": [
+                [Function],
+              ],
+              "type": "string",
+            },
+            "size": NumberSchema {
+              "_blacklist": Set {},
+              "_typeCheck": [Function],
+              "_whitelist": Set {},
+              "conditions": [],
+              "deps": [],
+              "exclusiveTests": {
+                "integer": false,
+              },
+              "internalTests": {
+                "nullable": [Function],
+                "optionality": [Function],
+                "typeError": [Function],
+              },
+              "spec": {
+                "abortEarly": true,
+                "coerce": true,
+                "disableStackTrace": false,
+                "nullable": false,
+                "optional": false,
+                "recursive": true,
+                "strict": false,
+                "strip": false,
+              },
+              "tests": [
+                [Function],
+              ],
+              "transforms": [
+                [Function],
+              ],
+              "type": "number",
+            },
+            "weight": NumberSchema {
+              "_blacklist": Set {},
+              "_typeCheck": [Function],
+              "_whitelist": Set {},
+              "conditions": [],
+              "deps": [],
+              "exclusiveTests": {},
+              "internalTests": {
+                "nullable": [Function],
+                "optionality": [Function],
+                "typeError": [Function],
+              },
+              "spec": {
+                "abortEarly": true,
+                "coerce": true,
+                "disableStackTrace": false,
+                "nullable": false,
+                "optional": false,
+                "recursive": true,
+                "strict": false,
+                "strip": false,
+              },
+              "tests": [],
+              "transforms": [
+                [Function],
+              ],
+              "type": "number",
+            },
+          },
+          "internalTests": {
+            "nullable": [Function],
+            "typeError": [Function],
+          },
+          "spec": {
+            "abortEarly": true,
+            "coerce": true,
+            "disableStackTrace": false,
+            "nullable": false,
+            "optional": true,
+            "recursive": true,
+            "strict": false,
+            "strip": false,
+          },
+          "tests": [],
+          "transforms": [],
+          "type": "object",
+        }
+      }
+    >
+      [Function]
+    </Formik>
+  </ForwardRef(Paper)>
+</MainLayout>
+`;

@@ -1,0 +1,17 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`StringEdit > should equal saved snapshot 1`] = `
+<ForwardRef(TextField)
+  error={true}
+  helperText="error"
+  id="id"
+  label="label"
+  onChange={[MockFunction spy]}
+  sx={
+    {
+      "margin": 1,
+    }
+  }
+  value="value"
+/>
+`;

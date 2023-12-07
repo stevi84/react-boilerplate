@@ -21,9 +21,9 @@ export const TodoDialog = () => {
 
   useEffect(() => {
     if (todos.length === 0) {
-      dispatch(readTodos());
+      dispatch(readTodos(lang));
     }
-  }, [dispatch, todos]);
+  }, []);
 
   return (
     <MainLayout>
@@ -52,7 +52,7 @@ export const TodoDialog = () => {
           rowsData={todos}
           manager={{
             create: () => navigate('/todos/new'),
-            read: () => dispatch(readTodos()),
+            read: () => dispatch(readTodos(lang)),
             update: (entity: Todo) => navigate(`/todos/${entity.id}`),
             delete: (entity: Todo) => setDeleteModalState({ visible: true, entityId: entity.id }),
             getEmpty: getEmptyTodo,
@@ -65,7 +65,7 @@ export const TodoDialog = () => {
           confirmButtonText={t('delete')}
           cancelButtonText={t('cancel')}
           confirmAction={() => {
-            dispatch(deleteTodo(deleteModalState.entityId));
+            dispatch(deleteTodo(deleteModalState.entityId, lang));
             setDeleteModalState({ visible: false, entityId: -1 });
           }}
           cancelAction={() => setDeleteModalState({ visible: false, entityId: -1 })}

@@ -1,0 +1,80 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`DataTable > should equal saved snapshot 1`] = `
+<React.Fragment>
+  <ForwardRef(Tooltip)
+    title=""
+  >
+    <span>
+      <ForwardRef(Button)
+        disabled={false}
+        id="id-button-reload"
+        onClick={[MockFunction spy]}
+        startIcon={<Memo />}
+        sx={
+          {
+            "margin": 1,
+          }
+        }
+        variant="outlined"
+      >
+        reload
+      </ForwardRef(Button)>
+    </span>
+  </ForwardRef(Tooltip)>
+  <ForwardRef(Tooltip)
+    title=""
+  >
+    <span>
+      <ForwardRef(Button)
+        disabled={false}
+        id="id-button-create"
+        onClick={[MockFunction spy]}
+        startIcon={<Memo />}
+        sx={
+          {
+            "margin": 1,
+          }
+        }
+        variant="outlined"
+      >
+        create
+      </ForwardRef(Button)>
+    </span>
+  </ForwardRef(Tooltip)>
+  <ForwardRef(Box)
+    className="ag-theme-alpine"
+    sx={
+      {
+        "padding": 1,
+      }
+    }
+  >
+    <AgGridReact
+      columnDefs={
+        [
+          {
+            "cellRenderer": [Function],
+            "cellRendererParams": {
+              "actionsActive": true,
+              "id": "todo-table",
+              "manager": {
+                "create": [MockFunction spy],
+                "read": [MockFunction spy],
+              },
+            },
+            "field": "actions",
+          },
+        ]
+      }
+      defaultColDef={
+        {
+          "sortable": true,
+        }
+      }
+      domLayout="autoHeight"
+      rowData={[]}
+    />
+  </ForwardRef(Box)>
+</React.Fragment>
+`;

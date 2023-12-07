@@ -1,0 +1,66 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Dashboard > should equal saved snapshot 1`] = `
+<MainLayout>
+  <ForwardRef(Paper)
+    sx={
+      {
+        "margin": 1,
+      }
+    }
+  >
+    <ForwardRef(Grid)
+      columnSpacing={2}
+      container={true}
+      sx={
+        {
+          "padding": 1,
+        }
+      }
+    >
+      <ForwardRef(Grid)
+        item={true}
+      >
+        <ForwardRef(Card)>
+          <ForwardRef(ButtonBase)
+            onClick={[Function]}
+          >
+            <ForwardRef(CardContent)>
+              <Memo
+                fontSize="large"
+              />
+              <ForwardRef(Typography)
+                component="div"
+                variant="h5"
+              >
+                Todos
+              </ForwardRef(Typography)>
+            </ForwardRef(CardContent)>
+          </ForwardRef(ButtonBase)>
+        </ForwardRef(Card)>
+      </ForwardRef(Grid)>
+      <ForwardRef(Grid)
+        item={true}
+      >
+        <ForwardRef(Card)>
+          <ForwardRef(ButtonBase)
+            onClick={[Function]}
+          >
+            <ForwardRef(CardContent)>
+              <Memo
+                fontSize="large"
+              />
+              <ForwardRef(Typography)
+                component="div"
+                variant="h5"
+              >
+                Users
+              </ForwardRef(Typography)>
+            </ForwardRef(CardContent)>
+          </ForwardRef(ButtonBase)>
+        </ForwardRef(Card)>
+      </ForwardRef(Grid)>
+    </ForwardRef(Grid)>
+  </ForwardRef(Paper)>
+</MainLayout>
+`;

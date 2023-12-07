@@ -1,0 +1,35 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`LanguageSwitch > should equal saved snapshot 1`] = `
+<ForwardRef(Box)
+  sx={
+    {
+      "minWidth": 120,
+    }
+  }
+>
+  <ForwardRef(FormControl)
+    fullWidth={true}
+  >
+    <ForwardRef(InputLabel)>
+      language
+    </ForwardRef(InputLabel)>
+    <ForwardRef(Select)
+      label="language"
+      onChange={[Function]}
+      value="de"
+    >
+      <ForwardRef(MenuItem)
+        value="de"
+      >
+        de
+      </ForwardRef(MenuItem)>
+      <ForwardRef(MenuItem)
+        value="en"
+      >
+        en
+      </ForwardRef(MenuItem)>
+    </ForwardRef(Select)>
+  </ForwardRef(FormControl)>
+</ForwardRef(Box)>
+`;

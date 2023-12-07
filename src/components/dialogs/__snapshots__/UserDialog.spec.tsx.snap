@@ -1,0 +1,85 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`UserDialog > should equal saved snapshot 1`] = `
+<MainLayout>
+  <ForwardRef(Paper)
+    sx={
+      {
+        "margin": 1,
+      }
+    }
+  >
+    <DataTable
+      columns={
+        [
+          {
+            "cellDataType": "text",
+            "field": "name",
+            "headerName": "name",
+          },
+          {
+            "cellDataType": "text",
+            "field": "dateOfBirth",
+            "headerName": "dateOfBirth",
+            "valueFormatter": [Function],
+          },
+          {
+            "cellDataType": "number",
+            "field": "size",
+            "headerName": "size",
+          },
+          {
+            "cellDataType": "number",
+            "field": "weight",
+            "headerName": "weight",
+          },
+          {
+            "cellDataType": "text",
+            "field": "email",
+            "headerName": "email",
+          },
+          {
+            "cellDataType": "text",
+            "field": "phone",
+            "headerName": "phone",
+          },
+        ]
+      }
+      id="user-table"
+      manager={
+        {
+          "create": [Function],
+          "delete": [Function],
+          "getEmpty": [Function],
+          "read": [Function],
+          "update": [Function],
+        }
+      }
+      rowsData={
+        [
+          {
+            "dateOfBirth": "1945-09-04T00:00:00+03:00",
+            "email": "KerstinBarth@dayrep.com",
+            "id": 1,
+            "name": "Kerstin Barth",
+            "phone": "+496563941489",
+            "size": -165,
+            "tsCreate": "2020-12-03T15:02:28+02:00",
+            "tsUpdate": "2020-12-03T15:02:28+02:00",
+            "weight": -65.56,
+          },
+        ]
+      }
+    />
+    <ModalConfirmCancel
+      bodyText="dialog_delete_text"
+      cancelAction={[Function]}
+      cancelButtonText="cancel"
+      confirmAction={[Function]}
+      confirmButtonText="delete"
+      headerText="delete"
+      isOpen={false}
+    />
+  </ForwardRef(Paper)>
+</MainLayout>
+`;

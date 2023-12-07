@@ -18,6 +18,12 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: 'src/setupTests',
     mockReset: true,
+    coverage: {
+      provider: 'v8',
+      reporter: ['text'],
+      all: true,
+      include: ['src/**/*.ts', 'src/**/*.tsx'],
+    },
   },
   assetsInclude: ['**/*.yml'],
 });

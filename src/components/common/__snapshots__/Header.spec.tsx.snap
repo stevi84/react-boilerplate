@@ -1,53 +1,94 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Header should equal saved snapshot 1`] = `
-<div
-  className="header-container"
->
-  <div
-    className="header-item header-icon"
-    data-testid="header-logo"
+exports[`Header > should equal saved snapshot 1`] = `
+<React.Fragment>
+  <ForwardRef(AppBar)
+    position="fixed"
   >
-    🌐
-  </div>
-  <div
-    className="header-item header-text"
-  >
-    React-App
-  </div>
-  <div
-    className="header-item"
-  >
-    <input
-      checked={true}
-      id="header-logo-checkbox"
-      onChange={[Function]}
-      type="checkbox"
-    />
-    <label
-      htmlFor="header-logo-checkbox"
-    >
-      Logo
-    </label>
-  </div>
-  <div
-    className="header-item"
-  >
-    <input
-      id="header-table-checkbox"
-      onChange={[Function]}
-      type="checkbox"
-    />
-    <label
-      htmlFor="header-table-checkbox"
-    >
-      Tabelle
-    </label>
-  </div>
-  <div
-    className="header-item"
-  >
-    <LanguageSwitch />
-  </div>
-</div>
+    <ForwardRef(Toolbar)>
+      <ForwardRef(IconButton)
+        color="inherit"
+        edge="start"
+        onClick={[Function]}
+        size="large"
+        sx={
+          {
+            "mr": 2,
+          }
+        }
+      >
+        <Memo />
+      </ForwardRef(IconButton)>
+      <ForwardRef(Menu)
+        anchorEl={null}
+        id="menu"
+        onClose={[Function]}
+        open={false}
+      >
+        <ForwardRef(MenuItem)
+          onClick={[Function]}
+        >
+          <ForwardRef(ListItemIcon)>
+            <Memo
+              fontSize="small"
+            />
+          </ForwardRef(ListItemIcon)>
+          <ForwardRef(ListItemText)>
+            Home
+          </ForwardRef(ListItemText)>
+        </ForwardRef(MenuItem)>
+        <ForwardRef(Divider) />
+        <ForwardRef(MenuItem)
+          onClick={[Function]}
+        >
+          <ForwardRef(ListItemIcon)>
+            <Memo
+              fontSize="small"
+            />
+          </ForwardRef(ListItemIcon)>
+          <ForwardRef(ListItemText)>
+            Todos
+          </ForwardRef(ListItemText)>
+        </ForwardRef(MenuItem)>
+        <ForwardRef(MenuItem)
+          onClick={[Function]}
+        >
+          <ForwardRef(ListItemIcon)>
+            <Memo
+              fontSize="small"
+            />
+          </ForwardRef(ListItemIcon)>
+          <ForwardRef(ListItemText)>
+            Users
+          </ForwardRef(ListItemText)>
+        </ForwardRef(MenuItem)>
+      </ForwardRef(Menu)>
+      <ForwardRef(Typography)
+        component="div"
+        sx={
+          {
+            "flexGrow": 1,
+          }
+        }
+        variant="h6"
+      >
+        React Boilerplate
+      </ForwardRef(Typography)>
+      <ForwardRef(Typography)
+        component="div"
+        sx={
+          {
+            "mr": 1,
+          }
+        }
+        variant="body1"
+      >
+        Environment: 
+        testenv
+      </ForwardRef(Typography)>
+      <LanguageSwitch />
+    </ForwardRef(Toolbar)>
+  </ForwardRef(AppBar)>
+  <ForwardRef(Toolbar) />
+</React.Fragment>
 `;

@@ -1,9 +1,6 @@
-export enum Locale {
-  de = 'de',
-  en = 'en',
-}
+export type Locale = 'de' | 'en';
 
-export const defaultLocale: Locale = Locale.de;
+export const defaultLocale: Locale = 'de';
 
 type Translations<T = any> = { [K in Locale]: T };
 
@@ -119,11 +116,12 @@ export const t = (key: string, lang: Locale = defaultLocale, placeholders: any =
 export const createMessage = (
   action: 'create' | 'read' | 'update' | 'delete',
   element: string,
-  success: boolean
+  success: boolean,
+  lang: Locale
 ): string => {
-  const elementString: string = t(element);
-  const successString: string = success ? t('was') : t('wasNot');
-  const actionString: string = t(`message_${action}`);
+  const successString: string = success ? t('was', lang) : t('wasNot', lang);
+  const elementString: string = t(element, lang);
+  const actionString: string = t(`message_${action}`, lang);
   return `${elementString} ${successString} ${actionString}`;
 };
 

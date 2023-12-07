@@ -1,0 +1,19 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`BooleanEdit > should equal saved snapshot 1`] = `
+<ForwardRef(FormControlLabel)
+  control={
+    <ForwardRef(Checkbox)
+      checked={true}
+      id="id"
+      onChange={[MockFunction spy]}
+      sx={
+        {
+          "margin": 1,
+        }
+      }
+    />
+  }
+  label="label"
+/>
+`;

@@ -1,0 +1,19 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Working > should equal saved snapshot 1`] = `
+<ForwardRef(Grid)
+  alignItems="center"
+  direction="column"
+  justifyContent="center"
+  style={
+    {
+      "height": "100%",
+    }
+  }
+>
+  <ForwardRef(CircularProgress)
+    id="loading-spinner"
+  />
+  submitting
+</ForwardRef(Grid)>
+`;

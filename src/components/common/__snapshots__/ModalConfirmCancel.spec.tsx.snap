@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`ModalConfirmCancel should equal saved snapshot 1`] = `
+exports[`ModalConfirmCancel > should equal saved snapshot 1`] = `
 <ForwardRef(Dialog)
   id="modal-confirm-cancel"
   onClose={[Function]}
@@ -20,13 +20,15 @@ exports[`ModalConfirmCancel should equal saved snapshot 1`] = `
       color="primary"
       id="modal-confirm-cancel-button-confirm"
       onClick={[Function]}
+      variant="contained"
     >
       confirm
     </ForwardRef(Button)>
     <ForwardRef(Button)
-      color="secondary"
+      color="primary"
       id="modal-confirm-cancel-button-cancel"
       onClick={[Function]}
+      variant="outlined"
     >
       cancel
     </ForwardRef(Button)>

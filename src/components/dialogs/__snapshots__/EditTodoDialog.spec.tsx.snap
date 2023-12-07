@@ -1,0 +1,198 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`EditTodoDialog > should equal saved snapshot 1`] = `
+<MainLayout>
+  <ForwardRef(Paper)
+    sx={
+      {
+        "margin": 1,
+      }
+    }
+  >
+    <Formik
+      enableReinitialize={true}
+      initialValues={
+        {
+          "completed": false,
+          "description": "",
+          "dueDate": "",
+          "id": 0,
+          "owner": "",
+          "tsCreate": "",
+          "tsUpdate": "",
+        }
+      }
+      onSubmit={[Function]}
+      validationSchema={
+        ObjectSchema {
+          "_blacklist": Set {},
+          "_excludedEdges": [],
+          "_mutate": undefined,
+          "_nodes": [
+            "completed",
+            "description",
+            "dueDate",
+            "owner",
+          ],
+          "_sortErrors": [Function],
+          "_typeCheck": [Function],
+          "_whitelist": Set {},
+          "conditions": [],
+          "deps": [],
+          "exclusiveTests": {},
+          "fields": {
+            "completed": BooleanSchema {
+              "_blacklist": Set {},
+              "_mutate": undefined,
+              "_typeCheck": [Function],
+              "_whitelist": Set {},
+              "conditions": [],
+              "deps": [],
+              "exclusiveTests": {},
+              "internalTests": {
+                "nullable": [Function],
+                "optionality": [Function],
+                "typeError": [Function],
+              },
+              "spec": {
+                "abortEarly": true,
+                "coerce": true,
+                "disableStackTrace": false,
+                "nullable": false,
+                "optional": false,
+                "recursive": true,
+                "strict": false,
+                "strip": false,
+              },
+              "tests": [],
+              "transforms": [
+                [Function],
+              ],
+              "type": "boolean",
+            },
+            "description": StringSchema {
+              "_blacklist": Set {},
+              "_mutate": undefined,
+              "_typeCheck": [Function],
+              "_whitelist": Set {},
+              "conditions": [],
+              "deps": [],
+              "exclusiveTests": {
+                "required": false,
+              },
+              "internalTests": {
+                "nullable": [Function],
+                "optionality": [Function],
+                "typeError": [Function],
+              },
+              "spec": {
+                "abortEarly": true,
+                "coerce": true,
+                "disableStackTrace": false,
+                "nullable": false,
+                "optional": false,
+                "recursive": true,
+                "strict": false,
+                "strip": false,
+              },
+              "tests": [
+                [Function],
+              ],
+              "transforms": [
+                [Function],
+              ],
+              "type": "string",
+            },
+            "dueDate": StringSchema {
+              "_blacklist": Set {},
+              "_typeCheck": [Function],
+              "_whitelist": Set {},
+              "conditions": [],
+              "deps": [],
+              "exclusiveTests": {
+                "isIsoDate": false,
+                "required": false,
+              },
+              "internalTests": {
+                "nullable": [Function],
+                "optionality": [Function],
+                "typeError": [Function],
+              },
+              "spec": {
+                "abortEarly": true,
+                "coerce": true,
+                "disableStackTrace": false,
+                "nullable": false,
+                "optional": false,
+                "recursive": true,
+                "strict": false,
+                "strip": false,
+              },
+              "tests": [
+                [Function],
+                [Function],
+              ],
+              "transforms": [
+                [Function],
+              ],
+              "type": "string",
+            },
+            "owner": StringSchema {
+              "_blacklist": Set {},
+              "_mutate": undefined,
+              "_typeCheck": [Function],
+              "_whitelist": Set {},
+              "conditions": [],
+              "deps": [],
+              "exclusiveTests": {
+                "required": false,
+              },
+              "internalTests": {
+                "nullable": [Function],
+                "optionality": [Function],
+                "typeError": [Function],
+              },
+              "spec": {
+                "abortEarly": true,
+                "coerce": true,
+                "disableStackTrace": false,
+                "nullable": false,
+                "optional": false,
+                "recursive": true,
+                "strict": false,
+                "strip": false,
+              },
+              "tests": [
+                [Function],
+              ],
+              "transforms": [
+                [Function],
+              ],
+              "type": "string",
+            },
+          },
+          "internalTests": {
+            "nullable": [Function],
+            "typeError": [Function],
+          },
+          "spec": {
+            "abortEarly": true,
+            "coerce": true,
+            "disableStackTrace": false,
+            "nullable": false,
+            "optional": true,
+            "recursive": true,
+            "strict": false,
+            "strip": false,
+          },
+          "tests": [],
+          "transforms": [],
+          "type": "object",
+        }
+      }
+    >
+      [Function]
+    </Formik>
+  </ForwardRef(Paper)>
+</MainLayout>
+`;
