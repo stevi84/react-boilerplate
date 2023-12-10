@@ -28,3 +28,9 @@ build
 
 # Miscellaneous
 *.local
+
+# IntelliJ
+.idea/modules.xml
+.idea/usage.statistics.xml
+.idea/workspace.xml
+*.iml
