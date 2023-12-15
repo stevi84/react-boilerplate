@@ -10,34 +10,32 @@ vi.mock('../../thunks/CurrentUserThunks', () => ({
 }));
 
 describe('Authorization', () => {
-  describe('Authorization', () => {
-    const WrappedComponent = () => <div data-testid="wrapped-component" />;
-    const NotAuthorizedComponent = () => <div data-testid="not-authorized-component" />;
+  const WrappedComponent = () => <div data-testid="wrapped-component" />;
+  const NotAuthorizedComponent = () => <div data-testid="not-authorized-component" />;
 
-    it('should render if authorized', () => {
-      useAppSelectorMock.mockReturnValue({ roles: ['READER'] });
-      render(
-        <Authorization
-          allowedAccessRights={['TODO_READ']}
-          WrappedElement={<WrappedComponent />}
-          NotAuthorizedElement={<NotAuthorizedComponent />}
-        />
-      );
-      expect(screen.getByTestId('wrapped-component')).toBeTruthy();
-      expect(screen.queryByTestId('not-authorized-component')).toBeFalsy();
-    });
+  it('should render if authorized', () => {
+    useAppSelectorMock.mockReturnValue({ roles: ['READER'] });
+    render(
+      <Authorization
+        allowedAccessRights={['TODO_READ']}
+        WrappedElement={<WrappedComponent />}
+        NotAuthorizedElement={<NotAuthorizedComponent />}
+      />
+    );
+    expect(screen.getByTestId('wrapped-component')).toBeTruthy();
+    expect(screen.queryByTestId('not-authorized-component')).toBeFalsy();
+  });
 
-    it("shouldn't render if not authorized", () => {
-      useAppSelectorMock.mockReturnValue({ roles: ['READER'] });
-      render(
-        <Authorization
-          allowedAccessRights={['TODO_EDIT']}
-          WrappedElement={<WrappedComponent />}
-          NotAuthorizedElement={<NotAuthorizedComponent />}
-        />
-      );
-      expect(screen.queryByTestId('wrapped-component')).toBeFalsy();
-      expect(screen.getByTestId('not-authorized-component')).toBeTruthy();
-    });
+  it("shouldn't render if not authorized", () => {
+    useAppSelectorMock.mockReturnValue({ roles: ['READER'] });
+    render(
+      <Authorization
+        allowedAccessRights={['TODO_EDIT']}
+        WrappedElement={<WrappedComponent />}
+        NotAuthorizedElement={<NotAuthorizedComponent />}
+      />
+    );
+    expect(screen.queryByTestId('wrapped-component')).toBeFalsy();
+    expect(screen.getByTestId('not-authorized-component')).toBeTruthy();
   });
 });

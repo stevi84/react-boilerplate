@@ -15,39 +15,72 @@ import { EditUserDialog } from './components/dialogs/EditUserDialog';
 import { NotFoundDialog } from './components/dialogs/NotFoundDialog';
 import { NotAuthorizedDialog } from './components/dialogs/NotAuthorizedDialog';
 import { AdminDialog } from './components/dialogs/AdminDialog';
+import { ErrorBoundary } from './components/common/ErrorBoundary';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Dashboard />,
+    element: (
+      <ErrorBoundary>
+        <Dashboard />
+      </ErrorBoundary>
+    ),
   },
   {
     path: '/todos',
-    element: <TodoDialog />,
+    element: (
+      <ErrorBoundary>
+        <TodoDialog />
+      </ErrorBoundary>
+    ),
   },
   {
     path: '/todos/:id',
-    element: <EditTodoDialog />,
+    element: (
+      <ErrorBoundary>
+        <EditTodoDialog />
+      </ErrorBoundary>
+    ),
   },
   {
     path: '/users',
-    element: <UserDialog />,
+    element: (
+      <ErrorBoundary>
+        <UserDialog />
+      </ErrorBoundary>
+    ),
   },
   {
     path: '/users/:id',
-    element: <EditUserDialog />,
+    element: (
+      <ErrorBoundary>
+        <EditUserDialog />
+      </ErrorBoundary>
+    ),
   },
   {
     path: '/admin',
-    element: <AdminDialog />,
+    element: (
+      <ErrorBoundary>
+        <AdminDialog />
+      </ErrorBoundary>
+    ),
   },
   {
     path: '/notauthorized',
-    element: <NotAuthorizedDialog />,
+    element: (
+      <ErrorBoundary>
+        <NotAuthorizedDialog />
+      </ErrorBoundary>
+    ),
   },
   {
     path: '*',
-    element: <NotFoundDialog />,
+    element: (
+      <ErrorBoundary>
+        <NotFoundDialog />
+      </ErrorBoundary>
+    ),
   },
 ]);
 

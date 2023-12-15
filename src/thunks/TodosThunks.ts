@@ -5,6 +5,7 @@ import * as todoApi from '../apis/TodoApi';
 import { addTodo, changeTodo, removeTodo, setTodos } from '../reducers/TodosReducer';
 import { enqueueSnackbar } from '../reducers/SnackbarsReducer';
 import { createMessage, Locale } from '../globals/Translations';
+import { createErrorLog } from '../apis/ErrorApi';
 
 export const createTodo =
   (todo: Todo, lang: Locale): AppThunk<Promise<Todo>> =>
@@ -18,6 +19,7 @@ export const createTodo =
       );
       return response.data;
     } catch (error) {
+      createErrorLog(error);
       dispatch(
         enqueueSnackbar(createMessage('create', 'todo', false, lang), { variant: 'error', autoHideDuration: null })
       );
@@ -36,6 +38,7 @@ export const readTodos =
       dispatch(setTodos(response.data));
       return response.data;
     } catch (error) {
+      createErrorLog(error);
       dispatch(
         enqueueSnackbar(createMessage('read', 'todo', false, lang), { variant: 'error', autoHideDuration: null })
       );
@@ -57,6 +60,7 @@ export const updateTodo =
       );
       return response.data;
     } catch (error) {
+      createErrorLog(error);
       dispatch(
         enqueueSnackbar(createMessage('update', 'todo', false, lang), { variant: 'error', autoHideDuration: null })
       );
@@ -78,6 +82,7 @@ export const deleteTodo =
       );
       return response.data;
     } catch (error) {
+      createErrorLog(error);
       dispatch(
         enqueueSnackbar(createMessage('delete', 'todo', false, lang), { variant: 'error', autoHideDuration: null })
       );
@@ -93,6 +98,7 @@ export const readTodo = async (todoId: number, lang: Locale, dispatch: AppDispat
     const response = await todoApi.readTodo(todoId);
     return response.data;
   } catch (error) {
+    createErrorLog(error);
     dispatch(enqueueSnackbar(createMessage('read', 'todo', false, lang), { variant: 'error', autoHideDuration: null }));
     throw error;
   } finally {

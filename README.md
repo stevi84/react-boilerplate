@@ -14,11 +14,11 @@ npx degit reduxjs/redux-templates/packages/vite-template-redux react-boilerplate
 - api and model generation from swagger specification using openapi-client-axios (for users)
 - manually implemented api and models (for todos)
 - environment perceiving (prod, dev, test) using VITE_ENV custom environment variable
-- TODO: Authorisation using a custom HOC (higher order component)
-- TODO: error boundary for remote logging of errors
+- authorisation using a custom HOC (higher order component)
+- error boundary for (remote) logging of errors
 - codestyling using eslint, prettier
   - VS-Code configuration for encoding, end of line, tab size
-  - TODO: IntelliJ configuration
+  - IntelliJ configuration
 - complete unit tested using vitest
 - TODO: e2e tests of the most important functionalities using cypress
 - material UI as UI library

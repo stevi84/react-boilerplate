@@ -1,3 +1,4 @@
+import { createErrorLog } from '../apis/ErrorApi';
 import { api } from '../apis/OpenApiClient';
 import { Client } from '../apis/api';
 import { createMessage, Locale } from '../globals/Translations';
@@ -17,6 +18,7 @@ export const readCurrentUser =
       dispatch(setCurrentUser(response.data));
       return response.data;
     } catch (error) {
+      createErrorLog(error);
       dispatch(
         enqueueSnackbar(createMessage('read', 'currentUser', false, lang), {
           variant: 'error',
