@@ -1,29 +1,76 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`DateEdit > should equal saved snapshot 1`] = `
-<LocalizationProvider
-  dateAdapter={[Function]}
->
-  <ForwardRef(DatePicker)
-    format="dateFormat"
-    label="label"
-    onChange={[Function]}
-    slotProps={
-      {
-        "textField": {
-          "error": true,
-          "helperText": "error",
-          "id": "id",
-          "variant": "outlined",
-        },
-      }
-    }
-    sx={
-      {
-        "margin": 1,
-      }
-    }
-    value={2020-12-03T13:02:28.000Z}
-  />
-</LocalizationProvider>
+<DocumentFragment>
+  <div
+    class="MuiFormControl-root MuiTextField-root css-5ibrrh-MuiFormControl-root-MuiTextField-root"
+  >
+    <label
+      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary Mui-error MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1jy569b-MuiFormLabel-root-MuiInputLabel-root"
+      data-shrink="true"
+      for="id"
+      id="id-label"
+    >
+      label
+    </label>
+    <div
+      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary Mui-error MuiInputBase-formControl MuiInputBase-adornedEnd css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root"
+    >
+      <input
+        aria-describedby="id-helper-text"
+        aria-invalid="true"
+        autocomplete="off"
+        class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd css-nxo287-MuiInputBase-input-MuiOutlinedInput-input"
+        id="id"
+        inputmode="text"
+        placeholder="DDatEEFormmat"
+        type="text"
+        value="03at5For02at"
+      />
+      <div
+        class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-1laqsz7-MuiInputAdornment-root"
+      >
+        <button
+          aria-label="Choose date, selected date is Dec 3, 2020"
+          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-edgeEnd MuiIconButton-sizeMedium css-1yq5fb3-MuiButtonBase-root-MuiIconButton-root"
+          tabindex="0"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+            data-testid="CalendarIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"
+            />
+          </svg>
+          <span
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+      <fieldset
+        aria-hidden="true"
+        class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
+      >
+        <legend
+          class="css-14lo706"
+        >
+          <span>
+            label
+          </span>
+        </legend>
+      </fieldset>
+    </div>
+    <p
+      class="MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained MuiFormHelperText-filled css-1wc848c-MuiFormHelperText-root"
+      id="id-helper-text"
+    >
+      error
+    </p>
+  </div>
+</DocumentFragment>
 `;

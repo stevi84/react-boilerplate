@@ -8,7 +8,7 @@ import { isIsoDate } from '../../globals/Validations';
 import { StringEdit } from '../common/StringEdit';
 import { useTranslation } from 'react-i18next';
 import { DateEdit } from '../common/DateEdit';
-import { createUser, readUser, updateUser } from '../../reducers/UsersReducer';
+import { createUser, readUser, updateUser } from '../../thunks/UsersThunks';
 import { CrudMode } from '../dataTable/DataTableInterfaces';
 import { Button, Paper, Stack, Tooltip } from '@mui/material';
 import CheckIcon from '@mui/icons-material/Check';
@@ -55,7 +55,7 @@ export const EditUserDialog = () => {
   };
 
   return (
-    <MainLayout>
+    <MainLayout allowedAccessRights={['USER_EDIT']}>
       <Paper sx={{ margin: 1 }}>
         {!isReading && !isSubmitting && (
           <Formik<User>

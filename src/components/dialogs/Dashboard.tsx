@@ -2,24 +2,28 @@ import { ButtonBase, Card, CardContent, Grid, Paper, Typography } from '@mui/mat
 import { useNavigate } from 'react-router-dom';
 import People from '@mui/icons-material/People';
 import EditNote from '@mui/icons-material/EditNote';
+import Settings from '@mui/icons-material/Settings';
 import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../reducers/Store';
-import { readTodos, todosSelector } from '../../reducers/TodosReducer';
+import { todosSelector } from '../../reducers/TodosReducer';
+import { readTodos } from '../../thunks/TodosThunks';
 import { isReadingSelector, isSubmittingSelector } from '../../reducers/ApiCallsReducer';
 import { Todo } from '../../models/Todo';
 import { Working } from '../common/Working';
 import { MainLayout } from '../common/MainLayout';
 import { User } from '../../models/User';
-import { readUsers, usersSelector } from '../../reducers/UsersReducer';
+import { usersSelector } from '../../reducers/UsersReducer';
+import { readUsers } from '../../thunks/UsersThunks';
 import { useTranslation } from 'react-i18next';
 import { Locale } from '../../globals/Translations';
+import { Authorization } from '../common/Authorization';
 
 export const Dashboard = () => {
   const todos: Todo[] = useAppSelector(todosSelector);
   const users: User[] = useAppSelector(usersSelector);
   const isReading: boolean = useAppSelector(isReadingSelector);
   const isSubmitting: boolean = useAppSelector(isSubmittingSelector);
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const lang: Locale = i18n.language as Locale;
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
@@ -34,17 +38,17 @@ export const Dashboard = () => {
   }, []);
 
   return (
-    <MainLayout>
+    <MainLayout allowedAccessRights={['UNRESTRICTED']}>
       <Paper sx={{ margin: 1 }}>
         {!isReading && !isSubmitting && (
           <Grid container columnSpacing={2} sx={{ padding: 1 }}>
             <Grid item>
               <Card>
-                <ButtonBase onClick={(e) => navigate('/todos')}>
+                <ButtonBase onClick={() => navigate('/todos')}>
                   <CardContent>
                     <EditNote fontSize="large" />
                     <Typography variant="h5" component="div">
-                      Todos
+                      {t('todo')}
                     </Typography>
                   </CardContent>
                 </ButtonBase>
@@ -52,16 +56,33 @@ export const Dashboard = () => {
             </Grid>
             <Grid item>
               <Card>
-                <ButtonBase onClick={(e) => navigate('/users')}>
+                <ButtonBase onClick={() => navigate('/users')}>
                   <CardContent>
                     <People fontSize="large" />
                     <Typography variant="h5" component="div">
-                      Users
+                      {t('user')}
                     </Typography>
                   </CardContent>
                 </ButtonBase>
               </Card>
             </Grid>
+            <Authorization
+              allowedAccessRights={['ADMIN']}
+              WrappedElement={
+                <Grid item>
+                  <Card>
+                    <ButtonBase onClick={() => navigate('/admin')}>
+                      <CardContent>
+                        <Settings fontSize="large" />
+                        <Typography variant="h5" component="div">
+                          {t('settings')}
+                        </Typography>
+                      </CardContent>
+                    </ButtonBase>
+                  </Card>
+                </Grid>
+              }
+            />
           </Grid>
         )}
         {(isReading || isSubmitting) && <Working isReading={isReading} isSubmitting={isSubmitting} />}

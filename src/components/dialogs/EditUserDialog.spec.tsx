@@ -1,10 +1,13 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { ShallowRenderer, createRenderer } from 'react-test-renderer/shallow';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { user1 } from '../../../test/data/User';
 import { EditUserDialog } from './EditUserDialog';
-// import { createUser, updateUser } from '../../reducers/UsersReducer';
-// import { getEmptyUser } from '../../models/User';
+import { currentUserEditor } from '../../../test/data/CurrentUser';
+import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
+import { todo1 } from '../../../test/data/Todo';
+import { RootState } from '../../reducers/Store';
+import { Provider } from 'react-redux';
 
 vi.mock('react-i18next', () => ({
   useTranslation: () => ({
@@ -27,24 +30,26 @@ vi.mock('react-router-dom', () => ({
 
 vi.mock('../../hooks/UseNotifier', () => ({ useNotifier: vi.fn() }));
 
-const { useAppSelectorMock, dispatchMock } = vi.hoisted(() => ({
-  useAppSelectorMock: vi.fn(),
-  dispatchMock: vi.fn(),
-}));
-vi.mock('../../reducers/Store', () => ({
-  useAppSelector: useAppSelectorMock,
-  useAppDispatch: () => dispatchMock,
-}));
-
-// ist nötig bei Verwendung der generierten Api
 const { readUserMock } = vi.hoisted(() => ({ readUserMock: vi.fn() }));
-vi.mock('../../reducers/UsersReducer', async () => {
+vi.mock('../../thunks/UsersThunks', async () => {
   return {
-    createUser: vi.fn(),
+    createUser: () => ({ type: 'createUser' }),
+    updateUser: () => ({ type: 'updateUser' }),
     readUser: readUserMock,
-    updateUser: vi.fn(),
   };
 });
+
+vi.mock('../../thunks/CurrentUserThunks', () => ({
+  readCurrentUser: () => ({ type: 'readCurrentUser' }),
+}));
+
+const mockStore = configureStore([thunk]);
+const initialState = {
+  todos: [todo1],
+  users: [user1],
+  apiCalls: { runningReads: 0, runningSubmits: 0 },
+  currentUser: currentUserEditor,
+} as RootState;
 
 describe('EditUserDialog', () => {
   beforeEach(() => {
@@ -52,37 +57,50 @@ describe('EditUserDialog', () => {
   });
 
   it('should equal saved snapshot', () => {
-    useAppSelectorMock.mockReturnValue(false);
+    const store = mockStore(initialState);
     useParamsMock.mockReturnValue({ id: 1 });
-    const renderer: ShallowRenderer = createRenderer();
-    renderer.render(<EditUserDialog />);
-    const tree = renderer.getRenderOutput();
+    const tree = render(
+      <Provider store={store}>
+        <EditUserDialog />
+      </Provider>
+    ).asFragment();
     expect(tree).toMatchSnapshot();
   });
 
   it('should load user if updating', () => {
-    useAppSelectorMock.mockReturnValue(false);
+    const store = mockStore(initialState);
     useParamsMock.mockReturnValue({ id: '1' });
     expect(readUserMock.mock.calls.length).toEqual(0);
-    render(<EditUserDialog />);
+    render(
+      <Provider store={store}>
+        <EditUserDialog />
+      </Provider>
+    );
     expect(readUserMock.mock.calls.length).toEqual(1);
     expect(readUserMock.mock.calls[0][0]).toEqual(1);
     expect(readUserMock.mock.calls[0][1]).toEqual('de');
-    expect(readUserMock.mock.calls[0][2]).toEqual(dispatchMock);
   });
 
   it('should not load user if creating', () => {
-    useAppSelectorMock.mockReturnValue(false);
+    const store = mockStore(initialState);
     useParamsMock.mockReturnValue({ id: 'new' });
-    render(<EditUserDialog />);
+    render(
+      <Provider store={store}>
+        <EditUserDialog />
+      </Provider>
+    );
     expect(readUserMock.mock.calls.length).toEqual(0);
   });
 
   // it('should dispatch createUser on saving new user', () => {
-  //   useAppSelectorMock.mockReturnValue(false);
+  //   const store = mockStore(initialState);
   //   useParamsMock.mockReturnValue({ id: 'new' });
-  //   expect(dispatchMock.mock.calls.length).toEqual(0);
-  //   render(<EditUserDialog />);
+  //   expect(store.getActions().length).toEqual(0);
+  //   render(
+  //     <Provider store={store}>
+  //       <EditUserDialog />
+  //     </Provider>
+  //   );
   //   fireEvent.change(screen.getByLabelText('name'), { target: { value: 'name' } });
   //   fireEvent.change(screen.getByLabelText('dateOfBirth'), { target: { value: '06.12.2023' } });
   //   fireEvent.change(screen.getByLabelText('size'), { target: { value: '123' } });
@@ -90,51 +108,71 @@ describe('EditUserDialog', () => {
   //   fireEvent.change(screen.getByLabelText('email'), { target: { value: 'test@test.de' } });
   //   fireEvent.change(screen.getByLabelText('phone'), { target: { value: '0123/4567890' } });
   //   fireEvent.click(screen.getByText('save'));
-  //   expect(dispatchMock.mock.calls.length).toEqual(1);
-  //   expect(dispatchMock.mock.calls[0][0]).toEqual(createUser(getEmptyUser(), 'de'));
+  //   expect(store.getActions().length).toEqual(1);
+  //   expect(store.getActions()[0]).toEqual({ type: 'createUser' });
   // });
 
   // it('should dispatch updateUser on saving existing user', () => {
-  //   useAppSelectorMock.mockReturnValue(false);
+  //   const store = mockStore(initialState);
   //   useParamsMock.mockReturnValue({ id: '1' });
-  //   expect(dispatchMock.mock.calls.length).toEqual(0);
-  //   render(<EditUserDialog />);
+  //   expect(store.getActions().length).toEqual(0);
+  //   render(
+  //     <Provider store={store}>
+  //       <EditUserDialog />
+  //     </Provider>
+  //   );
   //   fireEvent.change(screen.getByLabelText('name'), { target: { value: 'change' } });
   //   fireEvent.click(screen.getByText('save'));
-  //   expect(dispatchMock.mock.calls.length).toEqual(1);
-  //   expect(dispatchMock.mock.calls[0][0]).toEqual(updateUser(getEmptyUser(), 'de'));
+  //   expect(store.getActions().length).toEqual(1);
+  //   expect(store.getActions()[0]).toEqual({ type: 'updateUser' });
   // });
 
   it('should navigate to users on cancel', () => {
-    useAppSelectorMock.mockReturnValue(false);
+    const store = mockStore(initialState);
     useParamsMock.mockReturnValue({ id: '1' });
     expect(navigateMock.mock.calls.length).toEqual(0);
-    render(<EditUserDialog />);
+    render(
+      <Provider store={store}>
+        <EditUserDialog />
+      </Provider>
+    );
     fireEvent.click(screen.getByText('cancel'));
     expect(navigateMock.mock.calls.length).toEqual(1);
     expect(navigateMock.mock.calls[0][0]).toEqual('/users');
   });
 
   it('should show dialog if not reading or submitting', () => {
-    useAppSelectorMock.mockReturnValue(false);
+    const store = mockStore(initialState);
     useParamsMock.mockReturnValue({ id: 1 });
-    render(<EditUserDialog />);
+    render(
+      <Provider store={store}>
+        <EditUserDialog />
+      </Provider>
+    );
     expect(screen.getByLabelText('name')).toBeTruthy();
     expect(screen.queryByRole('progressbar')).toBeFalsy();
   });
 
   it('should show working if reading', () => {
-    useAppSelectorMock.mockReturnValueOnce(true).mockReturnValue(false);
+    const store = mockStore({ ...initialState, apiCalls: { runningReads: 1, runningSubmits: 0 } } as RootState);
     useParamsMock.mockReturnValue({ id: 1 });
-    render(<EditUserDialog />);
+    render(
+      <Provider store={store}>
+        <EditUserDialog />
+      </Provider>
+    );
     expect(screen.queryByLabelText('name')).toBeFalsy();
     expect(screen.getByRole('progressbar')).toBeTruthy();
   });
 
   it('should show working if submitting', () => {
-    useAppSelectorMock.mockReturnValueOnce(false).mockReturnValue(true);
+    const store = mockStore({ ...initialState, apiCalls: { runningReads: 0, runningSubmits: 1 } } as RootState);
     useParamsMock.mockReturnValue({ id: 1 });
-    render(<EditUserDialog />);
+    render(
+      <Provider store={store}>
+        <EditUserDialog />
+      </Provider>
+    );
     expect(screen.queryByLabelText('name')).toBeFalsy();
     expect(screen.getByRole('progressbar')).toBeTruthy();
   });

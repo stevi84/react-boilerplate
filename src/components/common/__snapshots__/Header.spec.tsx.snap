@@ -1,94 +1,109 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`Header > should equal saved snapshot 1`] = `
-<React.Fragment>
-  <ForwardRef(AppBar)
-    position="fixed"
+<DocumentFragment>
+  <header
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorPrimary MuiAppBar-positionFixed mui-fixed css-11b3ww9-MuiPaper-root-MuiAppBar-root"
   >
-    <ForwardRef(Toolbar)>
-      <ForwardRef(IconButton)
-        color="inherit"
-        edge="start"
-        onClick={[Function]}
-        size="large"
-        sx={
-          {
-            "mr": 2,
-          }
-        }
+    <div
+      class="MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular css-hyum1k-MuiToolbar-root"
+    >
+      <button
+        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-edgeStart MuiIconButton-sizeLarge css-ancrnh-MuiButtonBase-root-MuiIconButton-root"
+        tabindex="0"
+        type="button"
       >
-        <Memo />
-      </ForwardRef(IconButton)>
-      <ForwardRef(Menu)
-        anchorEl={null}
-        id="menu"
-        onClose={[Function]}
-        open={false}
-      >
-        <ForwardRef(MenuItem)
-          onClick={[Function]}
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+          data-testid="MenuIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
         >
-          <ForwardRef(ListItemIcon)>
-            <Memo
-              fontSize="small"
-            />
-          </ForwardRef(ListItemIcon)>
-          <ForwardRef(ListItemText)>
-            Home
-          </ForwardRef(ListItemText)>
-        </ForwardRef(MenuItem)>
-        <ForwardRef(Divider) />
-        <ForwardRef(MenuItem)
-          onClick={[Function]}
-        >
-          <ForwardRef(ListItemIcon)>
-            <Memo
-              fontSize="small"
-            />
-          </ForwardRef(ListItemIcon)>
-          <ForwardRef(ListItemText)>
-            Todos
-          </ForwardRef(ListItemText)>
-        </ForwardRef(MenuItem)>
-        <ForwardRef(MenuItem)
-          onClick={[Function]}
-        >
-          <ForwardRef(ListItemIcon)>
-            <Memo
-              fontSize="small"
-            />
-          </ForwardRef(ListItemIcon)>
-          <ForwardRef(ListItemText)>
-            Users
-          </ForwardRef(ListItemText)>
-        </ForwardRef(MenuItem)>
-      </ForwardRef(Menu)>
-      <ForwardRef(Typography)
-        component="div"
-        sx={
-          {
-            "flexGrow": 1,
-          }
-        }
-        variant="h6"
+          <path
+            d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+          />
+        </svg>
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
+      </button>
+      <div
+        class="MuiTypography-root MuiTypography-h6 css-1juivf6-MuiTypography-root"
       >
         React Boilerplate
-      </ForwardRef(Typography)>
-      <ForwardRef(Typography)
-        component="div"
-        sx={
-          {
-            "mr": 1,
-          }
-        }
-        variant="body1"
+      </div>
+      <div
+        class="MuiTypography-root MuiTypography-body1 css-1fbouff-MuiTypography-root"
       >
-        Environment: 
-        testenv
-      </ForwardRef(Typography)>
-      <LanguageSwitch />
-    </ForwardRef(Toolbar)>
-  </ForwardRef(AppBar)>
-  <ForwardRef(Toolbar) />
-</React.Fragment>
+        Environment: testenv
+      </div>
+      <div
+        class="MuiBox-root css-ece9u5"
+      >
+        <div
+          class="MuiFormControl-root MuiFormControl-fullWidth css-q8hpuo-MuiFormControl-root"
+        >
+          <label
+            class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root"
+            data-shrink="false"
+          >
+            language
+          </label>
+          <div
+            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl  css-1yk1gt9-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
+          >
+            <div
+              aria-controls=":r0:"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+              role="combobox"
+              tabindex="0"
+            >
+              <span
+                class="notranslate"
+              >
+                ​
+              </span>
+            </div>
+            <input
+              aria-hidden="true"
+              aria-invalid="false"
+              class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+              tabindex="-1"
+              value=""
+            />
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-hfutr2-MuiSvgIcon-root-MuiSelect-icon"
+              data-testid="ArrowDropDownIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M7 10l5 5 5-5z"
+              />
+            </svg>
+            <fieldset
+              aria-hidden="true"
+              class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
+            >
+              <legend
+                class="css-yjsfm1"
+              >
+                <span>
+                  language
+                </span>
+              </legend>
+            </fieldset>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div
+    class="MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular css-hyum1k-MuiToolbar-root"
+  />
+</DocumentFragment>
 `;

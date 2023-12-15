@@ -1,4 +1,5 @@
 import { ColDef } from 'ag-grid-community';
+import { Right } from '../../globals/RolesAndRights';
 
 export enum CrudMode {
   CREATE = 'CREATE',
@@ -12,6 +13,7 @@ export interface EntityManager<EntityType> {
   update: (entity: EntityType) => void;
   delete: (entity: EntityType) => void;
   getEmpty: () => EntityType;
+  editRight: Right;
 }
 
 export interface DataTableOwnProps<EntityType> {

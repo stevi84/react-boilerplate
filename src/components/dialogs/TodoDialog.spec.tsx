@@ -1,8 +1,13 @@
 import { describe, it, expect, vi } from 'vitest';
-import { ShallowRenderer, createRenderer } from 'react-test-renderer/shallow';
 import { render } from '@testing-library/react';
 import { todo1 } from '../../../test/data/Todo';
 import { TodoDialog } from './TodoDialog';
+import { currentUserEditor } from '../../../test/data/CurrentUser';
+import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
+import { user1 } from '../../../test/data/User';
+import { RootState } from '../../reducers/Store';
+import { Provider } from 'react-redux';
 
 vi.mock('react-i18next', () => ({
   useTranslation: () => ({
@@ -18,29 +23,43 @@ vi.mock('react-router-dom', () => ({ useNavigate: () => vi.fn() }));
 
 vi.mock('../../hooks/UseNotifier', () => ({ useNotifier: vi.fn() }));
 
-const { useAppSelectorMock, dispatchMock } = vi.hoisted(() => ({
-  useAppSelectorMock: vi.fn(),
-  dispatchMock: vi.fn(),
+vi.mock('../../thunks/TodosThunks', () => ({
+  readTodos: () => ({ type: 'readTodos' }),
+  deleteTodo: () => ({ type: 'deleteTodo' }),
 }));
-vi.mock('../../reducers/Store', () => ({
-  useAppSelector: useAppSelectorMock,
-  useAppDispatch: () => dispatchMock,
+
+vi.mock('../../thunks/CurrentUserThunks', () => ({
+  readCurrentUser: () => ({ type: 'readCurrentUser' }),
 }));
+
+const mockStore = configureStore([thunk]);
+const initialState = {
+  todos: [todo1],
+  users: [user1],
+  apiCalls: { runningReads: 0, runningSubmits: 0 },
+  currentUser: currentUserEditor,
+} as RootState;
 
 describe('TodoDialog', () => {
   it('should equal saved snapshot', () => {
-    useAppSelectorMock.mockReturnValueOnce([todo1]).mockReturnValue(false);
-    const renderer: ShallowRenderer = createRenderer();
-    renderer.render(<TodoDialog />);
-    const tree = renderer.getRenderOutput();
+    const store = mockStore(initialState);
+    const tree = render(
+      <Provider store={store}>
+        <TodoDialog />
+      </Provider>
+    ).asFragment();
     expect(tree).toMatchSnapshot();
   });
 
   it('should load todos if not present', () => {
-    useAppSelectorMock.mockReturnValueOnce([]).mockReturnValue(false);
-    expect(dispatchMock.mock.calls.length).toEqual(0);
-    render(<TodoDialog />);
-    expect(dispatchMock.mock.calls.length).toEqual(1);
-    //expect(dispatchMock.mock.calls[0][0]).toEqual(readTodos('de'));
+    const store = mockStore({ ...initialState, todos: [] } as RootState);
+    expect(store.getActions().length).toEqual(0);
+    render(
+      <Provider store={store}>
+        <TodoDialog />
+      </Provider>
+    );
+    expect(store.getActions().length).toEqual(1);
+    expect(store.getActions()[0]).toEqual({ type: 'readTodos' });
   });
 });

@@ -20,6 +20,7 @@ declare namespace Components {
        * Informations about an error that has occurred.
        */
       Schemas.Error;
+    export type SuccessfulCurrentUserResponse = /* CurrentUser */ Schemas.CurrentUser;
     export interface SuccessfulDeletedResponse {}
     export type SuccessfulManyTodosResponse = /* Todo */ Schemas.Todo[];
     export type SuccessfulManyUsersResponse = /* User */ Schemas.User[];
@@ -98,6 +99,43 @@ declare namespace Components {
       phone: string;
     }
     /**
+     * CurrentUser
+     */
+    export interface CurrentUser {
+      /**
+       * The login name of the current user.
+       * example:
+       * MMUSTER
+       */
+      loginName: string;
+      /**
+       * The first name of the current user.
+       * example:
+       * Max
+       */
+      firstName: string;
+      /**
+       * The surname of the current user.
+       * example:
+       * Mustermann
+       */
+      surName: string;
+      /**
+       * The e-mail address of the current user.
+       * example:
+       * max.mustermann@test.de
+       */
+      mail: string;
+      /**
+       * The roles of the current user.
+       */
+      roles: /**
+       * example:
+       * EDITOR
+       */
+      Role[];
+    }
+    /**
      * Error
      * Informations about an error that has occurred.
      */
@@ -133,6 +171,11 @@ declare namespace Components {
        */
       instance: string;
     }
+    /**
+     * example:
+     * EDITOR
+     */
+    export type Role = 'READER' | 'EDITOR' | 'ADMIN';
     /**
      * Todo
      */
@@ -353,6 +396,13 @@ declare namespace Paths {
       export type $204 = Components.Responses.SuccessfulDeletedResponse;
       export type $400 = Components.Responses.ErrorResponse;
       export type $404 = Components.Responses.ErrorResponse;
+      export type $500 = Components.Responses.ErrorResponse;
+    }
+  }
+  namespace ReadCurrentUser {
+    namespace Responses {
+      export type $200 = Components.Responses.SuccessfulCurrentUserResponse;
+      export type $400 = Components.Responses.ErrorResponse;
       export type $500 = Components.Responses.ErrorResponse;
     }
   }
@@ -581,6 +631,16 @@ export interface OperationMethods {
     data?: any,
     config?: AxiosRequestConfig
   ): OperationResponse<Paths.DeleteUser.Responses.$204>;
+  /**
+   * readCurrentUser - Read details of the current user.
+   *
+   * Read details of the current user.
+   */
+  'readCurrentUser'(
+    parameters?: Parameters<UnknownParamsObject> | null,
+    data?: any,
+    config?: AxiosRequestConfig
+  ): OperationResponse<Paths.ReadCurrentUser.Responses.$200>;
 }
 
 export interface PathsDictionary {
@@ -711,6 +771,18 @@ export interface PathsDictionary {
       data?: any,
       config?: AxiosRequestConfig
     ): OperationResponse<Paths.DeleteUser.Responses.$204>;
+  };
+  ['/currentUser']: {
+    /**
+     * readCurrentUser - Read details of the current user.
+     *
+     * Read details of the current user.
+     */
+    'get'(
+      parameters?: Parameters<UnknownParamsObject> | null,
+      data?: any,
+      config?: AxiosRequestConfig
+    ): OperationResponse<Paths.ReadCurrentUser.Responses.$200>;
   };
 }
 

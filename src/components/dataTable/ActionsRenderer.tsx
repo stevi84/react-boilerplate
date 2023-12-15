@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { BaseEntity } from '../../models/BaseEntity';
 import { EntityManager } from './DataTableInterfaces';
 import { ICellRendererParams } from 'ag-grid-community';
+import { Authorization } from '../common/Authorization';
 
 interface ButtonCellRendererProps<EntityType> {
   id: string;
@@ -19,21 +20,26 @@ export const ActionsRenderer = <EntityType extends BaseEntity>(
   const { t } = useTranslation();
 
   return (
-    <>
-      <Tooltip title={t('edit')}>
-        <span>
-          <IconButton id={`${id}-${data!.id}-button-edit`} color="primary" onClick={() => manager.update(data!)}>
-            <EditIcon />
-          </IconButton>
-        </span>
-      </Tooltip>
-      <Tooltip title={t('delete')}>
-        <span>
-          <IconButton id={`${id}-${data!.id}-button-delete`} color="primary" onClick={() => manager.delete(data!)}>
-            <DeleteIcon />
-          </IconButton>
-        </span>
-      </Tooltip>
-    </>
+    <Authorization
+      allowedAccessRights={[manager.editRight]}
+      WrappedElement={
+        <>
+          <Tooltip title={t('edit')}>
+            <span>
+              <IconButton id={`${id}-${data!.id}-button-edit`} color="primary" onClick={() => manager.update(data!)}>
+                <EditIcon />
+              </IconButton>
+            </span>
+          </Tooltip>
+          <Tooltip title={t('delete')}>
+            <span>
+              <IconButton id={`${id}-${data!.id}-button-delete`} color="primary" onClick={() => manager.delete(data!)}>
+                <DeleteIcon />
+              </IconButton>
+            </span>
+          </Tooltip>
+        </>
+      }
+    />
   );
 };

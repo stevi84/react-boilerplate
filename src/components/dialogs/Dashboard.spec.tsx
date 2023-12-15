@@ -1,9 +1,13 @@
 import { describe, it, expect, vi } from 'vitest';
-import { ShallowRenderer, createRenderer } from 'react-test-renderer/shallow';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { Dashboard } from './Dashboard';
 import { todo1 } from '../../../test/data/Todo';
 import { user1 } from '../../../test/data/User';
+import { currentUserAdmin, currentUserEditor } from '../../../test/data/CurrentUser';
+import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
+import { RootState } from '../../reducers/Store';
+import { Provider } from 'react-redux';
 
 vi.mock('react-i18next', () => ({
   useTranslation: () => ({
@@ -20,70 +24,68 @@ vi.mock('react-router-dom', () => ({ useNavigate: () => navigateMock }));
 
 vi.mock('../../hooks/UseNotifier', () => ({ useNotifier: vi.fn() }));
 
-const { useAppSelectorMock, dispatchMock } = vi.hoisted(() => ({
-  useAppSelectorMock: vi.fn(),
-  dispatchMock: vi.fn(),
-}));
-vi.mock('../../reducers/Store', () => ({
-  useAppSelector: useAppSelectorMock,
-  useAppDispatch: () => dispatchMock,
+vi.mock('../../thunks/TodosThunks', () => ({
+  readTodos: () => ({ type: 'readTodos' }),
 }));
 
-// ist nötig bei Verwendung der generierten Api
-const { readUsersMock } = vi.hoisted(() => ({ readUsersMock: vi.fn() }));
-vi.mock('../../reducers/UsersReducer', () => ({
-  readUsers: readUsersMock,
-  usersSelector: vi.fn(),
+vi.mock('../../thunks/UsersThunks', () => ({
+  readUsers: () => ({ type: 'readUsers' }),
 }));
+
+vi.mock('../../thunks/CurrentUserThunks', () => ({
+  readCurrentUser: () => ({ type: 'readCurrentUser' }),
+}));
+
+const mockStore = configureStore([thunk]);
+const initialState = {
+  todos: [todo1],
+  users: [user1],
+  apiCalls: { runningReads: 0, runningSubmits: 0 },
+  currentUser: currentUserAdmin,
+} as RootState;
 
 describe('Dashboard', () => {
-  beforeEach(() => {
-    readUsersMock.mockReturnValue('readUsers');
-  });
-
   it('should equal saved snapshot', () => {
-    useAppSelectorMock
-      .mockReturnValueOnce([todo1])
-      .mockReturnValueOnce([user1])
-      .mockReturnValueOnce(false)
-      .mockReturnValue(false);
-    const renderer: ShallowRenderer = createRenderer();
-    renderer.render(<Dashboard />);
-    const tree = renderer.getRenderOutput();
+    const store = mockStore(initialState);
+    const tree = render(
+      <Provider store={store}>
+        <Dashboard />
+      </Provider>
+    ).asFragment();
     expect(tree).toMatchSnapshot();
   });
 
   it('should load todos if not present', () => {
-    useAppSelectorMock
-      .mockReturnValueOnce([])
-      .mockReturnValueOnce([user1])
-      .mockReturnValueOnce(false)
-      .mockReturnValue(false);
-    expect(dispatchMock.mock.calls.length).toEqual(0);
-    render(<Dashboard />);
-    expect(dispatchMock.mock.calls.length).toEqual(1);
-    //expect(dispatchMock.mock.calls[0][0]).toEqual(readTodos('de'));
+    const store = mockStore({ ...initialState, todos: [] } as RootState);
+    expect(store.getActions().length).toEqual(0);
+    render(
+      <Provider store={store}>
+        <Dashboard />
+      </Provider>
+    );
+    expect(store.getActions().length).toEqual(1);
+    expect(store.getActions()[0]).toEqual({ type: 'readTodos' });
   });
 
   it('should load users if not present', () => {
-    useAppSelectorMock
-      .mockReturnValueOnce([todo1])
-      .mockReturnValueOnce([])
-      .mockReturnValueOnce(false)
-      .mockReturnValue(false);
-    expect(dispatchMock.mock.calls.length).toEqual(0);
-    render(<Dashboard />);
-    expect(dispatchMock.mock.calls.length).toEqual(1);
-    expect(dispatchMock.mock.calls[0][0]).toEqual('readUsers');
+    const store = mockStore({ ...initialState, users: [] } as RootState);
+    expect(store.getActions().length).toEqual(0);
+    render(
+      <Provider store={store}>
+        <Dashboard />
+      </Provider>
+    );
+    expect(store.getActions().length).toEqual(1);
+    expect(store.getActions()[0]).toEqual({ type: 'readUsers' });
   });
 
   it('should navigate to todos on button click', () => {
-    useAppSelectorMock
-      .mockReturnValueOnce([todo1])
-      .mockReturnValueOnce([user1])
-      .mockReturnValueOnce(false)
-      .mockReturnValue(false);
-    render(<Dashboard />);
+    const store = mockStore(initialState);
+    render(
+      <Provider store={store}>
+        <Dashboard />
+      </Provider>
+    );
     expect(navigateMock.mock.calls.length).toEqual(0);
     fireEvent.click(screen.getByTestId('EditNoteIcon'));
     expect(navigateMock.mock.calls.length).toEqual(1);
@@ -91,48 +93,71 @@ describe('Dashboard', () => {
   });
 
   it('should navigate to users on button click', () => {
-    useAppSelectorMock
-      .mockReturnValueOnce([todo1])
-      .mockReturnValueOnce([user1])
-      .mockReturnValueOnce(false)
-      .mockReturnValue(false);
-    render(<Dashboard />);
+    const store = mockStore(initialState);
+    render(
+      <Provider store={store}>
+        <Dashboard />
+      </Provider>
+    );
     expect(navigateMock.mock.calls.length).toEqual(0);
     fireEvent.click(screen.getByTestId('PeopleIcon'));
     expect(navigateMock.mock.calls.length).toEqual(1);
     expect(navigateMock.mock.calls[0][0]).toEqual('/users');
   });
 
+  it('should navigate to settings on button click', () => {
+    const store = mockStore(initialState);
+    render(
+      <Provider store={store}>
+        <Dashboard />
+      </Provider>
+    );
+    expect(navigateMock.mock.calls.length).toEqual(0);
+    fireEvent.click(screen.getByTestId('SettingsIcon'));
+    expect(navigateMock.mock.calls.length).toEqual(1);
+    expect(navigateMock.mock.calls[0][0]).toEqual('/admin');
+  });
+
   it('should show dashboard if not reading or submitting', () => {
-    useAppSelectorMock
-      .mockReturnValueOnce([todo1])
-      .mockReturnValueOnce([user1])
-      .mockReturnValueOnce(false)
-      .mockReturnValue(false);
-    render(<Dashboard />);
-    expect(screen.getByText('Todos')).toBeTruthy();
+    const store = mockStore(initialState);
+    render(
+      <Provider store={store}>
+        <Dashboard />
+      </Provider>
+    );
+    expect(screen.getByText('todo')).toBeTruthy();
     expect(screen.queryByRole('progressbar')).toBeFalsy();
   });
 
   it('should show working if reading', () => {
-    useAppSelectorMock
-      .mockReturnValueOnce([todo1])
-      .mockReturnValueOnce([user1])
-      .mockReturnValueOnce(true)
-      .mockReturnValue(false);
-    render(<Dashboard />);
-    expect(screen.queryByText('Todos')).toBeFalsy();
+    const store = mockStore({ ...initialState, apiCalls: { runningReads: 1, runningSubmits: 0 } } as RootState);
+    render(
+      <Provider store={store}>
+        <Dashboard />
+      </Provider>
+    );
+    expect(screen.queryByText('todo')).toBeFalsy();
     expect(screen.getByRole('progressbar')).toBeTruthy();
   });
 
   it('should show working if submitting', () => {
-    useAppSelectorMock
-      .mockReturnValueOnce([todo1])
-      .mockReturnValueOnce([user1])
-      .mockReturnValueOnce(false)
-      .mockReturnValue(true);
-    render(<Dashboard />);
-    expect(screen.queryByText('Todos')).toBeFalsy();
+    const store = mockStore({ ...initialState, apiCalls: { runningReads: 0, runningSubmits: 1 } } as RootState);
+    render(
+      <Provider store={store}>
+        <Dashboard />
+      </Provider>
+    );
+    expect(screen.queryByText('todo')).toBeFalsy();
     expect(screen.getByRole('progressbar')).toBeTruthy();
+  });
+
+  it('should hide settings if not authorized', () => {
+    const store = mockStore({ ...initialState, currentUser: currentUserEditor } as RootState);
+    render(
+      <Provider store={store}>
+        <Dashboard />
+      </Provider>
+    );
+    expect(screen.queryByText('settings')).toBeFalsy();
   });
 });

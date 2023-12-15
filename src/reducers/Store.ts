@@ -4,6 +4,7 @@ import { todosReducer } from './TodosReducer';
 import { apiCallsReducer } from './ApiCallsReducer';
 import { snackbarsReducer } from './SnackbarsReducer';
 import { usersReducer } from './UsersReducer';
+import { currentUserReducer } from './CurrentUserReducer';
 
 export const store = configureStore({
   reducer: {
@@ -11,6 +12,7 @@ export const store = configureStore({
     todos: todosReducer,
     users: usersReducer,
     apiCalls: apiCallsReducer,
+    currentUser: currentUserReducer,
   },
 });
 

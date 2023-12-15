@@ -4,7 +4,6 @@ import { Provider } from 'react-redux';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { store } from './reducers/Store';
 import { TodoDialog } from './components/dialogs/TodoDialog';
-//import { UserDialog } from './components/dialogs/UserDialog';
 import './i18n';
 import './globals/global.css';
 import { Dashboard } from './components/dialogs/Dashboard';
@@ -13,7 +12,9 @@ import { createTheme, ThemeProvider } from '@mui/material';
 import { SnackbarProvider } from 'notistack';
 import { UserDialog } from './components/dialogs/UserDialog';
 import { EditUserDialog } from './components/dialogs/EditUserDialog';
-import { NotFound } from './components/dialogs/NotFound';
+import { NotFoundDialog } from './components/dialogs/NotFoundDialog';
+import { NotAuthorizedDialog } from './components/dialogs/NotAuthorizedDialog';
+import { AdminDialog } from './components/dialogs/AdminDialog';
 
 const router = createBrowserRouter([
   {
@@ -37,8 +38,16 @@ const router = createBrowserRouter([
     element: <EditUserDialog />,
   },
   {
+    path: '/admin',
+    element: <AdminDialog />,
+  },
+  {
+    path: '/notauthorized',
+    element: <NotAuthorizedDialog />,
+  },
+  {
     path: '*',
-    element: <NotFound />,
+    element: <NotFoundDialog />,
   },
 ]);
 

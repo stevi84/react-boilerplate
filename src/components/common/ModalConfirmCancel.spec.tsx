@@ -1,12 +1,10 @@
 import { describe, it, expect, vi } from 'vitest';
 import { fireEvent, render, screen } from '@testing-library/react';
-import { createRenderer, ShallowRenderer } from 'react-test-renderer/shallow';
 import { ModalConfirmCancel } from './ModalConfirmCancel';
 
 describe('ModalConfirmCancel', () => {
   it('should equal saved snapshot', () => {
-    const renderer: ShallowRenderer = createRenderer();
-    renderer.render(
+    const tree = render(
       <ModalConfirmCancel
         isOpen={true}
         headerText={'header'}
@@ -16,8 +14,7 @@ describe('ModalConfirmCancel', () => {
         confirmAction={() => {}}
         cancelAction={() => {}}
       />
-    );
-    const tree = renderer.getRenderOutput();
+    ).asFragment();
     expect(tree).toMatchSnapshot();
   });
 

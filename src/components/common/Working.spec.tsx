@@ -1,5 +1,4 @@
 import { describe, it, expect, vi } from 'vitest';
-import { createRenderer, ShallowRenderer } from 'react-test-renderer/shallow';
 import { render, screen } from '@testing-library/react';
 import { Working } from './Working';
 
@@ -15,19 +14,17 @@ vi.mock('react-i18next', () => ({
 
 describe('Working', () => {
   it('should equal saved snapshot', () => {
-    const renderer: ShallowRenderer = createRenderer();
-    renderer.render(<Working isReading={false} isSubmitting={true} />);
-    const tree = renderer.getRenderOutput();
+    const tree = render(<Working isReading={false} isSubmitting={true} />).asFragment();
     expect(tree).toMatchSnapshot();
   });
 
   it('should show reading', () => {
-    render(<Working isReading={true} isSubmitting={false} />);
+    render(<Working isReading={true} />);
     expect(screen.getByText('reading')).toBeTruthy();
   });
 
   it('should show submitting', () => {
-    render(<Working isReading={false} isSubmitting={true} />);
+    render(<Working isSubmitting={true} />);
     expect(screen.getByText('submitting')).toBeTruthy();
   });
 

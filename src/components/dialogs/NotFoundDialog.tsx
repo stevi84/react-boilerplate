@@ -3,11 +3,11 @@ import { MainLayout } from '../common/MainLayout';
 import { Paper, Stack } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 
-export const NotFound = () => {
+export const NotFoundDialog = () => {
   const { t } = useTranslation();
 
   return (
-    <MainLayout>
+    <MainLayout allowedAccessRights={['UNRESTRICTED']}>
       <Paper sx={{ margin: 1 }}>
         <Stack direction={'column'} alignItems={'center'} justifyContent={'center'}>
           <Typography variant="h1" color="primary">

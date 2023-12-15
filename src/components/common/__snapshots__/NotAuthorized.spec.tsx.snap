@@ -1,0 +1,49 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`NotAuthorized > should equal saved snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 css-3v46u1-MuiPaper-root"
+  >
+    <div
+      class="MuiStack-root css-1z0rh7t-MuiStack-root"
+    >
+      <h1
+        class="MuiTypography-root MuiTypography-h1 css-utprum-MuiTypography-root"
+      >
+        403
+      </h1>
+      <h4
+        class="MuiTypography-root MuiTypography-h4 css-zc6l1b-MuiTypography-root"
+      >
+        Not Authorized
+      </h4>
+      <p
+        class="MuiTypography-root MuiTypography-body1 css-1pnmrwp-MuiTypography-root"
+      >
+        403
+      </p>
+      <button
+        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeMedium css-1kuq5xv-MuiButtonBase-root-MuiIconButton-root"
+        tabindex="0"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+          data-testid="ArrowBackIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+          />
+        </svg>
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;

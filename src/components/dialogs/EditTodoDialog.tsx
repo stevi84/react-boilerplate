@@ -9,7 +9,7 @@ import { StringEdit } from '../common/StringEdit';
 import { useTranslation } from 'react-i18next';
 import { DateEdit } from '../common/DateEdit';
 import { BooleanEdit } from '../common/BooleanEdit';
-import { createTodo, readTodo, updateTodo } from '../../reducers/TodosReducer';
+import { createTodo, readTodo, updateTodo } from '../../thunks/TodosThunks';
 import { CrudMode } from '../dataTable/DataTableInterfaces';
 import { Button, Paper, Stack, Tooltip } from '@mui/material';
 import CheckIcon from '@mui/icons-material/Check';
@@ -55,7 +55,7 @@ export const EditTodoDialog = () => {
   };
 
   return (
-    <MainLayout>
+    <MainLayout allowedAccessRights={['TODO_EDIT']}>
       <Paper sx={{ margin: 1 }}>
         {!isReading && !isSubmitting && (
           <Formik<Todo>

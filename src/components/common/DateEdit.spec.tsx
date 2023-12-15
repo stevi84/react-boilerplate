@@ -1,11 +1,8 @@
 import { describe, it, expect, vi } from 'vitest';
-import { createRenderer, ShallowRenderer } from 'react-test-renderer/shallow';
 import { render, screen } from '@testing-library/react';
 import { DateEdit } from './DateEdit';
 
-const { setValueMock } = vi.hoisted(() => ({
-  setValueMock: vi.fn(),
-}));
+const { setValueMock } = vi.hoisted(() => ({ setValueMock: vi.fn() }));
 vi.mock('formik', () => ({
   useField: () => [{ value: '2020-12-03T15:02:28+02:00' }, { error: 'error' }, { setValue: setValueMock }],
 }));
@@ -22,9 +19,7 @@ vi.mock('react-i18next', () => ({
 
 describe('DateEdit', () => {
   it('should equal saved snapshot', () => {
-    const renderer: ShallowRenderer = createRenderer();
-    renderer.render(<DateEdit id="id" name="name" label="label" />);
-    const tree = renderer.getRenderOutput();
+    const tree = render(<DateEdit id="id" name="name" label="label" />).asFragment();
     expect(tree).toMatchSnapshot();
   });
 

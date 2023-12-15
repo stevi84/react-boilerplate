@@ -242,6 +242,21 @@ paths:
         500:
           $ref: "#/components/responses/ErrorResponse"
 
+  /currentUser:
+    get:
+      tags:
+        - CurrentUser
+      summary: Read details of the current user.
+      description: Read details of the current user.
+      operationId: readCurrentUser
+      responses:
+        200:
+          $ref: "#/components/responses/SuccessfulCurrentUserResponse"
+        400:
+          $ref: "#/components/responses/ErrorResponse"
+        500:
+          $ref: "#/components/responses/ErrorResponse"
+
 components:
   parameters:
     idPathParam:
@@ -450,6 +465,44 @@ components:
           type: string
           example: "+496563941489"
           description: Phone number of the user.
+    Role:
+      type: string
+      enum:
+        - READER
+        - EDITOR
+        - ADMIN
+      example: "EDITOR"
+    CurrentUser:
+      title: CurrentUser
+      type: object
+      required:
+        - loginName
+        - firstName
+        - surName
+        - mail
+        - roles
+      properties:
+        loginName:
+          type: string
+          example: "MMUSTER"
+          description: The login name of the current user.
+        firstName:
+          type: string
+          example: "Max"
+          description: The first name of the current user.
+        surName:
+          type: string
+          example: "Mustermann"
+          description: The surname of the current user.
+        mail:
+          type: string
+          example: "max.mustermann@test.de"
+          description: The e-mail address of the current user.
+        roles:
+          type: array
+          items:
+            $ref: '#/components/schemas/Role'
+          description: The roles of the current user.
     Error:
       title: Error
       type: object
@@ -513,6 +566,12 @@ components:
               $ref: "#/components/schemas/User"
     SuccessfulDeletedResponse:
       description: Successful empty response.
+    SuccessfulCurrentUserResponse:
+      description: Successful response containing details of the current user.
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/CurrentUser"
     ErrorResponse:
       description: Error response containing an error.
       content:

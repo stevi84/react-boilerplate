@@ -7,10 +7,12 @@ type Translations<T = any> = { [K in Locale]: T };
 export const translations: Translations<{ translation: any }> = {
   de: {
     translation: {
-      '404': 'Die Seite, die Sie suchen, könnte sich in einem anderen Schloss befinden.',
+      '403': 'Sie sind nicht berechtigt die angeforderte Seite zu sehen.',
+      '404': 'Die angeforderte Seite wurde nicht gefunden.',
       cancel: 'Abbrechen',
       completed: 'Abgeschlossen',
       create: 'Neu',
+      currentUser: 'Nutzerdaten',
       dateFormat: 'dd.MM.yyyy',
       dateOfBirth: 'Geburtsdatum',
       dateTimeFormat: 'dd.MM.yyyy HH:mm:ss',
@@ -39,6 +41,7 @@ export const translations: Translations<{ translation: any }> = {
       reading: 'Laden',
       reload: 'Neu Laden',
       save: 'Speichern',
+      settings: 'Einstellungen',
       size: 'Größe',
       submitting: 'Schreiben',
       todo: 'Todo',
@@ -55,10 +58,12 @@ export const translations: Translations<{ translation: any }> = {
   },
   en: {
     translation: {
-      '404': 'The page you are looking for might be in another castle.',
+      '403': 'You are not authorized to view the requested page.',
+      '404': 'The requested page could not be found.',
       cancel: 'Cancel',
       completed: 'Completed',
       create: 'Create',
+      currentUser: 'User data',
       dateFormat: 'MM/dd/yyyy',
       dateOfBirth: 'Date of birth',
       dateTimeFormat: 'MM/dd/yyyy hh:mm:ss a',
@@ -87,6 +92,7 @@ export const translations: Translations<{ translation: any }> = {
       reading: 'Reading',
       reload: 'Reload',
       save: 'Save',
+      settings: 'Settings',
       size: 'Size',
       submitting: 'Submitting',
       todo: 'Todo',

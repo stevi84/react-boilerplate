@@ -1,19 +1,32 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`Working > should equal saved snapshot 1`] = `
-<ForwardRef(Grid)
-  alignItems="center"
-  direction="column"
-  justifyContent="center"
-  style={
-    {
-      "height": "100%",
-    }
-  }
->
-  <ForwardRef(CircularProgress)
-    id="loading-spinner"
-  />
-  submitting
-</ForwardRef(Grid)>
+<DocumentFragment>
+  <div
+    class="MuiStack-root css-w004l2-MuiStack-root"
+    style="height: 100%;"
+  >
+    <span
+      class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-18lrjg1-MuiCircularProgress-root"
+      data-testid="loading-spinner"
+      role="progressbar"
+      style="width: 40px; height: 40px;"
+    >
+      <svg
+        class="MuiCircularProgress-svg css-1idz92c-MuiCircularProgress-svg"
+        viewBox="22 22 44 44"
+      >
+        <circle
+          class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-176wh8e-MuiCircularProgress-circle"
+          cx="44"
+          cy="44"
+          fill="none"
+          r="20.2"
+          stroke-width="3.6"
+        />
+      </svg>
+    </span>
+    submitting
+  </div>
+</DocumentFragment>
 `;

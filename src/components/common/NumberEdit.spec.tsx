@@ -1,14 +1,9 @@
 import { describe, it, expect, vi } from 'vitest';
-import { createRenderer, ShallowRenderer } from 'react-test-renderer/shallow';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { NumberEdit } from './NumberEdit';
 
-const { setValueMock } = vi.hoisted(() => ({
-  setValueMock: vi.fn(),
-}));
-vi.mock('formik', () => ({
-  useField: () => [{ value: 1.01 }, { error: 'error' }, { setValue: setValueMock }],
-}));
+const { setValueMock } = vi.hoisted(() => ({ setValueMock: vi.fn() }));
+vi.mock('formik', () => ({ useField: () => [{ value: 1.01 }, { error: 'error' }, { setValue: setValueMock }] }));
 
 vi.mock('react-i18next', () => ({
   useTranslation: () => ({
@@ -22,9 +17,7 @@ vi.mock('react-i18next', () => ({
 
 describe('NumberEdit', () => {
   it('should equal saved snapshot', () => {
-    const renderer: ShallowRenderer = createRenderer();
-    renderer.render(<NumberEdit id="id" name="name" label="label" />);
-    const tree = renderer.getRenderOutput();
+    const tree = render(<NumberEdit id="id" name="name" label="label" />).asFragment();
     expect(tree).toMatchSnapshot();
   });
 

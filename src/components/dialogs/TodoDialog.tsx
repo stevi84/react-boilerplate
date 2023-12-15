@@ -3,7 +3,8 @@ import { useTranslation } from 'react-i18next';
 import { Locale } from '../../globals/Translations';
 import { getEmptyTodo, Todo } from '../../models/Todo';
 import { useAppDispatch, useAppSelector } from '../../reducers/Store';
-import { deleteTodo, readTodos, todosSelector } from '../../reducers/TodosReducer';
+import { todosSelector } from '../../reducers/TodosReducer';
+import { deleteTodo, readTodos } from '../../thunks/TodosThunks';
 import { ModalConfirmCancel } from '../common/ModalConfirmCancel';
 import { DataTable } from '../dataTable/DataTable';
 import { useNavigate } from 'react-router-dom';
@@ -26,7 +27,7 @@ export const TodoDialog = () => {
   }, []);
 
   return (
-    <MainLayout>
+    <MainLayout allowedAccessRights={['TODO_READ']}>
       <Paper sx={{ margin: 1 }}>
         <DataTable<Todo>
           id={'todo-table'}
@@ -56,6 +57,7 @@ export const TodoDialog = () => {
             update: (entity: Todo) => navigate(`/todos/${entity.id}`),
             delete: (entity: Todo) => setDeleteModalState({ visible: true, entityId: entity.id }),
             getEmpty: getEmptyTodo,
+            editRight: 'TODO_EDIT',
           }}
         />
         <ModalConfirmCancel

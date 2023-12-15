@@ -1,8 +1,13 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { ShallowRenderer, createRenderer } from 'react-test-renderer/shallow';
+import { describe, it, expect, vi } from 'vitest';
 import { render } from '@testing-library/react';
 import { user1 } from '../../../test/data/User';
 import { UserDialog } from './UserDialog';
+import { currentUserEditor } from '../../../test/data/CurrentUser';
+import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
+import { todo1 } from '../../../test/data/Todo';
+import { RootState } from '../../reducers/Store';
+import { Provider } from 'react-redux';
 
 vi.mock('react-i18next', () => ({
   useTranslation: () => ({
@@ -18,41 +23,43 @@ vi.mock('react-router-dom', () => ({ useNavigate: () => vi.fn() }));
 
 vi.mock('../../hooks/UseNotifier', () => ({ useNotifier: vi.fn() }));
 
-const { useAppSelectorMock, dispatchMock } = vi.hoisted(() => ({
-  useAppSelectorMock: vi.fn(),
-  dispatchMock: vi.fn(),
-}));
-vi.mock('../../reducers/Store', () => ({
-  useAppSelector: useAppSelectorMock,
-  useAppDispatch: () => dispatchMock,
+vi.mock('../../thunks/Usersthunks', () => ({
+  readUsers: () => ({ type: 'readUsers' }),
+  deleteUser: () => ({ type: 'deleteUser' }),
 }));
 
-// ist nötig bei Verwendung der generierten Api
-const { readUsersMock } = vi.hoisted(() => ({ readUsersMock: vi.fn() }));
-vi.mock('../../reducers/UsersReducer', () => ({
-  deleteUser: vi.fn(),
-  readUsers: readUsersMock,
-  usersSelector: vi.fn(),
+vi.mock('../../thunks/CurrentUserThunks', () => ({
+  readCurrentUser: () => ({ type: 'readCurrentUser' }),
 }));
+
+const mockStore = configureStore([thunk]);
+const initialState = {
+  todos: [todo1],
+  users: [user1],
+  apiCalls: { runningReads: 0, runningSubmits: 0 },
+  currentUser: currentUserEditor,
+} as RootState;
 
 describe('UserDialog', () => {
-  beforeEach(() => {
-    readUsersMock.mockReturnValue('readUsers');
-  });
-
   it('should equal saved snapshot', () => {
-    useAppSelectorMock.mockReturnValueOnce([user1]).mockReturnValue(false);
-    const renderer: ShallowRenderer = createRenderer();
-    renderer.render(<UserDialog />);
-    const tree = renderer.getRenderOutput();
+    const store = mockStore(initialState);
+    const tree = render(
+      <Provider store={store}>
+        <UserDialog />
+      </Provider>
+    ).asFragment();
     expect(tree).toMatchSnapshot();
   });
 
   it('should load users if not present', () => {
-    useAppSelectorMock.mockReturnValueOnce([]).mockReturnValue(false);
-    expect(dispatchMock.mock.calls.length).toEqual(0);
-    render(<UserDialog />);
-    expect(dispatchMock.mock.calls.length).toEqual(1);
-    expect(dispatchMock.mock.calls[0][0]).toEqual('readUsers');
+    const store = mockStore({ ...initialState, users: [] } as RootState);
+    expect(store.getActions().length).toEqual(0);
+    render(
+      <Provider store={store}>
+        <UserDialog />
+      </Provider>
+    );
+    expect(store.getActions().length).toEqual(1);
+    expect(store.getActions()[0]).toEqual({ type: 'readUsers' });
   });
 });

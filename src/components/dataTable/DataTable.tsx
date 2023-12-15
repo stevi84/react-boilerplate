@@ -12,6 +12,7 @@ import { ActionsRenderer } from './ActionsRenderer';
 import { useAppSelector } from '../../reducers/Store';
 import { isReadingSelector, isSubmittingSelector } from '../../reducers/ApiCallsReducer';
 import { Working } from '../common/Working';
+import { Authorization } from '../common/Authorization';
 
 export const DataTable = <EntityType extends BaseEntity>(props: DataTableOwnProps<EntityType>) => {
   const { id, columns, rowsData, manager } = props;
@@ -37,20 +38,25 @@ export const DataTable = <EntityType extends BaseEntity>(props: DataTableOwnProp
           </Button>
         </span>
       </Tooltip>
-      <Tooltip title={isReading ? t('tooltip_reading') : isSubmitting ? t('tooltip_submitting') : ''}>
-        <span>
-          <Button
-            id={`${id}-button-create`}
-            variant="outlined"
-            startIcon={<AddIcon />}
-            onClick={manager.create}
-            disabled={isReading || isSubmitting}
-            sx={{ margin: 1 }}
-          >
-            {t('create')}
-          </Button>
-        </span>
-      </Tooltip>
+      <Authorization
+        allowedAccessRights={[manager.editRight]}
+        WrappedElement={
+          <Tooltip title={isReading ? t('tooltip_reading') : isSubmitting ? t('tooltip_submitting') : ''}>
+            <span>
+              <Button
+                id={`${id}-button-create`}
+                variant="outlined"
+                startIcon={<AddIcon />}
+                onClick={manager.create}
+                disabled={isReading || isSubmitting}
+                sx={{ margin: 1 }}
+              >
+                {t('create')}
+              </Button>
+            </span>
+          </Tooltip>
+        }
+      />
       {!isReading && !isSubmitting && (
         <Box className="ag-theme-alpine" sx={{ padding: 1 }}>
           <AgGridReact<EntityType>

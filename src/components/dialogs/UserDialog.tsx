@@ -3,7 +3,8 @@ import { useTranslation } from 'react-i18next';
 import { Locale } from '../../globals/Translations';
 import { User, getEmptyUser } from '../../models/User';
 import { useAppDispatch, useAppSelector } from '../../reducers/Store';
-import { deleteUser, readUsers, usersSelector } from '../../reducers/UsersReducer';
+import { usersSelector } from '../../reducers/UsersReducer';
+import { deleteUser, readUsers } from '../../thunks/UsersThunks';
 import { ModalConfirmCancel } from '../common/ModalConfirmCancel';
 import { DataTable } from '../dataTable/DataTable';
 import { useNavigate } from 'react-router-dom';
@@ -26,7 +27,7 @@ export const UserDialog = () => {
   }, []);
 
   return (
-    <MainLayout>
+    <MainLayout allowedAccessRights={['USER_READ']}>
       <Paper sx={{ margin: 1 }}>
         <DataTable<User>
           id={'user-table'}
@@ -70,6 +71,7 @@ export const UserDialog = () => {
             update: (entity: User) => navigate(`/users/${entity.id}`),
             delete: (entity: User) => setDeleteModalState({ visible: true, entityId: entity.id }),
             getEmpty: getEmptyUser,
+            editRight: 'USER_EDIT',
           }}
         />
         <ModalConfirmCancel

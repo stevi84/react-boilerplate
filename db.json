@@ -51,5 +51,12 @@
       "tsCreate": "2022-12-01T15:02:28+01:00",
       "tsUpdate": "2022-12-01T15:02:28+01:00"
     }
-  ]
+  ],
+  "currentUser": {
+    "loginName": "MMUSTER",
+    "firstName": "Max",
+    "surName": "Mustermann",
+    "mail": "max.mustermann@test.de",
+    "roles": ["READER", "EDITOR", "ADMIN"]
+  }
 }

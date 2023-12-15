@@ -1,10 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { createMessage, Locale } from '../globals/Translations';
 import { Todo } from '../models/Todo';
-import * as todoApi from '../apis/TodoApi';
-import { AppDispatch, AppThunk, RootState } from './Store';
-import { decreaseReads, decreaseSubmits, increaseReads, increaseSubmits } from './ApiCallsReducer';
-import { enqueueSnackbar } from './SnackbarsReducer';
+import { RootState } from './Store';
 
 export const todosInitialState: Todo[] = [];
 
@@ -32,97 +28,3 @@ export const { setTodos, addTodo, changeTodo, removeTodo } = actions;
 export { reducer as todosReducer };
 
 export const todosSelector = (state: RootState): Todo[] => state?.todos || [];
-
-export const createTodo =
-  (todo: Todo, lang: Locale): AppThunk<Promise<Todo>> =>
-  async (dispatch) => {
-    dispatch(increaseSubmits());
-    try {
-      const response = await todoApi.createTodo(todo);
-      dispatch(addTodo(response.data));
-      dispatch(
-        enqueueSnackbar(createMessage('create', 'todo', true, lang), { variant: 'success', autoHideDuration: 2000 })
-      );
-      return response.data;
-    } catch (error) {
-      dispatch(
-        enqueueSnackbar(createMessage('create', 'todo', false, lang), { variant: 'error', autoHideDuration: null })
-      );
-      throw error;
-    } finally {
-      dispatch(decreaseSubmits());
-    }
-  };
-
-export const readTodos =
-  (lang: Locale): AppThunk<Promise<Todo[]>> =>
-  async (dispatch) => {
-    dispatch(increaseReads());
-    try {
-      const response = await todoApi.readTodos();
-      dispatch(setTodos(response.data));
-      return response.data;
-    } catch (error) {
-      dispatch(
-        enqueueSnackbar(createMessage('read', 'todo', false, lang), { variant: 'error', autoHideDuration: null })
-      );
-      throw error;
-    } finally {
-      dispatch(decreaseReads());
-    }
-  };
-
-export const updateTodo =
-  (todo: Todo, lang: Locale): AppThunk<Promise<Todo>> =>
-  async (dispatch) => {
-    dispatch(increaseSubmits());
-    try {
-      const response = await todoApi.updateTodo(todo);
-      dispatch(changeTodo(response.data));
-      dispatch(
-        enqueueSnackbar(createMessage('update', 'todo', true, lang), { variant: 'success', autoHideDuration: 2000 })
-      );
-      return response.data;
-    } catch (error) {
-      dispatch(
-        enqueueSnackbar(createMessage('update', 'todo', false, lang), { variant: 'error', autoHideDuration: null })
-      );
-      throw error;
-    } finally {
-      dispatch(decreaseSubmits());
-    }
-  };
-
-export const deleteTodo =
-  (todoId: number, lang: Locale): AppThunk<Promise<void>> =>
-  async (dispatch) => {
-    dispatch(increaseSubmits());
-    try {
-      const response = await todoApi.deleteTodo(todoId);
-      dispatch(removeTodo(todoId));
-      dispatch(
-        enqueueSnackbar(createMessage('delete', 'todo', true, lang), { variant: 'success', autoHideDuration: 2000 })
-      );
-      return response.data;
-    } catch (error) {
-      dispatch(
-        enqueueSnackbar(createMessage('delete', 'todo', false, lang), { variant: 'error', autoHideDuration: null })
-      );
-      throw error;
-    } finally {
-      dispatch(decreaseSubmits());
-    }
-  };
-
-export const readTodo = async (todoId: number, lang: Locale, dispatch: AppDispatch): Promise<Todo> => {
-  dispatch(increaseReads());
-  try {
-    const response = await todoApi.readTodo(todoId);
-    return response.data;
-  } catch (error) {
-    dispatch(enqueueSnackbar(createMessage('read', 'todo', false, lang), { variant: 'error', autoHideDuration: null }));
-    throw error;
-  } finally {
-    dispatch(decreaseReads());
-  }
-};
