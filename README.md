@@ -76,6 +76,8 @@ npm uninstall openapi-client-axios js-yaml
 - test... runs unit and snapshot tests
 - test:updateSnapshots... runs unit and updates snapshot tests
 - test:coverage... generates a coverage report
+- cypress:open... opens the cypress gui
+- cypress:run... runs the e2e-tests headlless
 - format... reformats all files using prettier
 - lint... checks the code-style in all files
 - type-check... check for typescript issues everywhere
@@ -118,6 +120,7 @@ Dependencies marked with "vite-default" already came with the used vite-template
 - @vitejs/plugin-react (react, vite-default)
 - @vitest/coverage-v8 (coverage provider for unittests)
 - cross-env (set environment variables independent of operating system)
+- cypress (e2e-testing)
 - eslint (code-style, vite-default)
 - eslint-config-prettier (code-style)
 - eslint-config-react-app (code-style, vite-default)

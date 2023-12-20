@@ -57,6 +57,10 @@
     "firstName": "Max",
     "surName": "Mustermann",
     "mail": "max.mustermann@test.de",
-    "roles": ["READER", "EDITOR", "ADMIN"]
+    "roles": [
+      "READER",
+      "EDITOR",
+      "ADMIN"
+    ]
   }
 }

@@ -9,7 +9,7 @@ import { ModalConfirmCancel } from '../common/ModalConfirmCancel';
 import { DataTable } from '../dataTable/DataTable';
 import { useNavigate } from 'react-router-dom';
 import { Paper } from '@mui/material';
-import { formatDate } from '../../globals/Formatters';
+import { formatDate, formatNumber } from '../../globals/Formatters';
 import { MainLayout } from '../common/MainLayout';
 
 export const UserDialog = () => {
@@ -47,11 +47,13 @@ export const UserDialog = () => {
               field: 'size',
               headerName: t('size'),
               cellDataType: 'number',
+              valueFormatter: (params) => formatNumber(params.value, lang),
             },
             {
               field: 'weight',
               headerName: t('weight'),
               cellDataType: 'number',
+              valueFormatter: (params) => formatNumber(params.value, lang),
             },
             {
               field: 'email',

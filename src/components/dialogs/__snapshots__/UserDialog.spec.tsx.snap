@@ -1497,7 +1497,7 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                           style="left: 600px; width: 200px;"
                           tabindex="-1"
                         >
-                          -65.56
+                          -65,56
                         </div>
                         <div
                           aria-colindex="5"
