@@ -1,5 +1,5 @@
 import { Todo } from '../../src/models/Todo';
-import { todo1 } from '../../test/data/Todo';
+import { todo1 } from '../../src/test/data/Todo';
 
 const todo2 = {
   owner: 'tomsmith',

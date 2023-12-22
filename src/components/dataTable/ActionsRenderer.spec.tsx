@@ -1,15 +1,13 @@
 import { describe, it, expect, vi } from 'vitest';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, screen } from '@testing-library/react';
 import { ActionsRenderer } from './ActionsRenderer';
 import { EntityManager } from './DataTableInterfaces';
 import { BaseEntity } from '../../models/BaseEntity';
-import { currentUserEditor, currentUserReader } from '../../../test/data/CurrentUser';
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
-import { todo1 } from '../../../test/data/Todo';
-import { user1 } from '../../../test/data/User';
+import { currentUserEditor, currentUserReader } from '../../test/data/CurrentUser';
+import { renderWithProviders } from '../../test/Utils';
+import { todo1 } from '../../test/data/Todo';
+import { user1 } from '../../test/data/User';
 import { RootState } from '../../reducers/Store';
-import { Provider } from 'react-redux';
 
 vi.mock('react-i18next', () => ({
   useTranslation: () => ({
@@ -25,13 +23,12 @@ vi.mock('../../thunks/CurrentUserThunks', () => ({
   readCurrentUser: () => ({ type: 'readCurrentUser' }),
 }));
 
-const mockStore = configureStore([thunk]);
-const initialState = {
+const initialState: Partial<RootState> = {
   todos: [todo1],
   users: [user1],
   apiCalls: { runningReads: 0, runningSubmits: 0 },
   currentUser: currentUserEditor,
-} as RootState;
+};
 
 const updateMock = vi.fn();
 const deleteMock = vi.fn();
@@ -43,23 +40,19 @@ const managerMock = {
 
 describe('ActionsRenderer', () => {
   it('should equal saved snapshot', () => {
-    const store = mockStore(initialState);
-    const tree = render(
-      <Provider store={store}>
-        {/* @ts-ignore */}
-        <ActionsRenderer id="id" manager={managerMock} data={{ id: 1 } as any} />
-      </Provider>
+    const tree = renderWithProviders(
+      // @ts-ignore
+      <ActionsRenderer id="id" manager={managerMock} data={{ id: 1 } as any} />,
+      { preloadedState: initialState }
     ).asFragment();
     expect(tree).toMatchSnapshot();
   });
 
   it('should trigger update on button click', () => {
-    const store = mockStore(initialState);
-    render(
-      <Provider store={store}>
-        {/* @ts-ignore */}
-        <ActionsRenderer id="id" manager={managerMock} data={{ id: 1 } as any} />
-      </Provider>
+    renderWithProviders(
+      // @ts-ignore
+      <ActionsRenderer id="id" manager={managerMock} data={{ id: 1 } as any} />,
+      { preloadedState: initialState }
     );
     expect(updateMock.mock.calls.length).toEqual(0);
     fireEvent.click(screen.getByTestId('EditIcon'));
@@ -67,12 +60,10 @@ describe('ActionsRenderer', () => {
   });
 
   it('should trigger delete on button click', () => {
-    const store = mockStore(initialState);
-    render(
-      <Provider store={store}>
-        {/* @ts-ignore */}
-        <ActionsRenderer id="id" manager={managerMock} data={{ id: 1 } as any} />
-      </Provider>
+    renderWithProviders(
+      // @ts-ignore
+      <ActionsRenderer id="id" manager={managerMock} data={{ id: 1 } as any} />,
+      { preloadedState: initialState }
     );
     expect(deleteMock.mock.calls.length).toEqual(0);
     fireEvent.click(screen.getByTestId('DeleteIcon'));
@@ -80,12 +71,10 @@ describe('ActionsRenderer', () => {
   });
 
   it('should hide buttons if not authorized', () => {
-    const store = mockStore({ ...initialState, currentUser: currentUserReader } as RootState);
-    render(
-      <Provider store={store}>
-        {/* @ts-ignore */}
-        <ActionsRenderer id="id" manager={managerMock} data={{ id: 1 } as any} />
-      </Provider>
+    renderWithProviders(
+      // @ts-ignore
+      <ActionsRenderer id="id" manager={managerMock} data={{ id: 1 } as any} />,
+      { preloadedState: { ...initialState, currentUser: currentUserReader } }
     );
     expect(screen.queryByTestId('DeleteIcon')).toBeFalsy();
     expect(screen.queryByTestId('EditIcon')).toBeFalsy();

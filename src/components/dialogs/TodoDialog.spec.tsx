@@ -1,13 +1,10 @@
 import { describe, it, expect, vi } from 'vitest';
-import { render } from '@testing-library/react';
-import { todo1 } from '../../../test/data/Todo';
+import { todo1 } from '../../test/data/Todo';
 import { TodoDialog } from './TodoDialog';
-import { currentUserEditor } from '../../../test/data/CurrentUser';
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
-import { user1 } from '../../../test/data/User';
+import { currentUserEditor } from '../../test/data/CurrentUser';
+import { renderWithProviders } from '../../test/Utils';
+import { user1 } from '../../test/data/User';
 import { RootState } from '../../reducers/Store';
-import { Provider } from 'react-redux';
 
 vi.mock('react-i18next', () => ({
   useTranslation: () => ({
@@ -23,6 +20,15 @@ vi.mock('react-router-dom', () => ({ useNavigate: () => vi.fn() }));
 
 vi.mock('../../hooks/UseNotifier', () => ({ useNotifier: vi.fn() }));
 
+const { dispatchMock } = vi.hoisted(() => ({ dispatchMock: vi.fn() }));
+vi.mock('../../reducers/Store', async () => {
+  const mod = await vi.importActual<typeof import('../../reducers/Store')>('../../reducers/Store');
+  return {
+    ...mod,
+    useAppDispatch: () => dispatchMock.mockImplementation(mod.useAppDispatch()),
+  };
+});
+
 vi.mock('../../thunks/TodosThunks', () => ({
   readTodos: () => ({ type: 'readTodos' }),
   deleteTodo: () => ({ type: 'deleteTodo' }),
@@ -32,34 +38,23 @@ vi.mock('../../thunks/CurrentUserThunks', () => ({
   readCurrentUser: () => ({ type: 'readCurrentUser' }),
 }));
 
-const mockStore = configureStore([thunk]);
-const initialState = {
+const initialState: Partial<RootState> = {
   todos: [todo1],
   users: [user1],
   apiCalls: { runningReads: 0, runningSubmits: 0 },
   currentUser: currentUserEditor,
-} as RootState;
+};
 
 describe('TodoDialog', () => {
   it('should equal saved snapshot', () => {
-    const store = mockStore(initialState);
-    const tree = render(
-      <Provider store={store}>
-        <TodoDialog />
-      </Provider>
-    ).asFragment();
+    const tree = renderWithProviders(<TodoDialog />, { preloadedState: initialState }).asFragment();
     expect(tree).toMatchSnapshot();
   });
 
   it('should load todos if not present', () => {
-    const store = mockStore({ ...initialState, todos: [] } as RootState);
-    expect(store.getActions().length).toEqual(0);
-    render(
-      <Provider store={store}>
-        <TodoDialog />
-      </Provider>
-    );
-    expect(store.getActions().length).toEqual(1);
-    expect(store.getActions()[0]).toEqual({ type: 'readTodos' });
+    expect(dispatchMock.mock.calls.length).toEqual(0);
+    renderWithProviders(<TodoDialog />, { preloadedState: { ...initialState, todos: [] } });
+    expect(dispatchMock.mock.calls.length).toEqual(1);
+    expect(dispatchMock.mock.calls[0][0]).toEqual({ type: 'readTodos' });
   });
 });

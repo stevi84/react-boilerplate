@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { Action } from 'redux';
-import { currentUserReader } from '../../test/data/CurrentUser';
+import { currentUserReader } from '../test/data/CurrentUser';
 import { PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from './Store';
 import { currentUserInitialState, currentUserReducer, currentUserSelector, setCurrentUser } from './CurrentUserReducer';

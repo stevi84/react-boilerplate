@@ -3,7 +3,7 @@ import { Action } from 'redux';
 import { PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from './Store';
 import { Todo } from '../models/Todo';
-import { todo1, todo2, todo3 } from '../../test/data/Todo';
+import { todo1, todo2, todo3 } from '../test/data/Todo';
 import {
   addTodo,
   changeTodo,

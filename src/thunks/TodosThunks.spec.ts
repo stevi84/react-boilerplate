@@ -2,7 +2,7 @@ import { describe, it, expect, vi, Mock } from 'vitest';
 import { AxiosError, AxiosPromise, AxiosResponse } from 'axios';
 import { decreaseReads, decreaseSubmits, increaseReads, increaseSubmits } from '../reducers/ApiCallsReducer';
 import { Todo } from '../models/Todo';
-import { todo1, todo2, todo3 } from '../../test/data/Todo';
+import { todo1, todo2, todo3 } from '../test/data/Todo';
 import { addTodo, changeTodo, removeTodo, setTodos } from '../reducers/TodosReducer';
 import { createTodo, deleteTodo, readTodo, readTodos, updateTodo } from './TodosThunks';
 import {
@@ -44,7 +44,7 @@ describe('TodosThunk', () => {
       expect(dispatch.mock.calls.length).toEqual(4);
       expect(dispatch.mock.calls[0][0]).toEqual(increaseSubmits());
       expect(dispatch.mock.calls[1][0]).toEqual(addTodo(todo1));
-      expect(dispatch.mock.calls[2][0].notification.options.variant).toEqual('success');
+      expect(dispatch.mock.calls[2][0].payload.notification.options.variant).toEqual('success');
       expect(dispatch.mock.calls[3][0]).toEqual(decreaseSubmits());
       expect(todo).toEqual(todo1);
     });
@@ -64,7 +64,7 @@ describe('TodosThunk', () => {
       await expect(createTodo(todo1, 'de')(dispatch, getState, {})).rejects.toThrow('error');
       expect(dispatch.mock.calls.length).toEqual(3);
       expect(dispatch.mock.calls[0][0]).toEqual(increaseSubmits());
-      expect(dispatch.mock.calls[1][0].notification.options.variant).toEqual('error');
+      expect(dispatch.mock.calls[1][0].payload.notification.options.variant).toEqual('error');
       expect(dispatch.mock.calls[2][0]).toEqual(decreaseSubmits());
     });
   });
@@ -105,7 +105,7 @@ describe('TodosThunk', () => {
       await expect(readTodos('de')(dispatch, getState, {})).rejects.toThrow('error');
       expect(dispatch.mock.calls.length).toEqual(3);
       expect(dispatch.mock.calls[0][0]).toEqual(increaseReads());
-      expect(dispatch.mock.calls[1][0].notification.options.variant).toEqual('error');
+      expect(dispatch.mock.calls[1][0].payload.notification.options.variant).toEqual('error');
       expect(dispatch.mock.calls[2][0]).toEqual(decreaseReads());
     });
   });
@@ -127,7 +127,7 @@ describe('TodosThunk', () => {
       expect(dispatch.mock.calls.length).toEqual(4);
       expect(dispatch.mock.calls[0][0]).toEqual(increaseSubmits());
       expect(dispatch.mock.calls[1][0]).toEqual(changeTodo(todo1));
-      expect(dispatch.mock.calls[2][0].notification.options.variant).toEqual('success');
+      expect(dispatch.mock.calls[2][0].payload.notification.options.variant).toEqual('success');
       expect(dispatch.mock.calls[3][0]).toEqual(decreaseSubmits());
       expect(todo).toEqual(todo1);
     });
@@ -147,7 +147,7 @@ describe('TodosThunk', () => {
       await expect(updateTodo(todo1, 'de')(dispatch, getState, {})).rejects.toThrow('error');
       expect(dispatch.mock.calls.length).toEqual(3);
       expect(dispatch.mock.calls[0][0]).toEqual(increaseSubmits());
-      expect(dispatch.mock.calls[1][0].notification.options.variant).toEqual('error');
+      expect(dispatch.mock.calls[1][0].payload.notification.options.variant).toEqual('error');
       expect(dispatch.mock.calls[2][0]).toEqual(decreaseSubmits());
     });
   });
@@ -169,7 +169,7 @@ describe('TodosThunk', () => {
       expect(dispatch.mock.calls.length).toEqual(4);
       expect(dispatch.mock.calls[0][0]).toEqual(increaseSubmits());
       expect(dispatch.mock.calls[1][0]).toEqual(removeTodo(1));
-      expect(dispatch.mock.calls[2][0].notification.options.variant).toEqual('success');
+      expect(dispatch.mock.calls[2][0].payload.notification.options.variant).toEqual('success');
       expect(dispatch.mock.calls[3][0]).toEqual(decreaseSubmits());
     });
 
@@ -188,7 +188,7 @@ describe('TodosThunk', () => {
       await expect(deleteTodo(1, 'de')(dispatch, getState, {})).rejects.toThrow('error');
       expect(dispatch.mock.calls.length).toEqual(3);
       expect(dispatch.mock.calls[0][0]).toEqual(increaseSubmits());
-      expect(dispatch.mock.calls[1][0].notification.options.variant).toEqual('error');
+      expect(dispatch.mock.calls[1][0].payload.notification.options.variant).toEqual('error');
       expect(dispatch.mock.calls[2][0]).toEqual(decreaseSubmits());
     });
   });
@@ -226,7 +226,7 @@ describe('TodosThunk', () => {
       await expect(readTodo(1, 'de', dispatch)).rejects.toThrow('error');
       expect(dispatch.mock.calls.length).toEqual(3);
       expect(dispatch.mock.calls[0][0]).toEqual(increaseReads());
-      expect(dispatch.mock.calls[1][0].notification.options.variant).toEqual('error');
+      expect(dispatch.mock.calls[1][0].payload.notification.options.variant).toEqual('error');
       expect(dispatch.mock.calls[2][0]).toEqual(decreaseReads());
     });
   });

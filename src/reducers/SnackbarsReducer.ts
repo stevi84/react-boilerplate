@@ -1,4 +1,4 @@
-import { Action, createReducer } from '@reduxjs/toolkit';
+import { PrepareAction, createAction, createReducer } from '@reduxjs/toolkit';
 import { OptionsObject, SnackbarKey, SnackbarMessage } from 'notistack';
 import { RootState } from './Store';
 
@@ -12,80 +12,62 @@ interface Snackbar {
   dismissed: boolean;
 }
 
-// Actions
-
-const ENQUEUE_SNACKBAR = 'ENQUEUE_SNACKBAR';
-const CLOSE_SNACKBAR = 'CLOSE_SNACKBAR';
-const REMOVE_SNACKBAR = 'REMOVE_SNACKBAR';
-
-interface EnqueueSnackbarAction extends Action<string> {
-  notification: Snackbar;
-}
-
-export const enqueueSnackbar = (message: SnackbarMessage, options?: OptionsObject): EnqueueSnackbarAction => {
-  return {
-    type: ENQUEUE_SNACKBAR,
-    notification: {
-      message,
-      options,
-      key: (options && options.key) || new Date().getTime() + Math.random(),
-      dismissed: false,
-    },
-  };
-};
-
-interface CloseSnackbarAction extends Action<string> {
-  key: SnackbarKey | undefined;
-  dismissAll: boolean;
-}
-
-export const closeSnackbar = (key?: SnackbarKey): CloseSnackbarAction => ({
-  type: CLOSE_SNACKBAR,
-  dismissAll: !key, // dismiss all if no key has been defined
-  key,
-});
-
-interface RemoveSnackbarAction extends Action<string> {
-  key: SnackbarKey;
-}
-
-export const removeSnackbar = (key: SnackbarKey): RemoveSnackbarAction => ({
-  type: REMOVE_SNACKBAR,
-  key,
-});
-
-// Reducer
-
 interface SnackbarState {
   notifications: Snackbar[];
 }
+
+export const enqueueSnackbar = createAction<PrepareAction<{ notification: Snackbar }>>(
+  'ENQUEUE_SNACKBAR',
+  (message: SnackbarMessage, options?: OptionsObject) => ({
+    payload: {
+      notification: {
+        message,
+        options,
+        key: (options && options.key) || new Date().getTime() + Math.random(),
+        dismissed: false,
+      },
+    },
+  })
+);
+
+export const closeSnackbar = createAction<PrepareAction<{ key?: SnackbarKey; dismissAll: boolean }>>(
+  'CLOSE_SNACKBAR',
+  (key?: SnackbarKey) => ({
+    payload: {
+      dismissAll: !key, // dismiss all if no key has been defined
+      key,
+    },
+  })
+);
+
+export const removeSnackbar = createAction<PrepareAction<{ key: SnackbarKey }>>(
+  'REMOVE_SNACKBAR',
+  (key: SnackbarKey) => ({
+    payload: {
+      key,
+    },
+  })
+);
 
 export const snackbarsInitialState: SnackbarState = {
   notifications: [],
 };
 
-export const snackbarsReducer = createReducer(snackbarsInitialState, {
-  [ENQUEUE_SNACKBAR]: (state, action: EnqueueSnackbarAction) => {
-    return {
-      notifications: [...state.notifications, { ...action.notification }],
-    };
-  },
-  [CLOSE_SNACKBAR]: (state, action: CloseSnackbarAction) => {
-    return {
+export const snackbarsReducer = createReducer(snackbarsInitialState, (builder) =>
+  builder
+    .addCase(enqueueSnackbar, (state, action) => ({
+      notifications: [...state.notifications, { ...action.payload.notification }],
+    }))
+    .addCase(closeSnackbar, (state, action) => ({
       notifications: state.notifications.map((notification) =>
-        action.dismissAll || notification.key === action.key
+        action.payload.dismissAll || notification.key === action.payload.key
           ? { ...notification, dismissed: true }
           : { ...notification }
       ),
-    };
-  },
-  [REMOVE_SNACKBAR]: (state, action: RemoveSnackbarAction) => {
-    return {
-      notifications: state.notifications.filter((n) => n.key !== action.key),
-    };
-  },
-});
+    }))
+    .addCase(removeSnackbar, (state, action) => ({
+      notifications: state.notifications.filter((n) => n.key !== action.payload.key),
+    }))
+);
 
-// Selektoren
-
-export const notificationsSelector = (state: RootState): Snackbar[] => state.snackbar.notifications;
+export const notificationsSelector = (state: RootState): Snackbar[] => state?.snackbar?.notifications || [];

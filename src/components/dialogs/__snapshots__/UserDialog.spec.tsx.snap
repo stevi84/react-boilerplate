@@ -224,17 +224,17 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                     >
                       <div
                         aria-colindex="1"
-                        aria-description="Press ENTER to sort."
+                        aria-description=" Press ENTER to sort."
                         aria-sort="none"
-                        class="ag-header-cell ag-header-cell-sortable ag-focus-managed"
+                        class="ag-header-cell ag-column-first ag-header-cell-sortable ag-focus-managed"
                         col-id="name"
                         role="columnheader"
-                        style="width: 200px; top: 0px; height: 48px; left: 0px;"
+                        style="top: 0px; height: 48px; width: 200px; left: 0px;"
                         tabindex="-1"
                       >
                         <div
-                          aria-hidden="true"
-                          class="ag-header-cell-resize ag-hidden"
+                          aria-hidden="false"
+                          class="ag-header-cell-resize"
                           role="presentation"
                         />
                         <div
@@ -247,6 +247,7 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                           <div
                             aria-hidden="true"
                             class="ag-input-field-label ag-label ag-hidden ag-checkbox-label"
+                            id="ag-3-label"
                             ref="eLabel"
                             role="presentation"
                           />
@@ -389,17 +390,17 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                       </div>
                       <div
                         aria-colindex="2"
-                        aria-description="Press ENTER to sort."
+                        aria-description=" Press ENTER to sort."
                         aria-sort="none"
                         class="ag-header-cell ag-header-cell-sortable ag-focus-managed"
                         col-id="dateOfBirth"
                         role="columnheader"
-                        style="width: 200px; top: 0px; height: 48px; left: 200px;"
+                        style="top: 0px; height: 48px; width: 200px; left: 200px;"
                         tabindex="-1"
                       >
                         <div
-                          aria-hidden="true"
-                          class="ag-header-cell-resize ag-hidden"
+                          aria-hidden="false"
+                          class="ag-header-cell-resize"
                           role="presentation"
                         />
                         <div
@@ -412,6 +413,7 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                           <div
                             aria-hidden="true"
                             class="ag-input-field-label ag-label ag-hidden ag-checkbox-label"
+                            id="ag-4-label"
                             ref="eLabel"
                             role="presentation"
                           />
@@ -554,17 +556,17 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                       </div>
                       <div
                         aria-colindex="3"
-                        aria-description="Press ENTER to sort."
+                        aria-description=" Press ENTER to sort."
                         aria-sort="none"
                         class="ag-header-cell ag-header-cell-sortable ag-focus-managed"
                         col-id="size"
                         role="columnheader"
-                        style="width: 200px; top: 0px; height: 48px; left: 400px;"
+                        style="top: 0px; height: 48px; width: 200px; left: 400px;"
                         tabindex="-1"
                       >
                         <div
-                          aria-hidden="true"
-                          class="ag-header-cell-resize ag-hidden"
+                          aria-hidden="false"
+                          class="ag-header-cell-resize"
                           role="presentation"
                         />
                         <div
@@ -577,6 +579,7 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                           <div
                             aria-hidden="true"
                             class="ag-input-field-label ag-label ag-hidden ag-checkbox-label"
+                            id="ag-5-label"
                             ref="eLabel"
                             role="presentation"
                           />
@@ -719,17 +722,17 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                       </div>
                       <div
                         aria-colindex="4"
-                        aria-description="Press ENTER to sort."
+                        aria-description=" Press ENTER to sort."
                         aria-sort="none"
                         class="ag-header-cell ag-header-cell-sortable ag-focus-managed"
                         col-id="weight"
                         role="columnheader"
-                        style="width: 200px; top: 0px; height: 48px; left: 600px;"
+                        style="top: 0px; height: 48px; width: 200px; left: 600px;"
                         tabindex="-1"
                       >
                         <div
-                          aria-hidden="true"
-                          class="ag-header-cell-resize ag-hidden"
+                          aria-hidden="false"
+                          class="ag-header-cell-resize"
                           role="presentation"
                         />
                         <div
@@ -742,6 +745,7 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                           <div
                             aria-hidden="true"
                             class="ag-input-field-label ag-label ag-hidden ag-checkbox-label"
+                            id="ag-6-label"
                             ref="eLabel"
                             role="presentation"
                           />
@@ -884,17 +888,17 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                       </div>
                       <div
                         aria-colindex="5"
-                        aria-description="Press ENTER to sort."
+                        aria-description=" Press ENTER to sort."
                         aria-sort="none"
                         class="ag-header-cell ag-header-cell-sortable ag-focus-managed"
                         col-id="email"
                         role="columnheader"
-                        style="width: 200px; top: 0px; height: 48px; left: 800px;"
+                        style="top: 0px; height: 48px; width: 200px; left: 800px;"
                         tabindex="-1"
                       >
                         <div
-                          aria-hidden="true"
-                          class="ag-header-cell-resize ag-hidden"
+                          aria-hidden="false"
+                          class="ag-header-cell-resize"
                           role="presentation"
                         />
                         <div
@@ -907,6 +911,7 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                           <div
                             aria-hidden="true"
                             class="ag-input-field-label ag-label ag-hidden ag-checkbox-label"
+                            id="ag-7-label"
                             ref="eLabel"
                             role="presentation"
                           />
@@ -1049,17 +1054,17 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                       </div>
                       <div
                         aria-colindex="6"
-                        aria-description="Press ENTER to sort."
+                        aria-description=" Press ENTER to sort."
                         aria-sort="none"
                         class="ag-header-cell ag-header-cell-sortable ag-focus-managed"
                         col-id="phone"
                         role="columnheader"
-                        style="width: 200px; top: 0px; height: 48px; left: 1000px;"
+                        style="top: 0px; height: 48px; width: 200px; left: 1000px;"
                         tabindex="-1"
                       >
                         <div
-                          aria-hidden="true"
-                          class="ag-header-cell-resize ag-hidden"
+                          aria-hidden="false"
+                          class="ag-header-cell-resize"
                           role="presentation"
                         />
                         <div
@@ -1072,6 +1077,7 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                           <div
                             aria-hidden="true"
                             class="ag-input-field-label ag-label ag-hidden ag-checkbox-label"
+                            id="ag-8-label"
                             ref="eLabel"
                             role="presentation"
                           />
@@ -1214,17 +1220,17 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                       </div>
                       <div
                         aria-colindex="7"
-                        aria-description="Press ENTER to sort."
+                        aria-description=" Press ENTER to sort."
                         aria-sort="none"
-                        class="ag-header-cell ag-header-cell-sortable ag-focus-managed"
+                        class="ag-header-cell ag-column-last ag-header-cell-sortable ag-focus-managed"
                         col-id="actions"
                         role="columnheader"
-                        style="width: 200px; top: 0px; height: 48px; left: 1200px;"
+                        style="top: 0px; height: 48px; width: 200px; left: 1200px;"
                         tabindex="-1"
                       >
                         <div
-                          aria-hidden="true"
-                          class="ag-header-cell-resize ag-hidden"
+                          aria-hidden="false"
+                          class="ag-header-cell-resize"
                           role="presentation"
                         />
                         <div
@@ -1237,6 +1243,7 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                           <div
                             aria-hidden="true"
                             class="ag-input-field-label ag-label ag-hidden ag-checkbox-label"
+                            id="ag-9-label"
                             ref="eLabel"
                             role="presentation"
                           />
@@ -1430,7 +1437,7 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
               >
                 <!-- AG Middle -->
                 <div
-                  class="ag-body-viewport ag-row-no-animation ag-layout-auto-height"
+                  class="ag-body-viewport ag-row-animation ag-layout-auto-height"
                   role="presentation"
                 >
                   <!-- AG Row Container left -->
@@ -1461,7 +1468,7 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                       >
                         <div
                           aria-colindex="1"
-                          class="ag-cell ag-cell-not-inline-editing ag-cell-normal-height ag-cell-value"
+                          class="ag-cell ag-cell-not-inline-editing ag-cell-normal-height ag-column-first ag-cell-value"
                           col-id="name"
                           role="gridcell"
                           style="left: 0px; width: 200px;"
@@ -1521,7 +1528,7 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                         </div>
                         <div
                           aria-colindex="7"
-                          class="ag-cell ag-cell-not-inline-editing ag-cell-normal-height ag-cell-value"
+                          class="ag-cell ag-cell-not-inline-editing ag-cell-normal-height ag-column-last ag-cell-value"
                           col-id="actions"
                           role="gridcell"
                           style="left: 1200px; width: 200px;"
@@ -1770,6 +1777,13 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
             class="ag-paging-panel ag-unselectable ag-hidden"
             id="ag-10"
           >
+            
+                
+            <!--AG-PAGE-SIZE-SELECTOR-->
+            <span
+              class="ag-paging-page-size"
+              ref="pageSizeComp"
+            />
             
                 
             <span

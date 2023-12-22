@@ -1,6 +1,6 @@
 import { describe, expect, it, vi, Mocked } from 'vitest';
 import { Todo } from '../models/Todo';
-import { todo1, todo2, todo3 } from '../../test/data/Todo';
+import { todo1, todo2, todo3 } from '../test/data/Todo';
 import { getUrl } from './BaseApi';
 import { createTodo, deleteTodo, readTodo, readTodos, replaceTodo, updateTodo } from './TodoApi';
 import axios, { AxiosResponse, AxiosStatic } from 'axios';

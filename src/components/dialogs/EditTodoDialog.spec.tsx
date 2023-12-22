@@ -1,13 +1,11 @@
 import { describe, it, expect, vi } from 'vitest';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, screen } from '@testing-library/react';
 import { EditTodoDialog } from './EditTodoDialog';
-import { todo1 } from '../../../test/data/Todo';
-import { currentUserEditor } from '../../../test/data/CurrentUser';
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
-import { user1 } from '../../../test/data/User';
+import { todo1 } from '../../test/data/Todo';
+import { currentUserEditor } from '../../test/data/CurrentUser';
+import { renderWithProviders } from '../../test/Utils';
+import { user1 } from '../../test/data/User';
 import { RootState } from '../../reducers/Store';
-import { Provider } from 'react-redux';
 
 vi.mock('react-i18next', () => ({
   useTranslation: () => ({
@@ -30,6 +28,15 @@ vi.mock('react-router-dom', () => ({
 
 vi.mock('../../hooks/UseNotifier', () => ({ useNotifier: vi.fn() }));
 
+const { dispatchMock } = vi.hoisted(() => ({ dispatchMock: vi.fn() }));
+vi.mock('../../reducers/Store', async () => {
+  const mod = await vi.importActual<typeof import('../../reducers/Store')>('../../reducers/Store');
+  return {
+    ...mod,
+    useAppDispatch: () => dispatchMock.mockImplementation(mod.useAppDispatch()),
+  };
+});
+
 const { readTodoMock } = vi.hoisted(() => ({ readTodoMock: vi.fn() }));
 vi.mock('../../thunks/TodosThunks', () => ({
   createTodo: () => ({ type: 'createTodo' }),
@@ -41,13 +48,12 @@ vi.mock('../../thunks/CurrentUserThunks', () => ({
   readCurrentUser: () => ({ type: 'readCurrentUser' }),
 }));
 
-const mockStore = configureStore([thunk]);
-const initialState = {
+const initialState: Partial<RootState> = {
   todos: [todo1],
   users: [user1],
   apiCalls: { runningReads: 0, runningSubmits: 0 },
   currentUser: currentUserEditor,
-} as RootState;
+};
 
 describe('EditTodoDialog', () => {
   beforeEach(() => {
@@ -55,119 +61,78 @@ describe('EditTodoDialog', () => {
   });
 
   it('should equal saved snapshot', () => {
-    const store = mockStore(initialState);
     useParamsMock.mockReturnValue({ id: 1 });
-    const tree = render(
-      <Provider store={store}>
-        <EditTodoDialog />
-      </Provider>
-    ).asFragment();
+    const tree = renderWithProviders(<EditTodoDialog />, { preloadedState: initialState }).asFragment();
     expect(tree).toMatchSnapshot();
   });
 
   it('should load todo if updating', () => {
-    const store = mockStore(initialState);
     useParamsMock.mockReturnValue({ id: '1' });
     expect(readTodoMock.mock.calls.length).toEqual(0);
-    render(
-      <Provider store={store}>
-        <EditTodoDialog />
-      </Provider>
-    );
+    renderWithProviders(<EditTodoDialog />, { preloadedState: initialState });
     expect(readTodoMock.mock.calls.length).toEqual(1);
     expect(readTodoMock.mock.calls[0][0]).toEqual(1);
     expect(readTodoMock.mock.calls[0][1]).toEqual('de');
   });
 
   it('should not load todo if creating', () => {
-    const store = mockStore(initialState);
     useParamsMock.mockReturnValue({ id: 'new' });
-    render(
-      <Provider store={store}>
-        <EditTodoDialog />
-      </Provider>
-    );
+    renderWithProviders(<EditTodoDialog />, { preloadedState: initialState });
     expect(readTodoMock.mock.calls.length).toEqual(0);
   });
 
   // it('should dispatch createTodo on saving new todo', () => {
-  //   const store = mockStore(initialState);
   //   useParamsMock.mockReturnValue({ id: 'new' });
-  //   expect(store.getActions().length).toEqual(0);
-  //   render(
-  //     <Provider store={store}>
-  //       <EditTodoDialog />
-  //     </Provider>
-  //   );
+  //   expect(dispatchMock.mock.calls.length).toEqual(0);
+  //   renderWithProviders(<EditTodoDialog />, { preloadedState: initialState });
   //   fireEvent.change(screen.getByLabelText('owner'), { target: { value: 'owner' } });
   //   fireEvent.change(screen.getByLabelText('dueDate'), { target: { value: '06.12.2023' } });
   //   fireEvent.change(screen.getByLabelText('description'), { target: { value: 'description' } });
   //   fireEvent.click(screen.getByText('save'));
-  //   expect(store.getActions().length).toEqual(1);
-  //   expect(store.getActions()[0]).toEqual({ type: 'createTodo' });
+  //   expect(dispatchMock.mock.calls.length).toEqual(1);
+  //   expect(dispatchMock.mock.calls[0][0]).toEqual({ type: 'createTodo' });
   // });
 
   // it('should dispatch updateTodo on saving existing todo', () => {
-  //   const store = mockStore(initialState);
   //   useParamsMock.mockReturnValue({ id: '1' });
-  //   expect(store.getActions().length).toEqual(0);
-  //   render(
-  //     <Provider store={store}>
-  //       <EditTodoDialog />
-  //     </Provider>
-  //   );
+  //   expect(dispatchMock.mock.calls.length).toEqual(0);
+  //   renderWithProviders(<EditTodoDialog />, { preloadedState: initialState });
   //   fireEvent.change(screen.getByLabelText('owner'), { target: { value: 'change' } });
   //   fireEvent.click(screen.getByText('save'));
-  //   expect(store.getActions().length).toEqual(1);
-  //   expect(store.getActions()[0]).toEqual({ type: 'updateTodo' });
+  //   expect(dispatchMock.mock.calls.length).toEqual(1);
+  //   expect(dispatchMock.mock.calls[0][0]).toEqual({ type: 'updateTodo' });
   // });
 
   it('should navigate to todos on cancel', () => {
-    const store = mockStore(initialState);
     useParamsMock.mockReturnValue({ id: '1' });
     expect(navigateMock.mock.calls.length).toEqual(0);
-    render(
-      <Provider store={store}>
-        <EditTodoDialog />
-      </Provider>
-    );
+    renderWithProviders(<EditTodoDialog />, { preloadedState: initialState });
     fireEvent.click(screen.getByText('cancel'));
     expect(navigateMock.mock.calls.length).toEqual(1);
     expect(navigateMock.mock.calls[0][0]).toEqual('/todos');
   });
 
   it('should show dialog if not reading or submitting', () => {
-    const store = mockStore(initialState);
     useParamsMock.mockReturnValue({ id: 1 });
-    render(
-      <Provider store={store}>
-        <EditTodoDialog />
-      </Provider>
-    );
+    renderWithProviders(<EditTodoDialog />, { preloadedState: initialState });
     expect(screen.getByLabelText('owner')).toBeTruthy();
     expect(screen.queryByRole('progressbar')).toBeFalsy();
   });
 
   it('should show working if reading', () => {
-    const store = mockStore({ ...initialState, apiCalls: { runningReads: 1, runningSubmits: 0 } } as RootState);
     useParamsMock.mockReturnValue({ id: 1 });
-    render(
-      <Provider store={store}>
-        <EditTodoDialog />
-      </Provider>
-    );
+    renderWithProviders(<EditTodoDialog />, {
+      preloadedState: { ...initialState, apiCalls: { runningReads: 1, runningSubmits: 0 } },
+    });
     expect(screen.queryByLabelText('owner')).toBeFalsy();
     expect(screen.getByRole('progressbar')).toBeTruthy();
   });
 
   it('should show working if submitting', () => {
-    const store = mockStore({ ...initialState, apiCalls: { runningReads: 0, runningSubmits: 1 } } as RootState);
     useParamsMock.mockReturnValue({ id: 1 });
-    render(
-      <Provider store={store}>
-        <EditTodoDialog />
-      </Provider>
-    );
+    renderWithProviders(<EditTodoDialog />, {
+      preloadedState: { ...initialState, apiCalls: { runningReads: 0, runningSubmits: 1 } },
+    });
     expect(screen.queryByLabelText('owner')).toBeFalsy();
     expect(screen.getByRole('progressbar')).toBeTruthy();
   });

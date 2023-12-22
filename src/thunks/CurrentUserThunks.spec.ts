@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, Mocked } from 'vitest';
-import { currentUserReader } from '../../test/data/CurrentUser';
+import { currentUserReader } from '../test/data/CurrentUser';
 import { AxiosError, AxiosResponse } from 'axios';
 import { api } from '../apis/OpenApiClient';
 import OpenAPIClientAxios from 'openapi-client-axios';
@@ -52,7 +52,7 @@ describe('CurrentUserReducer', () => {
       await expect(readCurrentUser('de')(dispatch, getState, {})).rejects.toThrow('error');
       expect(dispatch.mock.calls.length).toEqual(3);
       expect(dispatch.mock.calls[0][0]).toEqual(increaseReads());
-      expect(dispatch.mock.calls[1][0].notification.options.variant).toEqual('error');
+      expect(dispatch.mock.calls[1][0].payload.notification.options.variant).toEqual('error');
       expect(dispatch.mock.calls[2][0]).toEqual(decreaseReads());
     });
   });

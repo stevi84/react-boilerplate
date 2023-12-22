@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
-import { todo1 } from '../../test/data/Todo';
-import { user1 } from '../../test/data/User';
-import { currentUserEditor } from '../../test/data/CurrentUser';
+import { todo1 } from '../../src/test/data/Todo';
+import { user1 } from '../../src/test/data/User';
+import { currentUserEditor } from '../../src/test/data/CurrentUser';
 
 // ***********************************************
 // This example commands.ts shows you how to

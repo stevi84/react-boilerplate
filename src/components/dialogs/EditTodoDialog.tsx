@@ -82,10 +82,10 @@ export const EditTodoDialog = () => {
                         !form.dirty
                           ? t('tooltip_no_changes')
                           : !form.isValid
-                          ? t('tooltip_invalid')
-                          : isSubmitting
-                          ? t('tooltip_submitting')
-                          : t('save')
+                            ? t('tooltip_invalid')
+                            : isSubmitting
+                              ? t('tooltip_submitting')
+                              : t('save')
                       }
                     >
                       <span>

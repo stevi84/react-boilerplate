@@ -1,13 +1,10 @@
 import { describe, it, expect, vi } from 'vitest';
 import { AdminDialog } from './AdminDialog';
-import { currentUserAdmin } from '../../../test/data/CurrentUser';
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
+import { currentUserAdmin } from '../../test/data/CurrentUser';
+import { renderWithProviders } from '../../test/Utils';
 import { RootState } from '../../reducers/Store';
-import { todo1 } from '../../../test/data/Todo';
-import { user1 } from '../../../test/data/User';
-import { Provider } from 'react-redux';
-import { render } from '@testing-library/react';
+import { todo1 } from '../../test/data/Todo';
+import { user1 } from '../../test/data/User';
 
 vi.mock('react-i18next', () => ({
   useTranslation: () => ({
@@ -27,22 +24,16 @@ vi.mock('../../thunks/CurrentUserThunks', () => ({
   readCurrentUser: () => ({ type: 'readCurrentUser' }),
 }));
 
-const mockStore = configureStore([thunk]);
-const initialState = {
+const initialState: Partial<RootState> = {
   todos: [todo1],
   users: [user1],
   apiCalls: { runningReads: 0, runningSubmits: 0 },
   currentUser: currentUserAdmin,
-} as RootState;
+};
 
 describe('AdminDialog', () => {
   it('should equal saved snapshot', () => {
-    const store = mockStore(initialState);
-    const tree = render(
-      <Provider store={store}>
-        <AdminDialog />
-      </Provider>
-    ).asFragment();
+    const tree = renderWithProviders(<AdminDialog />, { preloadedState: initialState }).asFragment();
     expect(tree).toMatchSnapshot();
   });
 });

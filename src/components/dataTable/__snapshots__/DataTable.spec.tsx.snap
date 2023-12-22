@@ -122,17 +122,17 @@ exports[`DataTable > should equal saved snapshot 1`] = `
                   >
                     <div
                       aria-colindex="1"
-                      aria-description="Press ENTER to sort."
+                      aria-description=" Press ENTER to sort."
                       aria-sort="none"
-                      class="ag-header-cell ag-header-cell-sortable ag-focus-managed"
+                      class="ag-header-cell ag-column-first ag-column-last ag-header-cell-sortable ag-focus-managed"
                       col-id="actions"
                       role="columnheader"
-                      style="width: 200px; top: 0px; height: 48px; left: 0px;"
+                      style="top: 0px; height: 48px; width: 200px; left: 0px;"
                       tabindex="-1"
                     >
                       <div
-                        aria-hidden="true"
-                        class="ag-header-cell-resize ag-hidden"
+                        aria-hidden="false"
+                        class="ag-header-cell-resize"
                         role="presentation"
                       />
                       <div
@@ -145,6 +145,7 @@ exports[`DataTable > should equal saved snapshot 1`] = `
                         <div
                           aria-hidden="true"
                           class="ag-input-field-label ag-label ag-hidden ag-checkbox-label"
+                          id="ag-4-label"
                           ref="eLabel"
                           role="presentation"
                         />
@@ -338,7 +339,7 @@ exports[`DataTable > should equal saved snapshot 1`] = `
             >
               <!-- AG Middle -->
               <div
-                class="ag-body-viewport ag-row-no-animation ag-layout-auto-height"
+                class="ag-body-viewport ag-row-animation ag-layout-auto-height"
                 role="presentation"
               >
                 <!-- AG Row Container left -->
@@ -551,6 +552,13 @@ exports[`DataTable > should equal saved snapshot 1`] = `
           class="ag-paging-panel ag-unselectable ag-hidden"
           id="ag-5"
         >
+          
+                
+          <!--AG-PAGE-SIZE-SELECTOR-->
+          <span
+            class="ag-paging-page-size"
+            ref="pageSizeComp"
+          />
           
                 
           <span

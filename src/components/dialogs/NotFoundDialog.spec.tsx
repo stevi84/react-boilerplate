@@ -1,13 +1,10 @@
 import { describe, it, expect, vi } from 'vitest';
 import { NotFoundDialog } from './NotFoundDialog';
-import { currentUserEditor } from '../../../test/data/CurrentUser';
-import { render } from '@testing-library/react';
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
-import { todo1 } from '../../../test/data/Todo';
-import { user1 } from '../../../test/data/User';
+import { currentUserEditor } from '../../test/data/CurrentUser';
+import { renderWithProviders } from '../../test/Utils';
+import { todo1 } from '../../test/data/Todo';
+import { user1 } from '../../test/data/User';
 import { RootState } from '../../reducers/Store';
-import { Provider } from 'react-redux';
 
 vi.mock('react-i18next', () => ({
   useTranslation: () => ({
@@ -27,22 +24,16 @@ vi.mock('../../thunks/CurrentUserThunks', () => ({
   readCurrentUser: () => ({ type: 'readCurrentUser' }),
 }));
 
-const mockStore = configureStore([thunk]);
-const initialState = {
+const initialState: Partial<RootState> = {
   todos: [todo1],
   users: [user1],
   apiCalls: { runningReads: 0, runningSubmits: 0 },
   currentUser: currentUserEditor,
-} as RootState;
+};
 
 describe('NotFound', () => {
   it('should equal saved snapshot', () => {
-    const store = mockStore(initialState);
-    const tree = render(
-      <Provider store={store}>
-        <NotFoundDialog />
-      </Provider>
-    ).asFragment();
+    const tree = renderWithProviders(<NotFoundDialog />, { preloadedState: initialState }).asFragment();
     expect(tree).toMatchSnapshot();
   });
 });

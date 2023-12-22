@@ -2,7 +2,7 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { store } from './reducers/Store';
+import { setupStore } from './reducers/Store';
 import { TodoDialog } from './components/dialogs/TodoDialog';
 import './i18n';
 import './globals/global.css';
@@ -90,6 +90,7 @@ const theme = createTheme({
 
 const container = document.getElementById('root') as HTMLElement;
 const root = createRoot(container);
+const store = setupStore();
 
 root.render(
   <React.StrictMode>

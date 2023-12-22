@@ -1,4 +1,4 @@
-import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
+import { combineReducers, configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import { todosReducer } from './TodosReducer';
 import { apiCallsReducer } from './ApiCallsReducer';
@@ -6,18 +6,24 @@ import { snackbarsReducer } from './SnackbarsReducer';
 import { usersReducer } from './UsersReducer';
 import { currentUserReducer } from './CurrentUserReducer';
 
-export const store = configureStore({
-  reducer: {
-    snackbar: snackbarsReducer,
-    todos: todosReducer,
-    users: usersReducer,
-    apiCalls: apiCallsReducer,
-    currentUser: currentUserReducer,
-  },
+const rootReducer = combineReducers({
+  snackbar: snackbarsReducer,
+  todos: todosReducer,
+  users: usersReducer,
+  apiCalls: apiCallsReducer,
+  currentUser: currentUserReducer,
 });
 
-export type AppDispatch = typeof store.dispatch;
-export type RootState = ReturnType<typeof store.getState>;
+export const setupStore = (preloadedState?: Partial<RootState>) => {
+  return configureStore({
+    reducer: rootReducer,
+    preloadedState,
+  });
+};
+
+export type RootState = ReturnType<typeof rootReducer>;
+export type AppStore = ReturnType<typeof setupStore>;
+export type AppDispatch = AppStore['dispatch'];
 export type AppThunk<ReturnType = void> = ThunkAction<ReturnType, RootState, unknown, Action<string>>;
 
 export const useAppDispatch = () => useDispatch<AppDispatch>();

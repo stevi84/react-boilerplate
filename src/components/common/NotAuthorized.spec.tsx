@@ -1,13 +1,11 @@
 import { describe, it, expect, vi } from 'vitest';
 import { NotAuthorized } from './NotAuthorized';
-import { fireEvent, render, screen } from '@testing-library/react';
-import { currentUserEditor } from '../../../test/data/CurrentUser';
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
-import { todo1 } from '../../../test/data/Todo';
-import { user1 } from '../../../test/data/User';
+import { fireEvent, screen } from '@testing-library/react';
+import { currentUserEditor } from '../../test/data/CurrentUser';
+import { renderWithProviders } from '../../test/Utils';
+import { todo1 } from '../../test/data/Todo';
+import { user1 } from '../../test/data/User';
 import { RootState } from '../../reducers/Store';
-import { Provider } from 'react-redux';
 
 vi.mock('react-i18next', () => ({
   useTranslation: () => ({
@@ -28,32 +26,21 @@ vi.mock('../../thunks/CurrentUserThunks', () => ({
   readCurrentUser: () => ({ type: 'readCurrentUser' }),
 }));
 
-const mockStore = configureStore([thunk]);
-const initialState = {
+const initialState: Partial<RootState> = {
   todos: [todo1],
   users: [user1],
   apiCalls: { runningReads: 0, runningSubmits: 0 },
   currentUser: currentUserEditor,
-} as RootState;
+};
 
 describe('NotAuthorized', () => {
   it('should equal saved snapshot', () => {
-    const store = mockStore(initialState);
-    const tree = render(
-      <Provider store={store}>
-        <NotAuthorized />
-      </Provider>
-    ).asFragment();
+    const tree = renderWithProviders(<NotAuthorized />, { preloadedState: initialState }).asFragment();
     expect(tree).toMatchSnapshot();
   });
 
   it('should navigate to dashboard on button click', () => {
-    const store = mockStore(initialState);
-    render(
-      <Provider store={store}>
-        <NotAuthorized />
-      </Provider>
-    );
+    renderWithProviders(<NotAuthorized />, { preloadedState: initialState });
     expect(navigateMock.mock.calls.length).toEqual(0);
     fireEvent.click(screen.getByTestId('ArrowBackIcon'));
     expect(navigateMock.mock.calls.length).toEqual(1);

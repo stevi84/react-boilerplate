@@ -10,7 +10,7 @@ import {
   usersSelector,
 } from './UsersReducer';
 import { User } from '../models/User';
-import { user1, user2, user3 } from '../../test/data/User';
+import { user1, user2, user3 } from '../test/data/User';
 import { PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from './Store';
 

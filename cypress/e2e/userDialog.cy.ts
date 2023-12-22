@@ -1,5 +1,5 @@
 import { User } from '../../src/models/User';
-import { user1 } from '../../test/data/User';
+import { user1 } from '../../src/test/data/User';
 
 const user2 = {
   id: 2,

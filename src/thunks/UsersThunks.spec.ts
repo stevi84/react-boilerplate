@@ -2,7 +2,7 @@ import { describe, it, expect, vi, Mocked } from 'vitest';
 import { createUser, deleteUser, readUser, readUsers, updateUser } from './UsersThunks';
 import { addUser, changeUser, removeUser, setUsers } from '../reducers/UsersReducer';
 import { User } from '../models/User';
-import { user1, user2, user3 } from '../../test/data/User';
+import { user1, user2, user3 } from '../test/data/User';
 import { AxiosError, AxiosResponse } from 'axios';
 import { api } from '../apis/OpenApiClient';
 import OpenAPIClientAxios from 'openapi-client-axios';
@@ -38,7 +38,7 @@ describe('UsersThunks', () => {
       expect(dispatch.mock.calls.length).toEqual(4);
       expect(dispatch.mock.calls[0][0]).toEqual(increaseSubmits());
       expect(dispatch.mock.calls[1][0]).toEqual(addUser(user1));
-      expect(dispatch.mock.calls[2][0].notification.options.variant).toEqual('success');
+      expect(dispatch.mock.calls[2][0].payload.notification.options.variant).toEqual('success');
       expect(dispatch.mock.calls[3][0]).toEqual(decreaseSubmits());
       expect(user).toEqual(user1);
     });
@@ -59,7 +59,7 @@ describe('UsersThunks', () => {
       await expect(createUser(user1, 'de')(dispatch, getState, {})).rejects.toThrow('error');
       expect(dispatch.mock.calls.length).toEqual(3);
       expect(dispatch.mock.calls[0][0]).toEqual(increaseSubmits());
-      expect(dispatch.mock.calls[1][0].notification.options.variant).toEqual('error');
+      expect(dispatch.mock.calls[1][0].payload.notification.options.variant).toEqual('error');
       expect(dispatch.mock.calls[2][0]).toEqual(decreaseSubmits());
     });
   });
@@ -102,7 +102,7 @@ describe('UsersThunks', () => {
       await expect(readUsers('de')(dispatch, getState, {})).rejects.toThrow('error');
       expect(dispatch.mock.calls.length).toEqual(3);
       expect(dispatch.mock.calls[0][0]).toEqual(increaseReads());
-      expect(dispatch.mock.calls[1][0].notification.options.variant).toEqual('error');
+      expect(dispatch.mock.calls[1][0].payload.notification.options.variant).toEqual('error');
       expect(dispatch.mock.calls[2][0]).toEqual(decreaseReads());
     });
   });
@@ -125,7 +125,7 @@ describe('UsersThunks', () => {
       expect(dispatch.mock.calls.length).toEqual(4);
       expect(dispatch.mock.calls[0][0]).toEqual(increaseSubmits());
       expect(dispatch.mock.calls[1][0]).toEqual(changeUser(user1));
-      expect(dispatch.mock.calls[2][0].notification.options.variant).toEqual('success');
+      expect(dispatch.mock.calls[2][0].payload.notification.options.variant).toEqual('success');
       expect(dispatch.mock.calls[3][0]).toEqual(decreaseSubmits());
       expect(user).toEqual(user1);
     });
@@ -146,7 +146,7 @@ describe('UsersThunks', () => {
       await expect(updateUser(user1, 'de')(dispatch, getState, {})).rejects.toThrow('error');
       expect(dispatch.mock.calls.length).toEqual(3);
       expect(dispatch.mock.calls[0][0]).toEqual(increaseSubmits());
-      expect(dispatch.mock.calls[1][0].notification.options.variant).toEqual('error');
+      expect(dispatch.mock.calls[1][0].payload.notification.options.variant).toEqual('error');
       expect(dispatch.mock.calls[2][0]).toEqual(decreaseSubmits());
     });
   });
@@ -169,7 +169,7 @@ describe('UsersThunks', () => {
       expect(dispatch.mock.calls.length).toEqual(4);
       expect(dispatch.mock.calls[0][0]).toEqual(increaseSubmits());
       expect(dispatch.mock.calls[1][0]).toEqual(removeUser(1));
-      expect(dispatch.mock.calls[2][0].notification.options.variant).toEqual('success');
+      expect(dispatch.mock.calls[2][0].payload.notification.options.variant).toEqual('success');
       expect(dispatch.mock.calls[3][0]).toEqual(decreaseSubmits());
     });
 
@@ -189,7 +189,7 @@ describe('UsersThunks', () => {
       await expect(deleteUser(1, 'de')(dispatch, getState, {})).rejects.toThrow('error');
       expect(dispatch.mock.calls.length).toEqual(3);
       expect(dispatch.mock.calls[0][0]).toEqual(increaseSubmits());
-      expect(dispatch.mock.calls[1][0].notification.options.variant).toEqual('error');
+      expect(dispatch.mock.calls[1][0].payload.notification.options.variant).toEqual('error');
       expect(dispatch.mock.calls[2][0]).toEqual(decreaseSubmits());
     });
   });
@@ -229,7 +229,7 @@ describe('UsersThunks', () => {
       await expect(readUser(1, 'de', dispatch)).rejects.toThrow('error');
       expect(dispatch.mock.calls.length).toEqual(3);
       expect(dispatch.mock.calls[0][0]).toEqual(increaseReads());
-      expect(dispatch.mock.calls[1][0].notification.options.variant).toEqual('error');
+      expect(dispatch.mock.calls[1][0].payload.notification.options.variant).toEqual('error');
       expect(dispatch.mock.calls[2][0]).toEqual(decreaseReads());
     });
   });

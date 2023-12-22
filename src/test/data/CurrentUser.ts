@@ -1,4 +1,4 @@
-import { CurrentUser } from '../../src/models/CurrentUser';
+import { CurrentUser } from '../../models/CurrentUser';
 
 export const currentUserReader: CurrentUser = {
   loginName: 'MAXREADER',
