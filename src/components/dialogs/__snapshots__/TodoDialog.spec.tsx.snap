@@ -21,7 +21,7 @@ exports[`TodoDialog > should equal saved snapshot 1`] = `
           viewBox="0 0 24 24"
         >
           <path
-            d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+            d="M3 18h18v-2H3zm0-5h18v-2H3zm0-7v2h18V6z"
           />
         </svg>
         <span
@@ -110,13 +110,13 @@ exports[`TodoDialog > should equal saved snapshot 1`] = `
       data-mui-internal-clone-element="true"
     >
       <button
-        class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-16ww9kz-MuiButtonBase-root-MuiButton-root"
+        class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-colorPrimary css-16ww9kz-MuiButtonBase-root-MuiButton-root"
         id="todo-table-button-reload"
         tabindex="0"
         type="button"
       >
         <span
-          class="MuiButton-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+          class="MuiButton-icon MuiButton-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
         >
           <svg
             aria-hidden="true"
@@ -126,7 +126,7 @@ exports[`TodoDialog > should equal saved snapshot 1`] = `
             viewBox="0 0 24 24"
           >
             <path
-              d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"
+              d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8"
             />
           </svg>
         </span>
@@ -142,13 +142,13 @@ exports[`TodoDialog > should equal saved snapshot 1`] = `
       data-mui-internal-clone-element="true"
     >
       <button
-        class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-16ww9kz-MuiButtonBase-root-MuiButton-root"
+        class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-colorPrimary css-16ww9kz-MuiButtonBase-root-MuiButton-root"
         id="todo-table-button-create"
         tabindex="0"
         type="button"
       >
         <span
-          class="MuiButton-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+          class="MuiButton-icon MuiButton-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
         >
           <svg
             aria-hidden="true"
@@ -158,7 +158,7 @@ exports[`TodoDialog > should equal saved snapshot 1`] = `
             viewBox="0 0 24 24"
           >
             <path
-              d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
+              d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6z"
             />
           </svg>
         </span>
@@ -174,6 +174,12 @@ exports[`TodoDialog > should equal saved snapshot 1`] = `
       <div
         style="height: 100%;"
       >
+        <div
+          aria-atomic="true"
+          aria-live="polite"
+          aria-relevant="additions text"
+          class="ag-aria-description-container"
+        />
         <!-- AG Grid -->
         <div
           class="ag-root-wrapper ag-ltr ag-layout-auto-height"
@@ -204,7 +210,7 @@ exports[`TodoDialog > should equal saved snapshot 1`] = `
                 <div
                   aria-hidden="true"
                   class="ag-pinned-left-header ag-hidden"
-                  role="presentation"
+                  role="rowgroup"
                   style="width: 0px; min-width: 0px; max-width: 0px;"
                 />
                 <div
@@ -224,7 +230,6 @@ exports[`TodoDialog > should equal saved snapshot 1`] = `
                     >
                       <div
                         aria-colindex="1"
-                        aria-description=" Press ENTER to sort."
                         aria-sort="none"
                         class="ag-header-cell ag-column-first ag-header-cell-sortable ag-focus-managed"
                         col-id="owner"
@@ -283,6 +288,7 @@ exports[`TodoDialog > should equal saved snapshot 1`] = `
                             role="presentation"
                           >
                             
+            
             
             
                             <div
@@ -390,7 +396,6 @@ exports[`TodoDialog > should equal saved snapshot 1`] = `
                       </div>
                       <div
                         aria-colindex="2"
-                        aria-description=" Press ENTER to sort."
                         aria-sort="none"
                         class="ag-header-cell ag-header-cell-sortable ag-focus-managed"
                         col-id="dueDate"
@@ -449,6 +454,7 @@ exports[`TodoDialog > should equal saved snapshot 1`] = `
                             role="presentation"
                           >
                             
+            
             
             
                             <div
@@ -556,7 +562,6 @@ exports[`TodoDialog > should equal saved snapshot 1`] = `
                       </div>
                       <div
                         aria-colindex="3"
-                        aria-description=" Press ENTER to sort."
                         aria-sort="none"
                         class="ag-header-cell ag-header-cell-sortable ag-focus-managed"
                         col-id="description"
@@ -615,6 +620,7 @@ exports[`TodoDialog > should equal saved snapshot 1`] = `
                             role="presentation"
                           >
                             
+            
             
             
                             <div
@@ -722,7 +728,6 @@ exports[`TodoDialog > should equal saved snapshot 1`] = `
                       </div>
                       <div
                         aria-colindex="4"
-                        aria-description=" Press ENTER to sort."
                         aria-sort="none"
                         class="ag-header-cell ag-header-cell-sortable ag-focus-managed"
                         col-id="completed"
@@ -781,6 +786,7 @@ exports[`TodoDialog > should equal saved snapshot 1`] = `
                             role="presentation"
                           >
                             
+            
             
             
                             <div
@@ -888,7 +894,6 @@ exports[`TodoDialog > should equal saved snapshot 1`] = `
                       </div>
                       <div
                         aria-colindex="5"
-                        aria-description=" Press ENTER to sort."
                         aria-sort="none"
                         class="ag-header-cell ag-column-last ag-header-cell-sortable ag-focus-managed"
                         col-id="actions"
@@ -947,6 +952,7 @@ exports[`TodoDialog > should equal saved snapshot 1`] = `
                             role="presentation"
                           >
                             
+            
             
             
                             <div
@@ -1058,7 +1064,7 @@ exports[`TodoDialog > should equal saved snapshot 1`] = `
                 <div
                   aria-hidden="true"
                   class="ag-pinned-right-header ag-hidden"
-                  role="presentation"
+                  role="rowgroup"
                   style="width: 0px; min-width: 0px; max-width: 0px;"
                 />
               </div>
@@ -1072,7 +1078,7 @@ exports[`TodoDialog > should equal saved snapshot 1`] = `
                 <div
                   aria-hidden="true"
                   class="ag-pinned-left-floating-top ag-hidden"
-                  role="presentation"
+                  role="rowgroup"
                   style="width: 0px; max-width: 0px; min-width: 0px;"
                 />
                 <!-- AG Row Container topCenter -->
@@ -1082,7 +1088,7 @@ exports[`TodoDialog > should equal saved snapshot 1`] = `
                 >
                   <div
                     class="ag-floating-top-container"
-                    role="presentation"
+                    role="rowgroup"
                     style="width: 1000px;"
                   />
                 </div>
@@ -1090,13 +1096,13 @@ exports[`TodoDialog > should equal saved snapshot 1`] = `
                 <div
                   aria-hidden="true"
                   class="ag-pinned-right-floating-top ag-hidden"
-                  role="presentation"
+                  role="rowgroup"
                   style="width: 0px; max-width: 0px; min-width: 0px;"
                 />
                 <!-- AG Row Container topFullWidth -->
                 <div
                   class="ag-floating-top-full-width-container"
-                  role="presentation"
+                  role="rowgroup"
                 />
               </div>
               <div
@@ -1112,7 +1118,7 @@ exports[`TodoDialog > should equal saved snapshot 1`] = `
                   <div
                     aria-hidden="true"
                     class="ag-pinned-left-cols-container ag-hidden"
-                    role="presentation"
+                    role="rowgroup"
                     style="height: 42px; width: 0px; max-width: 0px; min-width: 0px;"
                   />
                   <!-- AG Row Container center -->
@@ -1250,7 +1256,7 @@ exports[`TodoDialog > should equal saved snapshot 1`] = `
                                 viewBox="0 0 24 24"
                               >
                                 <path
-                                  d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+                                  d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 0 0-1.41 0l-1.83 1.83 3.75 3.75z"
                                 />
                               </svg>
                               <span
@@ -1277,7 +1283,7 @@ exports[`TodoDialog > should equal saved snapshot 1`] = `
                                 viewBox="0 0 24 24"
                               >
                                 <path
-                                  d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+                                  d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z"
                                 />
                               </svg>
                               <span
@@ -1293,13 +1299,13 @@ exports[`TodoDialog > should equal saved snapshot 1`] = `
                   <div
                     aria-hidden="true"
                     class="ag-pinned-right-cols-container ag-hidden"
-                    role="presentation"
+                    role="rowgroup"
                     style="height: 42px; width: 0px; max-width: 0px; min-width: 0px;"
                   />
                   <!-- AG Row Container fullWidth -->
                   <div
                     class="ag-full-width-container"
-                    role="presentation"
+                    role="rowgroup"
                     style="height: 42px;"
                   />
                 </div>
@@ -1338,7 +1344,7 @@ exports[`TodoDialog > should equal saved snapshot 1`] = `
                 <div
                   aria-hidden="true"
                   class="ag-pinned-left-sticky-top ag-hidden"
-                  role="presentation"
+                  role="rowgroup"
                   style="width: 0px; max-width: 0px; min-width: 0px;"
                 />
                 <!-- AG Row Container stickyTopCenter -->
@@ -1348,7 +1354,7 @@ exports[`TodoDialog > should equal saved snapshot 1`] = `
                 >
                   <div
                     class="ag-sticky-top-container"
-                    role="presentation"
+                    role="rowgroup"
                     style="width: 1000px;"
                   />
                 </div>
@@ -1356,13 +1362,13 @@ exports[`TodoDialog > should equal saved snapshot 1`] = `
                 <div
                   aria-hidden="true"
                   class="ag-pinned-right-sticky-top ag-hidden"
-                  role="presentation"
+                  role="rowgroup"
                   style="width: 0px; max-width: 0px; min-width: 0px;"
                 />
                 <!-- AG Row Container stickyTopFullWidth -->
                 <div
                   class="ag-sticky-top-full-width-container"
-                  role="presentation"
+                  role="rowgroup"
                 />
               </div>
               <!-- AG Pinned Bottom -->
@@ -1375,7 +1381,7 @@ exports[`TodoDialog > should equal saved snapshot 1`] = `
                 <div
                   aria-hidden="true"
                   class="ag-pinned-left-floating-bottom ag-hidden"
-                  role="presentation"
+                  role="rowgroup"
                   style="width: 0px; max-width: 0px; min-width: 0px;"
                 />
                 <!-- AG Row Container bottomCenter -->
@@ -1385,7 +1391,7 @@ exports[`TodoDialog > should equal saved snapshot 1`] = `
                 >
                   <div
                     class="ag-floating-bottom-container"
-                    role="presentation"
+                    role="rowgroup"
                     style="width: 1000px;"
                   />
                 </div>
@@ -1393,13 +1399,13 @@ exports[`TodoDialog > should equal saved snapshot 1`] = `
                 <div
                   aria-hidden="true"
                   class="ag-pinned-right-floating-bottom ag-hidden"
-                  role="presentation"
+                  role="rowgroup"
                   style="width: 0px; max-width: 0px; min-width: 0px;"
                 />
                 <!-- AG Row Container bottomFullWidth -->
                 <div
                   class="ag-floating-bottom-full-width-container"
-                  role="presentation"
+                  role="rowgroup"
                 />
               </div>
               <!-- AG Fake Horizontal Scroll -->
@@ -1442,19 +1448,21 @@ exports[`TodoDialog > should equal saved snapshot 1`] = `
               </div>
               <!-- AG Overlay Wrapper -->
               <div
-                aria-hidden="true"
                 class="ag-overlay ag-hidden"
+                role="presentation"
               >
                 
             
                 <div
                   class="ag-overlay-panel"
+                  role="presentation"
                 >
                   
                 
                   <div
                     class="ag-overlay-wrapper ag-layout-auto-height"
                     ref="eOverlayWrapper"
+                    role="presentation"
                   />
                   
             

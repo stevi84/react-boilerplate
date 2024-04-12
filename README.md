@@ -20,7 +20,7 @@ npx degit reduxjs/redux-templates/packages/vite-template-redux react-boilerplate
   - VS-Code configuration for encoding, end of line, tab size
   - IntelliJ configuration
 - complete unit tested using vitest
-- TODO: e2e tests of the most important functionalities using cypress
+- e2e tests of the most important functionalities using cypress
 - material UI as UI library
 - notifications using notistack
 - translations using i18next

@@ -8,13 +8,13 @@ exports[`DataTable > should equal saved snapshot 1`] = `
     data-mui-internal-clone-element="true"
   >
     <button
-      class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-16ww9kz-MuiButtonBase-root-MuiButton-root"
+      class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-colorPrimary css-16ww9kz-MuiButtonBase-root-MuiButton-root"
       id="id-button-reload"
       tabindex="0"
       type="button"
     >
       <span
-        class="MuiButton-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+        class="MuiButton-icon MuiButton-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
       >
         <svg
           aria-hidden="true"
@@ -24,7 +24,7 @@ exports[`DataTable > should equal saved snapshot 1`] = `
           viewBox="0 0 24 24"
         >
           <path
-            d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"
+            d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8"
           />
         </svg>
       </span>
@@ -40,13 +40,13 @@ exports[`DataTable > should equal saved snapshot 1`] = `
     data-mui-internal-clone-element="true"
   >
     <button
-      class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-16ww9kz-MuiButtonBase-root-MuiButton-root"
+      class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-colorPrimary css-16ww9kz-MuiButtonBase-root-MuiButton-root"
       id="id-button-create"
       tabindex="0"
       type="button"
     >
       <span
-        class="MuiButton-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+        class="MuiButton-icon MuiButton-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
       >
         <svg
           aria-hidden="true"
@@ -56,7 +56,7 @@ exports[`DataTable > should equal saved snapshot 1`] = `
           viewBox="0 0 24 24"
         >
           <path
-            d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
+            d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6z"
           />
         </svg>
       </span>
@@ -72,6 +72,12 @@ exports[`DataTable > should equal saved snapshot 1`] = `
     <div
       style="height: 100%;"
     >
+      <div
+        aria-atomic="true"
+        aria-live="polite"
+        aria-relevant="additions text"
+        class="ag-aria-description-container"
+      />
       <!-- AG Grid -->
       <div
         class="ag-root-wrapper ag-ltr ag-layout-auto-height"
@@ -102,7 +108,7 @@ exports[`DataTable > should equal saved snapshot 1`] = `
               <div
                 aria-hidden="true"
                 class="ag-pinned-left-header ag-hidden"
-                role="presentation"
+                role="rowgroup"
                 style="width: 0px; min-width: 0px; max-width: 0px;"
               />
               <div
@@ -122,7 +128,6 @@ exports[`DataTable > should equal saved snapshot 1`] = `
                   >
                     <div
                       aria-colindex="1"
-                      aria-description=" Press ENTER to sort."
                       aria-sort="none"
                       class="ag-header-cell ag-column-first ag-column-last ag-header-cell-sortable ag-focus-managed"
                       col-id="actions"
@@ -181,6 +186,7 @@ exports[`DataTable > should equal saved snapshot 1`] = `
                           role="presentation"
                         >
                           
+            
             
             
                           <div
@@ -292,7 +298,7 @@ exports[`DataTable > should equal saved snapshot 1`] = `
               <div
                 aria-hidden="true"
                 class="ag-pinned-right-header ag-hidden"
-                role="presentation"
+                role="rowgroup"
                 style="width: 0px; min-width: 0px; max-width: 0px;"
               />
             </div>
@@ -306,7 +312,7 @@ exports[`DataTable > should equal saved snapshot 1`] = `
               <div
                 aria-hidden="true"
                 class="ag-pinned-left-floating-top ag-hidden"
-                role="presentation"
+                role="rowgroup"
                 style="width: 0px; max-width: 0px; min-width: 0px;"
               />
               <!-- AG Row Container topCenter -->
@@ -316,7 +322,7 @@ exports[`DataTable > should equal saved snapshot 1`] = `
               >
                 <div
                   class="ag-floating-top-container"
-                  role="presentation"
+                  role="rowgroup"
                   style="width: 200px;"
                 />
               </div>
@@ -324,13 +330,13 @@ exports[`DataTable > should equal saved snapshot 1`] = `
               <div
                 aria-hidden="true"
                 class="ag-pinned-right-floating-top ag-hidden"
-                role="presentation"
+                role="rowgroup"
                 style="width: 0px; max-width: 0px; min-width: 0px;"
               />
               <!-- AG Row Container topFullWidth -->
               <div
                 class="ag-floating-top-full-width-container"
-                role="presentation"
+                role="rowgroup"
               />
             </div>
             <div
@@ -346,7 +352,7 @@ exports[`DataTable > should equal saved snapshot 1`] = `
                 <div
                   aria-hidden="true"
                   class="ag-pinned-left-cols-container ag-hidden"
-                  role="presentation"
+                  role="rowgroup"
                   style="height: 1px; width: 0px; max-width: 0px; min-width: 0px;"
                 />
                 <!-- AG Row Container center -->
@@ -357,7 +363,7 @@ exports[`DataTable > should equal saved snapshot 1`] = `
                 >
                   <div
                     class="ag-center-cols-container"
-                    role="presentation"
+                    role="rowgroup"
                     style="width: 200px; height: 1px;"
                   />
                 </div>
@@ -365,13 +371,13 @@ exports[`DataTable > should equal saved snapshot 1`] = `
                 <div
                   aria-hidden="true"
                   class="ag-pinned-right-cols-container ag-hidden"
-                  role="presentation"
+                  role="rowgroup"
                   style="height: 1px; width: 0px; max-width: 0px; min-width: 0px;"
                 />
                 <!-- AG Row Container fullWidth -->
                 <div
                   class="ag-full-width-container"
-                  role="presentation"
+                  role="rowgroup"
                   style="height: 1px;"
                 />
               </div>
@@ -410,7 +416,7 @@ exports[`DataTable > should equal saved snapshot 1`] = `
               <div
                 aria-hidden="true"
                 class="ag-pinned-left-sticky-top ag-hidden"
-                role="presentation"
+                role="rowgroup"
                 style="width: 0px; max-width: 0px; min-width: 0px;"
               />
               <!-- AG Row Container stickyTopCenter -->
@@ -420,7 +426,7 @@ exports[`DataTable > should equal saved snapshot 1`] = `
               >
                 <div
                   class="ag-sticky-top-container"
-                  role="presentation"
+                  role="rowgroup"
                   style="width: 200px;"
                 />
               </div>
@@ -428,13 +434,13 @@ exports[`DataTable > should equal saved snapshot 1`] = `
               <div
                 aria-hidden="true"
                 class="ag-pinned-right-sticky-top ag-hidden"
-                role="presentation"
+                role="rowgroup"
                 style="width: 0px; max-width: 0px; min-width: 0px;"
               />
               <!-- AG Row Container stickyTopFullWidth -->
               <div
                 class="ag-sticky-top-full-width-container"
-                role="presentation"
+                role="rowgroup"
               />
             </div>
             <!-- AG Pinned Bottom -->
@@ -447,7 +453,7 @@ exports[`DataTable > should equal saved snapshot 1`] = `
               <div
                 aria-hidden="true"
                 class="ag-pinned-left-floating-bottom ag-hidden"
-                role="presentation"
+                role="rowgroup"
                 style="width: 0px; max-width: 0px; min-width: 0px;"
               />
               <!-- AG Row Container bottomCenter -->
@@ -457,7 +463,7 @@ exports[`DataTable > should equal saved snapshot 1`] = `
               >
                 <div
                   class="ag-floating-bottom-container"
-                  role="presentation"
+                  role="rowgroup"
                   style="width: 200px;"
                 />
               </div>
@@ -465,13 +471,13 @@ exports[`DataTable > should equal saved snapshot 1`] = `
               <div
                 aria-hidden="true"
                 class="ag-pinned-right-floating-bottom ag-hidden"
-                role="presentation"
+                role="rowgroup"
                 style="width: 0px; max-width: 0px; min-width: 0px;"
               />
               <!-- AG Row Container bottomFullWidth -->
               <div
                 class="ag-floating-bottom-full-width-container"
-                role="presentation"
+                role="rowgroup"
               />
             </div>
             <!-- AG Fake Horizontal Scroll -->
@@ -514,25 +520,25 @@ exports[`DataTable > should equal saved snapshot 1`] = `
             </div>
             <!-- AG Overlay Wrapper -->
             <div
-              aria-hidden="true"
               class="ag-overlay"
+              role="presentation"
             >
               
             
               <div
                 class="ag-overlay-panel"
+                role="presentation"
               >
                 
                 
                 <div
                   class="ag-overlay-wrapper ag-layout-auto-height ag-overlay-no-rows-wrapper"
                   ref="eOverlayWrapper"
+                  role="presentation"
                 >
                   <span
                     class="ag-overlay-no-rows-center"
-                  >
-                    No Rows To Show
-                  </span>
+                  />
                 </div>
                 
             

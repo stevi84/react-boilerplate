@@ -23,9 +23,9 @@ exports[`DateEdit > should equal saved snapshot 1`] = `
         class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd css-nxo287-MuiInputBase-input-MuiOutlinedInput-input"
         id="id"
         inputmode="text"
-        placeholder="DDatEEFormmat"
+        placeholder="dateFormat"
         type="text"
-        value="03at5For02at"
+        value="dateFormat"
       />
       <div
         class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-1laqsz7-MuiInputAdornment-root"
