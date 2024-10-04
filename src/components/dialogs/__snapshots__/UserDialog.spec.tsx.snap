@@ -3,19 +3,20 @@
 exports[`UserDialog > should equal saved snapshot 1`] = `
 <DocumentFragment>
   <header
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorPrimary MuiAppBar-positionFixed mui-fixed css-11b3ww9-MuiPaper-root-MuiAppBar-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorPrimary MuiAppBar-positionFixed mui-fixed css-5czdux-MuiPaper-root-MuiAppBar-root"
+    style="--Paper-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12);"
   >
     <div
-      class="MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular css-hyum1k-MuiToolbar-root"
+      class="MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular css-95f9g5-MuiToolbar-root"
     >
       <button
-        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-edgeStart MuiIconButton-sizeLarge css-ancrnh-MuiButtonBase-root-MuiIconButton-root"
+        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-edgeStart MuiIconButton-sizeLarge css-1by7r3h-MuiButtonBase-root-MuiIconButton-root"
         tabindex="0"
         type="button"
       >
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-20bmp1-MuiSvgIcon-root"
           data-testid="MenuIcon"
           focusable="false"
           viewBox="0 0 24 24"
@@ -24,17 +25,14 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
             d="M3 18h18v-2H3zm0-5h18v-2H3zm0-7v2h18V6z"
           />
         </svg>
-        <span
-          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-        />
       </button>
       <div
-        class="MuiTypography-root MuiTypography-h6 css-1juivf6-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h6 css-173147z-MuiTypography-root"
       >
         React Boilerplate
       </div>
       <div
-        class="MuiTypography-root MuiTypography-body1 css-1fbouff-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-body1 css-kcbyr-MuiTypography-root"
       >
         Environment: test
       </div>
@@ -42,22 +40,22 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
         class="MuiBox-root css-ece9u5"
       >
         <div
-          class="MuiFormControl-root MuiFormControl-fullWidth css-q8hpuo-MuiFormControl-root"
+          class="MuiFormControl-root MuiFormControl-fullWidth css-1b5lkxe-MuiFormControl-root"
         >
           <label
-            class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1jy569b-MuiFormLabel-root-MuiInputLabel-root"
+            class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-18pjc51-MuiFormLabel-root-MuiInputLabel-root"
             data-shrink="true"
           >
             language
           </label>
           <div
-            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl  css-1yk1gt9-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
+            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-1cprn2g-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
           >
             <div
               aria-controls=":r0:"
               aria-expanded="false"
               aria-haspopup="listbox"
-              class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+              class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input css-15k6ek6-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
               role="combobox"
               tabindex="0"
             >
@@ -72,7 +70,7 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
             />
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-hfutr2-MuiSvgIcon-root-MuiSelect-icon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-1u6jos5-MuiSvgIcon-root-MuiSelect-icon"
               data-testid="ArrowDropDownIcon"
               focusable="false"
               viewBox="0 0 24 24"
@@ -86,7 +84,7 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
               class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
             >
               <legend
-                class="css-14lo706"
+                class="css-kg5swy"
               >
                 <span>
                   language
@@ -99,10 +97,11 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
     </div>
   </header>
   <div
-    class="MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular css-hyum1k-MuiToolbar-root"
+    class="MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular css-95f9g5-MuiToolbar-root"
   />
   <div
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 css-3v46u1-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 css-1r8heb5-MuiPaper-root"
+    style="--Paper-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);"
   >
     <span
       aria-label=""
@@ -110,17 +109,17 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
       data-mui-internal-clone-element="true"
     >
       <button
-        class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-colorPrimary css-16ww9kz-MuiButtonBase-root-MuiButton-root"
+        class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-colorPrimary css-11mjkfx-MuiButtonBase-root-MuiButton-root"
         id="user-table-button-reload"
         tabindex="0"
         type="button"
       >
         <span
-          class="MuiButton-icon MuiButton-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+          class="MuiButton-icon MuiButton-startIcon MuiButton-iconSizeMedium css-1sh91j5-MuiButton-startIcon"
         >
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-20bmp1-MuiSvgIcon-root"
             data-testid="ReplayIcon"
             focusable="false"
             viewBox="0 0 24 24"
@@ -131,9 +130,6 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
           </svg>
         </span>
         reload
-        <span
-          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-        />
       </button>
     </span>
     <span
@@ -142,17 +138,17 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
       data-mui-internal-clone-element="true"
     >
       <button
-        class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-colorPrimary css-16ww9kz-MuiButtonBase-root-MuiButton-root"
+        class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-colorPrimary css-11mjkfx-MuiButtonBase-root-MuiButton-root"
         id="user-table-button-create"
         tabindex="0"
         type="button"
       >
         <span
-          class="MuiButton-icon MuiButton-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+          class="MuiButton-icon MuiButton-startIcon MuiButton-iconSizeMedium css-1sh91j5-MuiButton-startIcon"
         >
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-20bmp1-MuiSvgIcon-root"
             data-testid="AddIcon"
             focusable="false"
             viewBox="0 0 24 24"
@@ -163,9 +159,6 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
           </svg>
         </span>
         create
-        <span
-          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-        />
       </button>
     </span>
     <div
@@ -174,6 +167,13 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
       <div
         style="height: 100%;"
       >
+        <div
+          class="ag-measurement-container"
+        >
+          <div />
+          <div />
+          <div />
+        </div>
         <div
           aria-atomic="true"
           aria-live="polite"
@@ -252,15 +252,15 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                           <div
                             aria-hidden="true"
                             class="ag-input-field-label ag-label ag-hidden ag-checkbox-label"
-                            id="ag-3-label"
-                            ref="eLabel"
+                            data-ref="eLabel"
+                            id="ag-5-label"
                             role="presentation"
                           />
                           
                 
                           <div
                             class="ag-wrapper ag-input-wrapper ag-checkbox-input-wrapper"
-                            ref="eWrapper"
+                            data-ref="eWrapper"
                             role="presentation"
                           >
                             
@@ -268,8 +268,8 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                             <input
                               aria-label="Press Space to toggle all rows selection (unchecked)"
                               class="ag-input-field-input ag-checkbox-input"
-                              id="ag-3-input"
-                              ref="eInput"
+                              data-ref="eInput"
+                              id="ag-5-input"
                               tabindex="-1"
                               type="checkbox"
                             />
@@ -288,28 +288,28 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                             role="presentation"
                           >
                             
-            
-            
-            
+        
+        
+        
                             <div
                               class="ag-header-cell-label"
-                              ref="eLabel"
+                              data-ref="eLabel"
                               role="presentation"
                             >
                               
-                
+            
                               <span
                                 class="ag-header-cell-text"
-                                ref="eText"
+                                data-ref="eText"
                               >
                                 name
                               </span>
                               
-                
+            
                               <span
                                 aria-hidden="true"
                                 class="ag-header-icon ag-header-label-icon ag-filter-icon ag-hidden"
-                                ref="eFilter"
+                                data-ref="eFilter"
                               >
                                 <span
                                   class="ag-icon ag-icon-filter"
@@ -318,25 +318,25 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                                 />
                               </span>
                               
-                
+            
                               <!--AG-SORT-INDICATOR-->
                               <span
                                 class="ag-sort-indicator-container"
-                                ref="eSortIndicator"
+                                data-ref="eSortIndicator"
                               >
                                 
-            
+        
                                 <span
                                   aria-hidden="true"
                                   class="ag-sort-indicator-icon ag-sort-order ag-hidden"
-                                  ref="eSortOrder"
+                                  data-ref="eSortOrder"
                                 />
                                 
-            
+        
                                 <span
                                   aria-hidden="true"
                                   class="ag-sort-indicator-icon ag-sort-ascending-icon ag-hidden"
-                                  ref="eSortAsc"
+                                  data-ref="eSortAsc"
                                 >
                                   <span
                                     class="ag-icon ag-icon-asc"
@@ -345,11 +345,11 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                                   />
                                 </span>
                                 
-            
+        
                                 <span
                                   aria-hidden="true"
                                   class="ag-sort-indicator-icon ag-sort-descending-icon ag-hidden"
-                                  ref="eSortDesc"
+                                  data-ref="eSortDesc"
                                 >
                                   <span
                                     class="ag-icon ag-icon-desc"
@@ -358,11 +358,11 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                                   />
                                 </span>
                                 
-            
+        
                                 <span
                                   aria-hidden="true"
                                   class="ag-sort-indicator-icon ag-sort-mixed-icon ag-hidden"
-                                  ref="eSortMixed"
+                                  data-ref="eSortMixed"
                                 >
                                   <span
                                     class="ag-icon ag-icon-none"
@@ -371,11 +371,11 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                                   />
                                 </span>
                                 
-            
+        
                                 <span
                                   aria-hidden="true"
                                   class="ag-sort-indicator-icon ag-sort-none-icon ag-hidden"
-                                  ref="eSortNone"
+                                  data-ref="eSortNone"
                                 >
                                   <span
                                     class="ag-icon ag-icon-none"
@@ -384,13 +384,13 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                                   />
                                 </span>
                                 
-        
+    
                               </span>
                               
-            
+        
                             </div>
                             
-        
+    
                           </div>
                         </div>
                       </div>
@@ -418,15 +418,15 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                           <div
                             aria-hidden="true"
                             class="ag-input-field-label ag-label ag-hidden ag-checkbox-label"
-                            id="ag-4-label"
-                            ref="eLabel"
+                            data-ref="eLabel"
+                            id="ag-6-label"
                             role="presentation"
                           />
                           
                 
                           <div
                             class="ag-wrapper ag-input-wrapper ag-checkbox-input-wrapper"
-                            ref="eWrapper"
+                            data-ref="eWrapper"
                             role="presentation"
                           >
                             
@@ -434,8 +434,8 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                             <input
                               aria-label="Press Space to toggle all rows selection (unchecked)"
                               class="ag-input-field-input ag-checkbox-input"
-                              id="ag-4-input"
-                              ref="eInput"
+                              data-ref="eInput"
+                              id="ag-6-input"
                               tabindex="-1"
                               type="checkbox"
                             />
@@ -454,28 +454,28 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                             role="presentation"
                           >
                             
-            
-            
-            
+        
+        
+        
                             <div
                               class="ag-header-cell-label"
-                              ref="eLabel"
+                              data-ref="eLabel"
                               role="presentation"
                             >
                               
-                
+            
                               <span
                                 class="ag-header-cell-text"
-                                ref="eText"
+                                data-ref="eText"
                               >
                                 dateOfBirth
                               </span>
                               
-                
+            
                               <span
                                 aria-hidden="true"
                                 class="ag-header-icon ag-header-label-icon ag-filter-icon ag-hidden"
-                                ref="eFilter"
+                                data-ref="eFilter"
                               >
                                 <span
                                   class="ag-icon ag-icon-filter"
@@ -484,25 +484,25 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                                 />
                               </span>
                               
-                
+            
                               <!--AG-SORT-INDICATOR-->
                               <span
                                 class="ag-sort-indicator-container"
-                                ref="eSortIndicator"
+                                data-ref="eSortIndicator"
                               >
                                 
-            
+        
                                 <span
                                   aria-hidden="true"
                                   class="ag-sort-indicator-icon ag-sort-order ag-hidden"
-                                  ref="eSortOrder"
+                                  data-ref="eSortOrder"
                                 />
                                 
-            
+        
                                 <span
                                   aria-hidden="true"
                                   class="ag-sort-indicator-icon ag-sort-ascending-icon ag-hidden"
-                                  ref="eSortAsc"
+                                  data-ref="eSortAsc"
                                 >
                                   <span
                                     class="ag-icon ag-icon-asc"
@@ -511,11 +511,11 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                                   />
                                 </span>
                                 
-            
+        
                                 <span
                                   aria-hidden="true"
                                   class="ag-sort-indicator-icon ag-sort-descending-icon ag-hidden"
-                                  ref="eSortDesc"
+                                  data-ref="eSortDesc"
                                 >
                                   <span
                                     class="ag-icon ag-icon-desc"
@@ -524,11 +524,11 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                                   />
                                 </span>
                                 
-            
+        
                                 <span
                                   aria-hidden="true"
                                   class="ag-sort-indicator-icon ag-sort-mixed-icon ag-hidden"
-                                  ref="eSortMixed"
+                                  data-ref="eSortMixed"
                                 >
                                   <span
                                     class="ag-icon ag-icon-none"
@@ -537,11 +537,11 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                                   />
                                 </span>
                                 
-            
+        
                                 <span
                                   aria-hidden="true"
                                   class="ag-sort-indicator-icon ag-sort-none-icon ag-hidden"
-                                  ref="eSortNone"
+                                  data-ref="eSortNone"
                                 >
                                   <span
                                     class="ag-icon ag-icon-none"
@@ -550,13 +550,13 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                                   />
                                 </span>
                                 
-        
+    
                               </span>
                               
-            
+        
                             </div>
                             
-        
+    
                           </div>
                         </div>
                       </div>
@@ -584,15 +584,15 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                           <div
                             aria-hidden="true"
                             class="ag-input-field-label ag-label ag-hidden ag-checkbox-label"
-                            id="ag-5-label"
-                            ref="eLabel"
+                            data-ref="eLabel"
+                            id="ag-7-label"
                             role="presentation"
                           />
                           
                 
                           <div
                             class="ag-wrapper ag-input-wrapper ag-checkbox-input-wrapper"
-                            ref="eWrapper"
+                            data-ref="eWrapper"
                             role="presentation"
                           >
                             
@@ -600,8 +600,8 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                             <input
                               aria-label="Press Space to toggle all rows selection (unchecked)"
                               class="ag-input-field-input ag-checkbox-input"
-                              id="ag-5-input"
-                              ref="eInput"
+                              data-ref="eInput"
+                              id="ag-7-input"
                               tabindex="-1"
                               type="checkbox"
                             />
@@ -620,28 +620,28 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                             role="presentation"
                           >
                             
-            
-            
-            
+        
+        
+        
                             <div
                               class="ag-header-cell-label"
-                              ref="eLabel"
+                              data-ref="eLabel"
                               role="presentation"
                             >
                               
-                
+            
                               <span
                                 class="ag-header-cell-text"
-                                ref="eText"
+                                data-ref="eText"
                               >
                                 size
                               </span>
                               
-                
+            
                               <span
                                 aria-hidden="true"
                                 class="ag-header-icon ag-header-label-icon ag-filter-icon ag-hidden"
-                                ref="eFilter"
+                                data-ref="eFilter"
                               >
                                 <span
                                   class="ag-icon ag-icon-filter"
@@ -650,25 +650,25 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                                 />
                               </span>
                               
-                
+            
                               <!--AG-SORT-INDICATOR-->
                               <span
                                 class="ag-sort-indicator-container"
-                                ref="eSortIndicator"
+                                data-ref="eSortIndicator"
                               >
                                 
-            
+        
                                 <span
                                   aria-hidden="true"
                                   class="ag-sort-indicator-icon ag-sort-order ag-hidden"
-                                  ref="eSortOrder"
+                                  data-ref="eSortOrder"
                                 />
                                 
-            
+        
                                 <span
                                   aria-hidden="true"
                                   class="ag-sort-indicator-icon ag-sort-ascending-icon ag-hidden"
-                                  ref="eSortAsc"
+                                  data-ref="eSortAsc"
                                 >
                                   <span
                                     class="ag-icon ag-icon-asc"
@@ -677,11 +677,11 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                                   />
                                 </span>
                                 
-            
+        
                                 <span
                                   aria-hidden="true"
                                   class="ag-sort-indicator-icon ag-sort-descending-icon ag-hidden"
-                                  ref="eSortDesc"
+                                  data-ref="eSortDesc"
                                 >
                                   <span
                                     class="ag-icon ag-icon-desc"
@@ -690,11 +690,11 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                                   />
                                 </span>
                                 
-            
+        
                                 <span
                                   aria-hidden="true"
                                   class="ag-sort-indicator-icon ag-sort-mixed-icon ag-hidden"
-                                  ref="eSortMixed"
+                                  data-ref="eSortMixed"
                                 >
                                   <span
                                     class="ag-icon ag-icon-none"
@@ -703,11 +703,11 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                                   />
                                 </span>
                                 
-            
+        
                                 <span
                                   aria-hidden="true"
                                   class="ag-sort-indicator-icon ag-sort-none-icon ag-hidden"
-                                  ref="eSortNone"
+                                  data-ref="eSortNone"
                                 >
                                   <span
                                     class="ag-icon ag-icon-none"
@@ -716,13 +716,13 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                                   />
                                 </span>
                                 
-        
+    
                               </span>
                               
-            
+        
                             </div>
                             
-        
+    
                           </div>
                         </div>
                       </div>
@@ -750,15 +750,15 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                           <div
                             aria-hidden="true"
                             class="ag-input-field-label ag-label ag-hidden ag-checkbox-label"
-                            id="ag-6-label"
-                            ref="eLabel"
+                            data-ref="eLabel"
+                            id="ag-8-label"
                             role="presentation"
                           />
                           
                 
                           <div
                             class="ag-wrapper ag-input-wrapper ag-checkbox-input-wrapper"
-                            ref="eWrapper"
+                            data-ref="eWrapper"
                             role="presentation"
                           >
                             
@@ -766,8 +766,8 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                             <input
                               aria-label="Press Space to toggle all rows selection (unchecked)"
                               class="ag-input-field-input ag-checkbox-input"
-                              id="ag-6-input"
-                              ref="eInput"
+                              data-ref="eInput"
+                              id="ag-8-input"
                               tabindex="-1"
                               type="checkbox"
                             />
@@ -786,28 +786,28 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                             role="presentation"
                           >
                             
-            
-            
-            
+        
+        
+        
                             <div
                               class="ag-header-cell-label"
-                              ref="eLabel"
+                              data-ref="eLabel"
                               role="presentation"
                             >
                               
-                
+            
                               <span
                                 class="ag-header-cell-text"
-                                ref="eText"
+                                data-ref="eText"
                               >
                                 weight
                               </span>
                               
-                
+            
                               <span
                                 aria-hidden="true"
                                 class="ag-header-icon ag-header-label-icon ag-filter-icon ag-hidden"
-                                ref="eFilter"
+                                data-ref="eFilter"
                               >
                                 <span
                                   class="ag-icon ag-icon-filter"
@@ -816,25 +816,25 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                                 />
                               </span>
                               
-                
+            
                               <!--AG-SORT-INDICATOR-->
                               <span
                                 class="ag-sort-indicator-container"
-                                ref="eSortIndicator"
+                                data-ref="eSortIndicator"
                               >
                                 
-            
+        
                                 <span
                                   aria-hidden="true"
                                   class="ag-sort-indicator-icon ag-sort-order ag-hidden"
-                                  ref="eSortOrder"
+                                  data-ref="eSortOrder"
                                 />
                                 
-            
+        
                                 <span
                                   aria-hidden="true"
                                   class="ag-sort-indicator-icon ag-sort-ascending-icon ag-hidden"
-                                  ref="eSortAsc"
+                                  data-ref="eSortAsc"
                                 >
                                   <span
                                     class="ag-icon ag-icon-asc"
@@ -843,11 +843,11 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                                   />
                                 </span>
                                 
-            
+        
                                 <span
                                   aria-hidden="true"
                                   class="ag-sort-indicator-icon ag-sort-descending-icon ag-hidden"
-                                  ref="eSortDesc"
+                                  data-ref="eSortDesc"
                                 >
                                   <span
                                     class="ag-icon ag-icon-desc"
@@ -856,11 +856,11 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                                   />
                                 </span>
                                 
-            
+        
                                 <span
                                   aria-hidden="true"
                                   class="ag-sort-indicator-icon ag-sort-mixed-icon ag-hidden"
-                                  ref="eSortMixed"
+                                  data-ref="eSortMixed"
                                 >
                                   <span
                                     class="ag-icon ag-icon-none"
@@ -869,11 +869,11 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                                   />
                                 </span>
                                 
-            
+        
                                 <span
                                   aria-hidden="true"
                                   class="ag-sort-indicator-icon ag-sort-none-icon ag-hidden"
-                                  ref="eSortNone"
+                                  data-ref="eSortNone"
                                 >
                                   <span
                                     class="ag-icon ag-icon-none"
@@ -882,13 +882,13 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                                   />
                                 </span>
                                 
-        
+    
                               </span>
                               
-            
+        
                             </div>
                             
-        
+    
                           </div>
                         </div>
                       </div>
@@ -916,15 +916,15 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                           <div
                             aria-hidden="true"
                             class="ag-input-field-label ag-label ag-hidden ag-checkbox-label"
-                            id="ag-7-label"
-                            ref="eLabel"
+                            data-ref="eLabel"
+                            id="ag-9-label"
                             role="presentation"
                           />
                           
                 
                           <div
                             class="ag-wrapper ag-input-wrapper ag-checkbox-input-wrapper"
-                            ref="eWrapper"
+                            data-ref="eWrapper"
                             role="presentation"
                           >
                             
@@ -932,8 +932,8 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                             <input
                               aria-label="Press Space to toggle all rows selection (unchecked)"
                               class="ag-input-field-input ag-checkbox-input"
-                              id="ag-7-input"
-                              ref="eInput"
+                              data-ref="eInput"
+                              id="ag-9-input"
                               tabindex="-1"
                               type="checkbox"
                             />
@@ -952,28 +952,28 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                             role="presentation"
                           >
                             
-            
-            
-            
+        
+        
+        
                             <div
                               class="ag-header-cell-label"
-                              ref="eLabel"
+                              data-ref="eLabel"
                               role="presentation"
                             >
                               
-                
+            
                               <span
                                 class="ag-header-cell-text"
-                                ref="eText"
+                                data-ref="eText"
                               >
                                 email
                               </span>
                               
-                
+            
                               <span
                                 aria-hidden="true"
                                 class="ag-header-icon ag-header-label-icon ag-filter-icon ag-hidden"
-                                ref="eFilter"
+                                data-ref="eFilter"
                               >
                                 <span
                                   class="ag-icon ag-icon-filter"
@@ -982,25 +982,25 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                                 />
                               </span>
                               
-                
+            
                               <!--AG-SORT-INDICATOR-->
                               <span
                                 class="ag-sort-indicator-container"
-                                ref="eSortIndicator"
+                                data-ref="eSortIndicator"
                               >
                                 
-            
+        
                                 <span
                                   aria-hidden="true"
                                   class="ag-sort-indicator-icon ag-sort-order ag-hidden"
-                                  ref="eSortOrder"
+                                  data-ref="eSortOrder"
                                 />
                                 
-            
+        
                                 <span
                                   aria-hidden="true"
                                   class="ag-sort-indicator-icon ag-sort-ascending-icon ag-hidden"
-                                  ref="eSortAsc"
+                                  data-ref="eSortAsc"
                                 >
                                   <span
                                     class="ag-icon ag-icon-asc"
@@ -1009,11 +1009,11 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                                   />
                                 </span>
                                 
-            
+        
                                 <span
                                   aria-hidden="true"
                                   class="ag-sort-indicator-icon ag-sort-descending-icon ag-hidden"
-                                  ref="eSortDesc"
+                                  data-ref="eSortDesc"
                                 >
                                   <span
                                     class="ag-icon ag-icon-desc"
@@ -1022,11 +1022,11 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                                   />
                                 </span>
                                 
-            
+        
                                 <span
                                   aria-hidden="true"
                                   class="ag-sort-indicator-icon ag-sort-mixed-icon ag-hidden"
-                                  ref="eSortMixed"
+                                  data-ref="eSortMixed"
                                 >
                                   <span
                                     class="ag-icon ag-icon-none"
@@ -1035,11 +1035,11 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                                   />
                                 </span>
                                 
-            
+        
                                 <span
                                   aria-hidden="true"
                                   class="ag-sort-indicator-icon ag-sort-none-icon ag-hidden"
-                                  ref="eSortNone"
+                                  data-ref="eSortNone"
                                 >
                                   <span
                                     class="ag-icon ag-icon-none"
@@ -1048,13 +1048,13 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                                   />
                                 </span>
                                 
-        
+    
                               </span>
                               
-            
+        
                             </div>
                             
-        
+    
                           </div>
                         </div>
                       </div>
@@ -1082,15 +1082,15 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                           <div
                             aria-hidden="true"
                             class="ag-input-field-label ag-label ag-hidden ag-checkbox-label"
-                            id="ag-8-label"
-                            ref="eLabel"
+                            data-ref="eLabel"
+                            id="ag-10-label"
                             role="presentation"
                           />
                           
                 
                           <div
                             class="ag-wrapper ag-input-wrapper ag-checkbox-input-wrapper"
-                            ref="eWrapper"
+                            data-ref="eWrapper"
                             role="presentation"
                           >
                             
@@ -1098,8 +1098,8 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                             <input
                               aria-label="Press Space to toggle all rows selection (unchecked)"
                               class="ag-input-field-input ag-checkbox-input"
-                              id="ag-8-input"
-                              ref="eInput"
+                              data-ref="eInput"
+                              id="ag-10-input"
                               tabindex="-1"
                               type="checkbox"
                             />
@@ -1118,28 +1118,28 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                             role="presentation"
                           >
                             
-            
-            
-            
+        
+        
+        
                             <div
                               class="ag-header-cell-label"
-                              ref="eLabel"
+                              data-ref="eLabel"
                               role="presentation"
                             >
                               
-                
+            
                               <span
                                 class="ag-header-cell-text"
-                                ref="eText"
+                                data-ref="eText"
                               >
                                 phone
                               </span>
                               
-                
+            
                               <span
                                 aria-hidden="true"
                                 class="ag-header-icon ag-header-label-icon ag-filter-icon ag-hidden"
-                                ref="eFilter"
+                                data-ref="eFilter"
                               >
                                 <span
                                   class="ag-icon ag-icon-filter"
@@ -1148,25 +1148,25 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                                 />
                               </span>
                               
-                
+            
                               <!--AG-SORT-INDICATOR-->
                               <span
                                 class="ag-sort-indicator-container"
-                                ref="eSortIndicator"
+                                data-ref="eSortIndicator"
                               >
                                 
-            
+        
                                 <span
                                   aria-hidden="true"
                                   class="ag-sort-indicator-icon ag-sort-order ag-hidden"
-                                  ref="eSortOrder"
+                                  data-ref="eSortOrder"
                                 />
                                 
-            
+        
                                 <span
                                   aria-hidden="true"
                                   class="ag-sort-indicator-icon ag-sort-ascending-icon ag-hidden"
-                                  ref="eSortAsc"
+                                  data-ref="eSortAsc"
                                 >
                                   <span
                                     class="ag-icon ag-icon-asc"
@@ -1175,11 +1175,11 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                                   />
                                 </span>
                                 
-            
+        
                                 <span
                                   aria-hidden="true"
                                   class="ag-sort-indicator-icon ag-sort-descending-icon ag-hidden"
-                                  ref="eSortDesc"
+                                  data-ref="eSortDesc"
                                 >
                                   <span
                                     class="ag-icon ag-icon-desc"
@@ -1188,11 +1188,11 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                                   />
                                 </span>
                                 
-            
+        
                                 <span
                                   aria-hidden="true"
                                   class="ag-sort-indicator-icon ag-sort-mixed-icon ag-hidden"
-                                  ref="eSortMixed"
+                                  data-ref="eSortMixed"
                                 >
                                   <span
                                     class="ag-icon ag-icon-none"
@@ -1201,11 +1201,11 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                                   />
                                 </span>
                                 
-            
+        
                                 <span
                                   aria-hidden="true"
                                   class="ag-sort-indicator-icon ag-sort-none-icon ag-hidden"
-                                  ref="eSortNone"
+                                  data-ref="eSortNone"
                                 >
                                   <span
                                     class="ag-icon ag-icon-none"
@@ -1214,13 +1214,13 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                                   />
                                 </span>
                                 
-        
+    
                               </span>
                               
-            
+        
                             </div>
                             
-        
+    
                           </div>
                         </div>
                       </div>
@@ -1248,15 +1248,15 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                           <div
                             aria-hidden="true"
                             class="ag-input-field-label ag-label ag-hidden ag-checkbox-label"
-                            id="ag-9-label"
-                            ref="eLabel"
+                            data-ref="eLabel"
+                            id="ag-11-label"
                             role="presentation"
                           />
                           
                 
                           <div
                             class="ag-wrapper ag-input-wrapper ag-checkbox-input-wrapper"
-                            ref="eWrapper"
+                            data-ref="eWrapper"
                             role="presentation"
                           >
                             
@@ -1264,8 +1264,8 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                             <input
                               aria-label="Press Space to toggle all rows selection (unchecked)"
                               class="ag-input-field-input ag-checkbox-input"
-                              id="ag-9-input"
-                              ref="eInput"
+                              data-ref="eInput"
+                              id="ag-11-input"
                               tabindex="-1"
                               type="checkbox"
                             />
@@ -1284,28 +1284,28 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                             role="presentation"
                           >
                             
-            
-            
-            
+        
+        
+        
                             <div
                               class="ag-header-cell-label"
-                              ref="eLabel"
+                              data-ref="eLabel"
                               role="presentation"
                             >
                               
-                
+            
                               <span
                                 class="ag-header-cell-text"
-                                ref="eText"
+                                data-ref="eText"
                               >
                                 Actions
                               </span>
                               
-                
+            
                               <span
                                 aria-hidden="true"
                                 class="ag-header-icon ag-header-label-icon ag-filter-icon ag-hidden"
-                                ref="eFilter"
+                                data-ref="eFilter"
                               >
                                 <span
                                   class="ag-icon ag-icon-filter"
@@ -1314,25 +1314,25 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                                 />
                               </span>
                               
-                
+            
                               <!--AG-SORT-INDICATOR-->
                               <span
                                 class="ag-sort-indicator-container"
-                                ref="eSortIndicator"
+                                data-ref="eSortIndicator"
                               >
                                 
-            
+        
                                 <span
                                   aria-hidden="true"
                                   class="ag-sort-indicator-icon ag-sort-order ag-hidden"
-                                  ref="eSortOrder"
+                                  data-ref="eSortOrder"
                                 />
                                 
-            
+        
                                 <span
                                   aria-hidden="true"
                                   class="ag-sort-indicator-icon ag-sort-ascending-icon ag-hidden"
-                                  ref="eSortAsc"
+                                  data-ref="eSortAsc"
                                 >
                                   <span
                                     class="ag-icon ag-icon-asc"
@@ -1341,11 +1341,11 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                                   />
                                 </span>
                                 
-            
+        
                                 <span
                                   aria-hidden="true"
                                   class="ag-sort-indicator-icon ag-sort-descending-icon ag-hidden"
-                                  ref="eSortDesc"
+                                  data-ref="eSortDesc"
                                 >
                                   <span
                                     class="ag-icon ag-icon-desc"
@@ -1354,11 +1354,11 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                                   />
                                 </span>
                                 
-            
+        
                                 <span
                                   aria-hidden="true"
                                   class="ag-sort-indicator-icon ag-sort-mixed-icon ag-hidden"
-                                  ref="eSortMixed"
+                                  data-ref="eSortMixed"
                                 >
                                   <span
                                     class="ag-icon ag-icon-none"
@@ -1367,11 +1367,11 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                                   />
                                 </span>
                                 
-            
+        
                                 <span
                                   aria-hidden="true"
                                   class="ag-sort-indicator-icon ag-sort-none-icon ag-hidden"
-                                  ref="eSortNone"
+                                  data-ref="eSortNone"
                                 >
                                   <span
                                     class="ag-icon ag-icon-none"
@@ -1380,13 +1380,13 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                                   />
                                 </span>
                                 
-        
+    
                               </span>
                               
-            
+        
                             </div>
                             
-        
+    
                           </div>
                         </div>
                       </div>
@@ -1443,7 +1443,7 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
               >
                 <!-- AG Middle -->
                 <div
-                  class="ag-body-viewport ag-row-animation ag-layout-auto-height"
+                  class="ag-body-viewport ag-row-no-animation ag-layout-auto-height"
                   role="presentation"
                 >
                   <!-- AG Row Container left -->
@@ -1471,6 +1471,7 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                         row-id="0"
                         row-index="0"
                         style="transform: translateY(0px); height: 42px;"
+                        tabindex="-1"
                       >
                         <div
                           aria-colindex="1"
@@ -1546,25 +1547,22 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                             data-mui-internal-clone-element="true"
                           >
                             <button
-                              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeMedium css-1kuq5xv-MuiButtonBase-root-MuiIconButton-root"
+                              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeMedium css-1avr69h-MuiButtonBase-root-MuiIconButton-root"
                               id="todo-table-1-button-edit"
                               tabindex="0"
                               type="button"
                             >
                               <svg
                                 aria-hidden="true"
-                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-20bmp1-MuiSvgIcon-root"
                                 data-testid="EditIcon"
                                 focusable="false"
                                 viewBox="0 0 24 24"
                               >
                                 <path
-                                  d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 0 0-1.41 0l-1.83 1.83 3.75 3.75z"
+                                  d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.996.996 0 0 0-1.41 0l-1.83 1.83 3.75 3.75z"
                                 />
                               </svg>
-                              <span
-                                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                              />
                             </button>
                           </span>
                           <span
@@ -1573,14 +1571,14 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                             data-mui-internal-clone-element="true"
                           >
                             <button
-                              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeMedium css-1kuq5xv-MuiButtonBase-root-MuiIconButton-root"
+                              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeMedium css-1avr69h-MuiButtonBase-root-MuiIconButton-root"
                               id="todo-table-1-button-delete"
                               tabindex="0"
                               type="button"
                             >
                               <svg
                                 aria-hidden="true"
-                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-20bmp1-MuiSvgIcon-root"
                                 data-testid="DeleteIcon"
                                 focusable="false"
                                 viewBox="0 0 24 24"
@@ -1589,9 +1587,6 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                                   d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z"
                                 />
                               </svg>
-                              <span
-                                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                              />
                             </button>
                           </span>
                         </div>
@@ -1621,13 +1616,13 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
             
                   <div
                     class="ag-body-vertical-scroll-viewport"
-                    ref="eViewport"
+                    data-ref="eViewport"
                   >
                     
                 
                     <div
                       class="ag-body-vertical-scroll-container"
-                      ref="eContainer"
+                      data-ref="eContainer"
                       style="height: 42px;"
                     />
                     
@@ -1671,6 +1666,42 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                 <!-- AG Row Container stickyTopFullWidth -->
                 <div
                   class="ag-sticky-top-full-width-container"
+                  role="rowgroup"
+                />
+              </div>
+              <div
+                class="ag-sticky-bottom ag-hidden"
+                role="presentation"
+                style="height: 0px; bottom: 0px; width: 100%;"
+              >
+                <!-- AG Row Container stickyBottomLeft -->
+                <div
+                  aria-hidden="true"
+                  class="ag-pinned-left-sticky-bottom ag-hidden"
+                  role="rowgroup"
+                  style="width: 0px; max-width: 0px; min-width: 0px;"
+                />
+                <!-- AG Row Container stickyBottomCenter -->
+                <div
+                  class="ag-sticky-bottom-viewport"
+                  role="presentation"
+                >
+                  <div
+                    class="ag-sticky-bottom-container"
+                    role="rowgroup"
+                    style="width: 1400px;"
+                  />
+                </div>
+                <!-- AG Row Container stickyBottomRight -->
+                <div
+                  aria-hidden="true"
+                  class="ag-pinned-right-sticky-bottom ag-hidden"
+                  role="rowgroup"
+                  style="width: 0px; max-width: 0px; min-width: 0px;"
+                />
+                <!-- AG Row Container stickyBottomFullWidth -->
+                <div
+                  class="ag-sticky-bottom-full-width-container"
                   role="rowgroup"
                 />
               </div>
@@ -1720,20 +1751,20 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
             
                 <div
                   class="ag-horizontal-left-spacer"
-                  ref="eLeftSpacer"
+                  data-ref="eLeftSpacer"
                   style="width: 0px; max-width: 0px; min-width: 0px;"
                 />
                 
             
                 <div
                   class="ag-body-horizontal-scroll-viewport"
-                  ref="eViewport"
+                  data-ref="eViewport"
                 >
                   
                 
                   <div
                     class="ag-body-horizontal-scroll-container"
-                    ref="eContainer"
+                    data-ref="eContainer"
                     style="width: 1400px;"
                   />
                   
@@ -1743,7 +1774,7 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
             
                 <div
                   class="ag-horizontal-right-spacer"
-                  ref="eRightSpacer"
+                  data-ref="eRightSpacer"
                   style="width: 0px; max-width: 0px; min-width: 0px;"
                 />
                 
@@ -1755,23 +1786,24 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                 role="presentation"
               >
                 
-            
+                
                 <div
                   class="ag-overlay-panel"
                   role="presentation"
                 >
                   
-                
+                    
                   <div
-                    class="ag-overlay-wrapper ag-layout-auto-height"
-                    ref="eOverlayWrapper"
+                    class="ag-overlay-wrapper ag-layout-auto-height ag-overlay-no-rows-wrapper"
+                    data-ref="eOverlayWrapper"
                     role="presentation"
+                    style="padding-top: 48px;"
                   />
                   
-            
+                
                 </div>
                 
-        
+            
               </div>
             </div>
             <div
@@ -1782,33 +1814,37 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
           </div>
           <div
             aria-hidden="true"
-            class="ag-paging-panel ag-unselectable ag-hidden"
-            id="ag-10"
+            class="ag-paging-panel ag-unselectable ag-focus-managed ag-hidden"
+            id="ag-12"
           >
+            <div
+              class="ag-tab-guard ag-tab-guard-top"
+              role="presentation"
+              tabindex="0"
+            />
             
                 
             <!--AG-PAGE-SIZE-SELECTOR-->
             <span
               class="ag-paging-page-size"
-              ref="pageSizeComp"
+              data-ref="pageSizeComp"
             />
             
                 
             <span
               class="ag-paging-row-summary-panel"
-              role="status"
             >
               
                     
               <span
                 class="ag-paging-row-summary-panel-number"
-                id="ag-10-first-row"
-                ref="lbFirstRowOnPage"
+                data-ref="lbFirstRowOnPage"
+                id="ag-12-first-row"
               />
               
                     
               <span
-                id="ag-10-to"
+                id="ag-12-to"
               >
                 to
               </span>
@@ -1816,13 +1852,13 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                     
               <span
                 class="ag-paging-row-summary-panel-number"
-                id="ag-10-last-row"
-                ref="lbLastRowOnPage"
+                data-ref="lbLastRowOnPage"
+                id="ag-12-last-row"
               />
               
                     
               <span
-                id="ag-10-of"
+                id="ag-12-of"
               >
                 of
               </span>
@@ -1830,8 +1866,8 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                     
               <span
                 class="ag-paging-row-summary-panel-number"
-                id="ag-10-row-count"
-                ref="lbRecordCount"
+                data-ref="lbRecordCount"
+                id="ag-12-row-count"
               />
               
                 
@@ -1847,7 +1883,7 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
               <div
                 aria-label="First Page"
                 class="ag-button ag-paging-button"
-                ref="btFirst"
+                data-ref="btFirst"
                 role="button"
                 tabindex="0"
               >
@@ -1862,7 +1898,7 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
               <div
                 aria-label="Previous Page"
                 class="ag-button ag-paging-button"
-                ref="btPrevious"
+                data-ref="btPrevious"
                 role="button"
                 tabindex="0"
               >
@@ -1876,12 +1912,11 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                     
               <span
                 class="ag-paging-description"
-                role="status"
               >
                 
                         
                 <span
-                  id="ag-10-start-page"
+                  id="ag-12-start-page"
                 >
                   Page
                 </span>
@@ -1889,13 +1924,13 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                         
                 <span
                   class="ag-paging-number"
-                  id="ag-10-start-page-number"
-                  ref="lbCurrent"
+                  data-ref="lbCurrent"
+                  id="ag-12-start-page-number"
                 />
                 
                         
                 <span
-                  id="ag-10-of-page"
+                  id="ag-12-of-page"
                 >
                   of
                 </span>
@@ -1903,8 +1938,8 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
                         
                 <span
                   class="ag-paging-number"
-                  id="ag-10-of-page-number"
-                  ref="lbTotal"
+                  data-ref="lbTotal"
+                  id="ag-12-of-page-number"
                 />
                 
                     
@@ -1914,7 +1949,7 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
               <div
                 aria-label="Next Page"
                 class="ag-button ag-paging-button"
-                ref="btNext"
+                data-ref="btNext"
                 role="button"
                 tabindex="0"
               >
@@ -1929,7 +1964,7 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
               <div
                 aria-label="Last Page"
                 class="ag-button ag-paging-button"
-                ref="btLast"
+                data-ref="btLast"
                 role="button"
                 tabindex="0"
               >
@@ -1944,6 +1979,11 @@ exports[`UserDialog > should equal saved snapshot 1`] = `
             </span>
             
             
+            <div
+              class="ag-tab-guard ag-tab-guard-bottom"
+              role="presentation"
+              tabindex="0"
+            />
           </div>
         </div>
       </div>

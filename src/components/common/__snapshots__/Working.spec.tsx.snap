@@ -7,7 +7,7 @@ exports[`Working > should equal saved snapshot 1`] = `
     style="height: 100%;"
   >
     <span
-      class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-18lrjg1-MuiCircularProgress-root"
+      class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-1yonwsg-MuiCircularProgress-root"
       data-testid="loading-spinner"
       role="progressbar"
       style="width: 40px; height: 40px;"
@@ -17,7 +17,7 @@ exports[`Working > should equal saved snapshot 1`] = `
         viewBox="22 22 44 44"
       >
         <circle
-          class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-176wh8e-MuiCircularProgress-circle"
+          class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-1a8epmm-MuiCircularProgress-circle"
           cx="44"
           cy="44"
           fill="none"

@@ -20,11 +20,11 @@ vi.mock('../apis/TodoApi', () => ({
   deleteTodo: vi.fn(),
   readTodo: vi.fn(),
 }));
-const createTodoApiMock = createTodoApi as Mock<[todo: Todo], AxiosPromise<Todo>>;
-const readTodosApiMock = readTodosApi as Mock<[], AxiosPromise<Todo[]>>;
-const updateTodoApiMock = updateTodoApi as Mock<[todo: Partial<Todo>], AxiosPromise<Todo>>;
-const deleteTodoApiMock = deleteTodoApi as Mock<[todoId: number], AxiosPromise<void>>;
-const readTodoApiMock = readTodoApi as Mock<[todoId: number], AxiosPromise<Todo>>;
+const createTodoApiMock = createTodoApi as Mock<(todo: Todo) => AxiosPromise<Todo>>;
+const readTodosApiMock = readTodosApi as Mock<() => AxiosPromise<Todo[]>>;
+const updateTodoApiMock = updateTodoApi as Mock<(todo: Partial<Todo>) => AxiosPromise<Todo>>;
+const deleteTodoApiMock = deleteTodoApi as Mock<(todoId: number) => AxiosPromise<void>>;
+const readTodoApiMock = readTodoApi as Mock<(todoId: number) => AxiosPromise<Todo>>;
 
 describe('TodosThunk', () => {
   describe('createTodo', () => {

@@ -3,7 +3,7 @@ import { getUrl } from './BaseApi';
 import { Env, getEnv } from '../globals/Environments';
 
 vi.mock('../globals/Environments');
-const getEnvMock = getEnv as Mock<[], Env>;
+const getEnvMock = getEnv as Mock<() => Env>;
 
 describe('BaseApi', () => {
   describe('getUrl', () => {

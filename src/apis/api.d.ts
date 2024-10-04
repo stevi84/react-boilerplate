@@ -787,3 +787,13 @@ export interface PathsDictionary {
 }
 
 export type Client = OpenAPIClient<OperationMethods, PathsDictionary>;
+
+export type CreateTodo = Components.Schemas.CreateTodo;
+export type CreateUser = Components.Schemas.CreateUser;
+export type CurrentUser = Components.Schemas.CurrentUser;
+export type Error = Components.Schemas.Error;
+export type Role = Components.Schemas.Role;
+export type Todo = Components.Schemas.Todo;
+export type UpdateTodo = Components.Schemas.UpdateTodo;
+export type UpdateUser = Components.Schemas.UpdateUser;
+export type User = Components.Schemas.User;
