@@ -52,6 +52,16 @@ npm run start:backend
 npm start
 ```
 
+## Generation of types
+- globally install the openapicmd package (only once for the first time)
+```bash
+npm install -g openapicmd
+```
+- to generate the types from the provided OpenApi yml-file use the following command
+```bash
+npm run typegen
+```
+
 ## Production
 
 For getting this app production ready, follow these steps:
