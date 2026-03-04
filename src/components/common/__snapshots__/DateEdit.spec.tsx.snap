@@ -3,42 +3,71 @@
 exports[`DateEdit > should equal saved snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="MuiFormControl-root MuiTextField-root css-5ibrrh-MuiFormControl-root-MuiTextField-root"
+    class="MuiFormControl-root MuiPickersTextField-root css-rlkk2w-MuiFormControl-root-MuiPickersTextField-root"
   >
     <label
-      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary Mui-error MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-18pjc51-MuiFormLabel-root-MuiInputLabel-root"
-      data-shrink="true"
+      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary Mui-error MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-19qnlrw-MuiFormLabel-root-MuiInputLabel-root"
+      data-shrink="false"
       for="id"
       id="id-label"
     >
       label
     </label>
     <div
-      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary Mui-error MuiInputBase-formControl MuiInputBase-adornedEnd css-lxfshk-MuiInputBase-root-MuiOutlinedInput-root"
+      aria-describedby="id-helper-text"
+      aria-invalid="true"
+      aria-labelledby="id-label"
+      aria-live="polite"
+      class="MuiPickersInputBase-root MuiPickersOutlinedInput-root Mui-error MuiPickersInputBase-colorPrimary MuiPickersInputBase-adornedEnd css-vycme6-MuiPickersInputBase-root-MuiPickersOutlinedInput-root"
+      role="group"
     >
-      <input
-        aria-describedby="id-helper-text"
-        aria-invalid="true"
-        autocomplete="off"
-        class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd css-lc42l8-MuiInputBase-input-MuiOutlinedInput-input"
-        id="id"
-        inputmode="text"
-        placeholder="dateFormat"
-        type="text"
-        value="dateFormat"
-      />
       <div
-        class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-1i2hsuj-MuiInputAdornment-root"
+        class="MuiPickersSectionList-root MuiPickersInputBase-sectionsContainer css-qru2u2-MuiPickersSectionList-root-MuiPickersInputBase-sectionsContainer-MuiPickersOutlinedInput-sectionsContainer"
+        contenteditable="false"
+        tabindex="0"
+      >
+        <span
+          class="MuiPickersSectionList-section css-joz0rk-MuiPickersSectionList-section-MuiPickersInputBase-section"
+          data-sectionindex="0"
+        >
+          <span
+            class="MuiPickersInputBase-sectionBefore css-w1q93y-MuiPickersSectionList-sectionSeparator-MuiPickersInputBase-separator"
+          >
+            dateFormat
+          </span>
+          <span
+            aria-disabled="false"
+            aria-label="Empty"
+            aria-readonly="false"
+            aria-valuemax="0"
+            aria-valuemin="0"
+            aria-valuetext="Empty"
+            autocapitalize="none"
+            autocorrect="off"
+            class="MuiPickersSectionList-sectionContent MuiPickersInputBase-sectionContent css-1jpopwz-MuiPickersSectionList-sectionContent-MuiPickersInputBase-sectionContent"
+            contenteditable="true"
+            inputmode="text"
+            role="spinbutton"
+            spellcheck="false"
+            tabindex="0"
+          />
+          <span
+            class="MuiPickersInputBase-sectionAfter css-w1q93y-MuiPickersSectionList-sectionSeparator-MuiPickersInputBase-separator"
+          />
+        </span>
+      </div>
+      <div
+        class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-elo8k2-MuiInputAdornment-root"
       >
         <button
           aria-label="Choose date, selected date is Dec 3, 2020"
-          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-edgeEnd MuiIconButton-sizeMedium css-1a7z5rc-MuiButtonBase-root-MuiIconButton-root"
+          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-edgeEnd MuiIconButton-sizeMedium css-1ysp02-MuiButtonBase-root-MuiIconButton-root"
           tabindex="0"
           type="button"
         >
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-20bmp1-MuiSvgIcon-root"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1umw9bq-MuiSvgIcon-root"
             data-testid="CalendarIcon"
             focusable="false"
             viewBox="0 0 24 24"
@@ -51,19 +80,28 @@ exports[`DateEdit > should equal saved snapshot 1`] = `
       </div>
       <fieldset
         aria-hidden="true"
-        class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
+        class="MuiPickersOutlinedInput-notchedOutline css-lqwr9g-MuiPickersOutlinedInput-notchedOutline"
       >
         <legend
-          class="css-kg5swy"
+          class="css-1pbc52w"
         >
-          <span>
+          <span
+            class="css-w48gsk"
+          >
             label
           </span>
         </legend>
       </fieldset>
+      <input
+        aria-hidden="true"
+        class="MuiPickersInputBase-input MuiPickersOutlinedInput-input css-31lcvl-MuiPickersInputBase-input"
+        id="id"
+        tabindex="-1"
+        value=""
+      />
     </div>
     <p
-      class="MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained MuiFormHelperText-filled css-wq8qsl-MuiFormHelperText-root"
+      class="MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-er619e-MuiFormHelperText-root"
       id="id-helper-text"
     >
       error

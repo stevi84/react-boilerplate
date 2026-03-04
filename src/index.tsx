@@ -16,6 +16,7 @@ import { NotFoundDialog } from './components/dialogs/NotFoundDialog';
 import { NotAuthorizedDialog } from './components/dialogs/NotAuthorizedDialog';
 import { AdminDialog } from './components/dialogs/AdminDialog';
 import { ErrorBoundary } from './components/common/ErrorBoundary';
+import { ClientSideRowModelModule, ModuleRegistry } from 'ag-grid-community';
 
 const router = createBrowserRouter([
   {
@@ -91,6 +92,8 @@ const theme = createTheme({
 const container = document.getElementById('root') as HTMLElement;
 const root = createRoot(container);
 const store = setupStore();
+
+ModuleRegistry.registerModules([ClientSideRowModelModule]);
 
 root.render(
   <React.StrictMode>

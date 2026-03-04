@@ -58,8 +58,9 @@ export const DataTable = <EntityType extends BaseEntity>(props: DataTableOwnProp
         }
       />
       {!isReading && !isSubmitting && (
-        <Box className="ag-theme-alpine" sx={{ padding: 1 }}>
+        <Box className="ag-theme-alpine" data-testid={`${id}-grid`} sx={{ padding: 1 }}>
           <AgGridReact<EntityType>
+            theme="legacy"
             ref={gridRef}
             rowData={rowsData}
             columnDefs={[

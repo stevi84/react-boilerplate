@@ -42,7 +42,7 @@ export const Dashboard = () => {
       <Paper sx={{ margin: 1 }}>
         {!isReading && !isSubmitting && (
           <Grid container columnSpacing={2} sx={{ padding: 1 }}>
-            <Grid item>
+            <Grid>
               <Card>
                 <ButtonBase onClick={() => navigate('/todos')}>
                   <CardContent>
@@ -54,7 +54,7 @@ export const Dashboard = () => {
                 </ButtonBase>
               </Card>
             </Grid>
-            <Grid item>
+            <Grid>
               <Card>
                 <ButtonBase onClick={() => navigate('/users')}>
                   <CardContent>
@@ -69,7 +69,7 @@ export const Dashboard = () => {
             <Authorization
               allowedAccessRights={['ADMIN']}
               WrappedElement={
-                <Grid item>
+                <Grid>
                   <Card>
                     <ButtonBase onClick={() => navigate('/admin')}>
                       <CardContent>

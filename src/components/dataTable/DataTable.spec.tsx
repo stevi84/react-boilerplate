@@ -68,7 +68,7 @@ describe('DataTable', () => {
     renderWithProviders(<DataTable id="id" columns={[]} rowsData={[]} manager={managerMock} />, {
       preloadedState: initialState,
     });
-    expect(screen.getByRole('treegrid')).toBeTruthy();
+    expect(screen.getByTestId('id-grid')).toBeTruthy();
     expect(screen.queryByRole('progressbar')).toBeFalsy();
   });
 
@@ -76,7 +76,7 @@ describe('DataTable', () => {
     renderWithProviders(<DataTable id="id" columns={[]} rowsData={[]} manager={managerMock} />, {
       preloadedState: { ...initialState, apiCalls: { runningReads: 1, runningSubmits: 0 } },
     });
-    expect(screen.queryByRole('treegrid')).toBeFalsy();
+    expect(screen.queryByTestId('id-grid')).toBeFalsy();
     expect(screen.getByRole('progressbar')).toBeTruthy();
   });
 
@@ -84,7 +84,7 @@ describe('DataTable', () => {
     renderWithProviders(<DataTable id="id" columns={[]} rowsData={[]} manager={managerMock} />, {
       preloadedState: { ...initialState, apiCalls: { runningReads: 0, runningSubmits: 1 } },
     });
-    expect(screen.queryByRole('treegrid')).toBeFalsy();
+    expect(screen.queryByTestId('id-grid')).toBeFalsy();
     expect(screen.getByRole('progressbar')).toBeTruthy();
   });
 

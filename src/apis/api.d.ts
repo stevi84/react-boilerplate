@@ -129,11 +129,10 @@ declare namespace Components {
       /**
        * The roles of the current user.
        */
-      roles: /**
+      roles /**
        * example:
        * EDITOR
-       */
-      Role[];
+       */: Role[];
     }
     /**
      * Error
