@@ -43,7 +43,7 @@ describe('Validations', () => {
 
     it('should return false if the value is not an integer', () => {
       expect(isInteger(15.5)).toEqual(false);
-      expect(isInteger(NaN)).toEqual(false);
+      expect(isInteger(Number.NaN)).toEqual(false);
     });
   });
 
@@ -54,7 +54,7 @@ describe('Validations', () => {
     });
 
     it('should return false if the value is not a number', () => {
-      expect(isNumber(NaN)).toEqual(false);
+      expect(isNumber(Number.NaN)).toEqual(false);
     });
   });
 });

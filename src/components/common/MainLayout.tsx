@@ -32,9 +32,7 @@ export const MainLayout = (props: React.PropsWithChildren<MainLayoutProps>) => {
     }
   }, []);
 
-  return !currentUser.loginName ? (
-    <Working />
-  ) : (
+  return currentUser.loginName ? (
     <Authorization
       allowedAccessRights={allowedAccessRights}
       WrappedElement={
@@ -45,5 +43,7 @@ export const MainLayout = (props: React.PropsWithChildren<MainLayoutProps>) => {
       }
       NotAuthorizedElement={<NotAuthorized />}
     />
+  ) : (
+    <Working />
   );
 };

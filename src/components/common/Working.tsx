@@ -11,10 +11,14 @@ export const Working = (props: WorkingProps) => {
 
   const { t } = useTranslation();
 
+  let statusText: string | null = null;
+  if (isSubmitting) statusText = t('submitting');
+  else if (isReading) statusText = t('reading');
+
   return (
     <Stack direction={'column'} justifyContent={'center'} alignItems={'center'} style={{ height: '100%' }}>
       <CircularProgress data-testid="loading-spinner" />
-      {isSubmitting ? t('submitting') : isReading ? t('reading') : null}
+      {statusText}
     </Stack>
   );
 };

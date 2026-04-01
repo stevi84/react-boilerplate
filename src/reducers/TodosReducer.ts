@@ -15,7 +15,7 @@ const todosSlice = createSlice({
       return state.concat(action.payload);
     },
     changeTodo(state, action: PayloadAction<Todo>) {
-      return state.map((todo) => (todo.id !== action.payload.id ? todo : action.payload));
+      return state.map((todo) => (todo.id === action.payload.id ? action.payload : todo));
     },
     removeTodo(state, action: PayloadAction<number>) {
       return state.filter((todo) => todo.id !== action.payload);

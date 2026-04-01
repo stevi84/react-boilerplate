@@ -1,10 +1,9 @@
 import { defineConfig } from 'vitest/config';
 import react from '@vitejs/plugin-react';
-import eslint from 'vite-plugin-eslint';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), eslint()],
+  plugins: [react()],
   server: {
     open: true,
     port: 8081,
@@ -21,7 +20,6 @@ export default defineConfig({
     coverage: {
       provider: 'v8',
       reporter: ['text'],
-      all: true,
       include: ['src/**/*.ts', 'src/**/*.tsx'],
     },
   },

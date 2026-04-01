@@ -15,7 +15,7 @@ const usersSlice = createSlice({
       return state.concat(action.payload);
     },
     changeUser(state, action: PayloadAction<User>) {
-      return state.map((user) => (user.id !== action.payload.id ? user : action.payload));
+      return state.map((user) => (user.id === action.payload.id ? action.payload : user));
     },
     removeUser(state, action: PayloadAction<number>) {
       return state.filter((user) => user.id !== action.payload);

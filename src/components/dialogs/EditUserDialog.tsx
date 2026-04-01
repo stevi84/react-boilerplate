@@ -22,14 +22,16 @@ import { Locale } from '../../globals/Translations';
 export const EditUserDialog = () => {
   const isReading: boolean = useAppSelector(isReadingSelector);
   const isSubmitting: boolean = useAppSelector(isSubmittingSelector);
-  const [user, setUser] = useState<User>(getEmptyUser());
+  const [user, setUser] = useState<User>(() => getEmptyUser());
   const { id } = useParams();
   const { t, i18n } = useTranslation();
   const lang: Locale = i18n.language as Locale;
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
-  const mode: CrudMode | undefined = id === 'new' ? CrudMode.CREATE : /^\d+$/.test(id!) ? CrudMode.UPDATE : undefined;
+  let mode: CrudMode | undefined;
+  if (id === 'new') mode = CrudMode.CREATE;
+  else if (/^\d+$/.test(id!)) mode = CrudMode.UPDATE;
   useEffect(() => {
     (async () => {
       if (mode === CrudMode.UPDATE) {
@@ -52,6 +54,16 @@ export const EditUserDialog = () => {
   const doCancel = (form: FormikHelpers<User>) => () => {
     form.resetForm({ values: getEmptyUser() });
     navigate('/users');
+  };
+
+  const getSaveTooltip = (isDirty: boolean, isValid: boolean): string => {
+    if (isDirty) {
+      if (isValid) {
+        return isSubmitting ? t('tooltip_submitting') : t('save');
+      }
+      return t('tooltip_invalid');
+    }
+    return t('tooltip_no_changes');
   };
 
   return (
@@ -81,17 +93,7 @@ export const EditUserDialog = () => {
                   <StringEdit id="email" name="email" label={t('email')} />
                   <StringEdit id="phone" name="phone" label={t('phone')} />
                   <Stack direction={'row'}>
-                    <Tooltip
-                      title={
-                        !form.dirty
-                          ? t('tooltip_no_changes')
-                          : !form.isValid
-                            ? t('tooltip_invalid')
-                            : isSubmitting
-                              ? t('tooltip_submitting')
-                              : t('save')
-                      }
-                    >
+                    <Tooltip title={getSaveTooltip(form.dirty, form.isValid)}>
                       <span>
                         <Button
                           id="button-save"

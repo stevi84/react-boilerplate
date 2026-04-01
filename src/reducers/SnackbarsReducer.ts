@@ -23,7 +23,7 @@ export const enqueueSnackbar = createAction<PrepareAction<{ notification: Snackb
       notification: {
         message,
         options,
-        key: (options && options.key) || new Date().getTime() + Math.random(),
+        key: options?.key || Date.now() + Math.random(),
         dismissed: false,
       },
     },

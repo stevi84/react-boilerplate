@@ -13,6 +13,6 @@ export const formatDateTime = (str: string, lang: Locale): string => {
 };
 
 export const parseNumber = (value: string, lang: Locale): number =>
-  numberStringValidate(value, lang) ? Number.parseFloat(numberStringConvert(value, lang)) : NaN;
+  numberStringValidate(value, lang) ? Number.parseFloat(numberStringConvert(value, lang)) : Number.NaN;
 
 export const formatNumber = (value: number, lang: Locale): string => value.toLocaleString(lang, { useGrouping: false });

@@ -36,11 +36,11 @@ describe('Formatters', () => {
     });
 
     it('should return NaN for invalid number', () => {
-      expect(parseNumber('1234.56', 'de')).toEqual(NaN);
-      expect(parseNumber('1234,56', 'en')).toEqual(NaN);
-      expect(parseNumber('1234,', 'de')).toEqual(NaN);
-      expect(parseNumber('unknown', 'de')).toEqual(NaN);
-      expect(parseNumber('', 'de')).toEqual(NaN);
+      expect(parseNumber('1234.56', 'de')).toEqual(Number.NaN);
+      expect(parseNumber('1234,56', 'en')).toEqual(Number.NaN);
+      expect(parseNumber('1234,', 'de')).toEqual(Number.NaN);
+      expect(parseNumber('unknown', 'de')).toEqual(Number.NaN);
+      expect(parseNumber('', 'de')).toEqual(Number.NaN);
     });
   });
 
@@ -48,7 +48,7 @@ describe('Formatters', () => {
     it('should return formatted number string', () => {
       expect(formatNumber(10000.1, 'de')).toEqual('10000,1');
       expect(formatNumber(10000.1, 'en')).toEqual('10000.1');
-      expect(formatNumber(NaN, 'de')).toEqual('NaN');
+      expect(formatNumber(Number.NaN, 'de')).toEqual('NaN');
     });
   });
 });

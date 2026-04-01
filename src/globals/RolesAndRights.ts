@@ -14,7 +14,7 @@ export const isAuthorized = (allowedAccessRights: Right[], userRoles: Role[]): b
 
   let authorized = false;
   for (let userRole of userRoles) {
-    if (rightsMap[userRole].filter((r) => allowedAccessRights.includes(r)).length > 0) authorized = true;
+    if (rightsMap[userRole].some((r) => allowedAccessRights.includes(r))) authorized = true;
   }
   return authorized;
 };

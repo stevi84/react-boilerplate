@@ -110,10 +110,10 @@ export const translations: Translations<{ translation: any }> = {
 };
 
 export const t = (key: string, lang: Locale = defaultLocale, placeholders: any = {}): string => {
-  let trans: string = (translations[lang] && translations[lang].translation[key]) || key;
+  let trans: string = translations[lang]?.translation[key] || key;
   for (const phKey in placeholders) {
     if (placeholders.hasOwnProperty(phKey)) {
-      trans = trans.replace(new RegExp(`{${phKey}}`, 'g'), placeholders[phKey]);
+      trans = trans.replaceAll(new RegExp(`{${phKey}}`, 'g'), placeholders[phKey]);
     }
   }
   return trans;
@@ -137,7 +137,7 @@ const numberStringRegexp: Translations<RegExp> = {
 };
 
 const numberStringConvertFct: Translations<(value: string) => string> = {
-  de: (value: string): string => value.replace(/,/g, '.'),
+  de: (value: string): string => value.replaceAll(',', '.'),
   en: (value: string): string => value,
 };
 

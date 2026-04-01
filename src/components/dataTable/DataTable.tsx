@@ -22,9 +22,13 @@ export const DataTable = <EntityType extends BaseEntity>(props: DataTableOwnProp
   const { t } = useTranslation();
   const gridRef = useRef<AgGridReact>(null);
 
+  let loadingTooltip = '';
+  if (isReading) loadingTooltip = t('tooltip_reading');
+  else if (isSubmitting) loadingTooltip = t('tooltip_submitting');
+
   return (
     <>
-      <Tooltip title={isReading ? t('tooltip_reading') : isSubmitting ? t('tooltip_submitting') : ''}>
+      <Tooltip title={loadingTooltip}>
         <span>
           <Button
             id={`${id}-button-reload`}
@@ -41,7 +45,7 @@ export const DataTable = <EntityType extends BaseEntity>(props: DataTableOwnProp
       <Authorization
         allowedAccessRights={[manager.editRight]}
         WrappedElement={
-          <Tooltip title={isReading ? t('tooltip_reading') : isSubmitting ? t('tooltip_submitting') : ''}>
+          <Tooltip title={loadingTooltip}>
             <span>
               <Button
                 id={`${id}-button-create`}
