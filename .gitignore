@@ -34,3 +34,9 @@ build
 .idea/usage.statistics.xml
 .idea/workspace.xml
 *.iml
+
+# Cypress
+/cypress/downloads/
+/cypress/report/
+/cypress/screenshots/
+/cypress/videos/

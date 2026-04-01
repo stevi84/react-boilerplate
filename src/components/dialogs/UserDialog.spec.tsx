@@ -29,7 +29,7 @@ vi.mock('../../reducers/Store', async () => {
   };
 });
 
-vi.mock('../../thunks/Usersthunks', () => ({
+vi.mock('../../thunks/UsersThunks', () => ({
   readUsers: () => ({ type: 'readUsers' }),
   deleteUser: () => ({ type: 'deleteUser' }),
 }));

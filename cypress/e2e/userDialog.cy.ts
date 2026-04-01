@@ -28,7 +28,9 @@ describe('User dialog', () => {
     cy.visit('/users');
     cy.get('#user-table-button-create').click();
     cy.get('#name').type('Tom Smith');
-    cy.get('#dateOfBirth').type('01.01.1980');
+    cy.get('[aria-labelledby="dateOfBirth-label"] span[data-sectionindex="0"]').click().type('01');
+    cy.get('[aria-labelledby="dateOfBirth-label"] span[data-sectionindex="1"]').click().type('01');
+    cy.get('[aria-labelledby="dateOfBirth-label"] span[data-sectionindex="2"]').click().type('1980');
     cy.get('#size').type('180');
     cy.get('#weight').type('75,3');
     cy.get('#email').type('tom.smith@example.com');

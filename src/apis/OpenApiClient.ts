@@ -1,4 +1,4 @@
-import OpenAPIClientAxios from 'openapi-client-axios';
+import { OpenAPIClientAxios } from 'openapi-client-axios';
 import apiYml from './api.yml';
 import { getEnv } from '../globals/Environments';
 

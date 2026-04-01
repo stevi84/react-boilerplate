@@ -1,4 +1,4 @@
-import { MutableRefObject, useRef } from 'react';
+import { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { DataTableOwnProps } from './DataTableInterfaces';
 import ReplayIcon from '@mui/icons-material/Replay';
@@ -20,7 +20,7 @@ export const DataTable = <EntityType extends BaseEntity>(props: DataTableOwnProp
   const isReading: boolean = useAppSelector(isReadingSelector);
   const isSubmitting: boolean = useAppSelector(isSubmittingSelector);
   const { t } = useTranslation();
-  const gridRef = useRef<AgGridReact>() as MutableRefObject<AgGridReact>;
+  const gridRef = useRef<AgGridReact>(null);
 
   return (
     <>

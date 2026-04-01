@@ -1,6 +1,19 @@
 {
-    "files.encoding": "utf8",
-    "files.eol": "\n",
-    "editor.tabSize": 2,
-    "editor.insertSpaces": true
+  "files.encoding": "utf8",
+  "files.eol": "\n",
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "terminal.integrated.profiles.windows": {
+    "PowerShell": {
+      "source": "PowerShell",
+      "icon": "terminal-powershell",
+      "args": [
+        "-ExecutionPolicy",
+        "Bypass"
+      ]
+    }
+  },
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "npm.packageManager": "yarn",
+  "github.copilot.chat.codeGeneration.useInstructionFiles": true,
 }

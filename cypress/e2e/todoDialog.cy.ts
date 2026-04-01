@@ -26,7 +26,9 @@ describe('Todo dialog', () => {
     cy.visit('/todos');
     cy.get('#todo-table-button-create').click();
     cy.get('#owner').type('tomsmith');
-    cy.get('#dueDate').type('20.01.2023');
+    cy.get('[aria-labelledby="dueDate-label"] span[data-sectionindex="0"]').click().type('20');
+    cy.get('[aria-labelledby="dueDate-label"] span[data-sectionindex="1"]').click().type('01');
+    cy.get('[aria-labelledby="dueDate-label"] span[data-sectionindex="2"]').click().type('2023');
     cy.get('#description').type('Beschreibung');
     cy.get('#button-save').click();
 

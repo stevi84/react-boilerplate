@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "packageManager": "yarn@4.12.0",
+  "packageManager": "yarn@4.13.0",
   "scripts": {
     "start": "cross-env VITE_ENV=dev vite",
     "start:backend": "json-server --watch db.json --port 5000 --delay 1000",
@@ -22,24 +22,24 @@
   "dependencies": {
     "@emotion/react": "11.14.0",
     "@emotion/styled": "11.14.1",
-    "@mui/icons-material": "7.3.8",
-    "@mui/material": "7.3.8",
+    "@mui/icons-material": "7.3.9",
+    "@mui/material": "7.3.9",
     "@mui/x-date-pickers": "8.27.2",
     "@reduxjs/toolkit": "2.11.2",
-    "ag-grid-community": "35.1.0",
-    "ag-grid-react": "35.1.0",
-    "axios": "1.13.6",
+    "ag-grid-community": "35.2.0",
+    "ag-grid-react": "35.2.0",
+    "axios": "1.14.0",
     "date-fns": "4.1.0",
     "formik": "2.4.9",
-    "i18next": "25.8.13",
+    "i18next": "26.0.1",
     "js-yaml": "4.1.1",
     "notistack": "3.0.2",
     "openapi-client-axios": "7.9.0",
     "react": "19.2.4",
     "react-dom": "19.2.4",
-    "react-i18next": "16.5.4",
+    "react-i18next": "17.0.1",
     "react-redux": "9.2.0",
-    "react-router-dom": "7.13.1",
+    "react-router-dom": "7.13.2",
     "yup": "1.7.1"
   },
   "devDependencies": {
@@ -47,22 +47,27 @@
     "@testing-library/jest-dom": "6.9.1",
     "@testing-library/react": "16.3.2",
     "@testing-library/user-event": "14.6.1",
-    "@types/react": "18.2.14",
+    "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
-    "@vitejs/plugin-react": "5.1.4",
-    "@vitest/coverage-v8": "4.0.18",
+    "@vitejs/plugin-react": "6.0.1",
+    "@vitest/coverage-v8": "4.1.2",
     "cross-env": "10.1.0",
-    "cypress": "15.11.0",
+    "cypress": "15.13.0",
     "eslint": "8.57.1",
     "eslint-config-prettier": "10.1.8",
     "eslint-config-react-app": "7.0.1",
     "eslint-plugin-prettier": "5.5.5",
-    "jsdom": "28.1.0",
+    "jsdom": "29.0.1",
     "json-server": "0.17.4",
     "prettier": "3.8.1",
-    "typescript": "5.9.3",
-    "vite": "7.3.1",
+    "typescript": "6.0.2",
+    "vite": "8.0.3",
     "vite-plugin-eslint": "1.8.1",
-    "vitest": "4.0.18"
+    "vitest": "4.1.2"
+  },
+  "dependenciesMeta": {
+    "cypress": {
+      "built": true
+    }
   }
 }
