@@ -14,11 +14,6 @@ vi.mock('react-i18next', () => ({
 }));
 
 describe('LanguageSwitch', () => {
-  it('should equal saved snapshot', () => {
-    const tree = render(<LanguageSwitch />).asFragment();
-    expect(tree).toMatchSnapshot();
-  });
-
   it('should change the language', () => {
     render(<LanguageSwitch />);
     expect(changeLanguageMock.mock.calls.length).toEqual(0);

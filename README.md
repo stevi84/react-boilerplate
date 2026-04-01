@@ -83,8 +83,7 @@ npm uninstall openapi-client-axios js-yaml
 - typegen... generates api and interface types when the interface specification changes
 - build... makes a production build
 - preview... starts a server for a preview of the production build
-- test... runs unit and snapshot tests
-- test:updateSnapshots... runs unit and updates snapshot tests
+- test... runs unit tests
 - test:coverage... generates a coverage report
 - cypress:open... opens the cypress gui
 - cypress:run... runs the e2e-tests headlless

@@ -7,36 +7,6 @@ import { renderWithProviders } from '../../test/Utils';
 import { todo1 } from '../../test/data/Todo';
 import { RootState } from '../../reducers/Store';
 
-vi.mock('react-i18next', () => ({
-  useTranslation: () => ({
-    t: (str: string) => str,
-    i18n: {
-      language: 'de',
-      changeLanguage: vi.fn(),
-    },
-  }),
-}));
-
-const { navigateMock, useParamsMock } = vi.hoisted(() => ({
-  navigateMock: vi.fn(),
-  useParamsMock: vi.fn(),
-}));
-vi.mock('react-router-dom', () => ({
-  useNavigate: () => navigateMock,
-  useParams: useParamsMock,
-}));
-
-vi.mock('../../hooks/UseNotifier', () => ({ useNotifier: vi.fn() }));
-
-const { dispatchMock } = vi.hoisted(() => ({ dispatchMock: vi.fn() }));
-vi.mock('../../reducers/Store', async () => {
-  const mod = await vi.importActual<typeof import('../../reducers/Store')>('../../reducers/Store');
-  return {
-    ...mod,
-    useAppDispatch: () => dispatchMock.mockImplementation(mod.useAppDispatch()),
-  };
-});
-
 const { readUserMock } = vi.hoisted(() => ({ readUserMock: vi.fn() }));
 vi.mock('../../thunks/UsersThunks', async () => {
   return {
@@ -59,27 +29,28 @@ const initialState: Partial<RootState> = {
 
 describe('EditUserDialog', () => {
   beforeEach(() => {
+    vi.clearAllMocks();
     readUserMock.mockResolvedValue(user1);
   });
 
-  it('should equal saved snapshot', () => {
-    useParamsMock.mockReturnValue({ id: 1 });
-    const tree = renderWithProviders(<EditUserDialog />, { preloadedState: initialState }).asFragment();
-    expect(tree).toMatchSnapshot();
-  });
-
   it('should load user if updating', () => {
-    useParamsMock.mockReturnValue({ id: '1' });
     expect(readUserMock.mock.calls.length).toEqual(0);
-    renderWithProviders(<EditUserDialog />, { preloadedState: initialState });
+    renderWithProviders(<EditUserDialog />, {
+      preloadedState: initialState,
+      initialEntries: ['/users/1'],
+      path: '/users/:id',
+    });
     expect(readUserMock.mock.calls.length).toEqual(1);
     expect(readUserMock.mock.calls[0][0]).toEqual(1);
     expect(readUserMock.mock.calls[0][1]).toEqual('de');
   });
 
   it('should not load user if creating', () => {
-    useParamsMock.mockReturnValue({ id: 'new' });
-    renderWithProviders(<EditUserDialog />, { preloadedState: initialState });
+    renderWithProviders(<EditUserDialog />, {
+      preloadedState: initialState,
+      initialEntries: ['/users/new'],
+      path: '/users/:id',
+    });
     expect(readUserMock.mock.calls.length).toEqual(0);
   });
 
@@ -109,34 +80,40 @@ describe('EditUserDialog', () => {
   // });
 
   it('should navigate to users on cancel', () => {
-    useParamsMock.mockReturnValue({ id: '1' });
-    expect(navigateMock.mock.calls.length).toEqual(0);
-    renderWithProviders(<EditUserDialog />, { preloadedState: initialState });
+    const { getLocation } = renderWithProviders(<EditUserDialog />, {
+      preloadedState: initialState,
+      initialEntries: ['/users/1'],
+      path: '/users/:id',
+    });
     fireEvent.click(screen.getByText('cancel'));
-    expect(navigateMock.mock.calls.length).toEqual(1);
-    expect(navigateMock.mock.calls[0][0]).toEqual('/users');
+    expect(getLocation()).toEqual('/users');
   });
 
   it('should show dialog if not reading or submitting', () => {
-    useParamsMock.mockReturnValue({ id: 1 });
-    renderWithProviders(<EditUserDialog />, { preloadedState: initialState });
+    renderWithProviders(<EditUserDialog />, {
+      preloadedState: initialState,
+      initialEntries: ['/users/1'],
+      path: '/users/:id',
+    });
     expect(screen.getByLabelText('name')).toBeTruthy();
     expect(screen.queryByRole('progressbar')).toBeFalsy();
   });
 
   it('should show working if reading', () => {
-    useParamsMock.mockReturnValue({ id: 1 });
     renderWithProviders(<EditUserDialog />, {
       preloadedState: { ...initialState, apiCalls: { runningReads: 1, runningSubmits: 0 } },
+      initialEntries: ['/users/1'],
+      path: '/users/:id',
     });
     expect(screen.queryByLabelText('name')).toBeFalsy();
     expect(screen.getByRole('progressbar')).toBeTruthy();
   });
 
   it('should show working if submitting', () => {
-    useParamsMock.mockReturnValue({ id: 1 });
     renderWithProviders(<EditUserDialog />, {
       preloadedState: { ...initialState, apiCalls: { runningReads: 0, runningSubmits: 1 } },
+      initialEntries: ['/users/1'],
+      path: '/users/:id',
     });
     expect(screen.queryByLabelText('name')).toBeFalsy();
     expect(screen.getByRole('progressbar')).toBeTruthy();

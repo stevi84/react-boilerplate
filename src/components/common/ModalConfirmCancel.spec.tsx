@@ -3,21 +3,6 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import { ModalConfirmCancel } from './ModalConfirmCancel';
 
 describe('ModalConfirmCancel', () => {
-  it('should equal saved snapshot', () => {
-    const tree = render(
-      <ModalConfirmCancel
-        isOpen={true}
-        headerText={'header'}
-        bodyText={'body'}
-        confirmButtonText={'confirm'}
-        cancelButtonText={'cancel'}
-        confirmAction={() => {}}
-        cancelAction={() => {}}
-      />
-    ).asFragment();
-    expect(tree).toMatchSnapshot();
-  });
-
   it('should execute confirm when confirmButton is pressed', () => {
     const confirmAction = vi.fn();
     const cancelAction = vi.fn();

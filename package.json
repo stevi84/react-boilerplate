@@ -11,7 +11,6 @@
     "build": "yarn run typegen && tsc && eslint . && cross-env VITE_ENV=prod vite build",
     "preview": "vite preview",
     "test": "cross-env VITE_ENV=test vitest",
-    "test:updateSnapshots": "cross-env VITE_ENV=test vitest --update",
     "test:coverage": "cross-env VITE_ENV=test vitest run --coverage",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",

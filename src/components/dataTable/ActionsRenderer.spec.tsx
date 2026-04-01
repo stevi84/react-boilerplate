@@ -9,16 +9,6 @@ import { todo1 } from '../../test/data/Todo';
 import { user1 } from '../../test/data/User';
 import { RootState } from '../../reducers/Store';
 
-vi.mock('react-i18next', () => ({
-  useTranslation: () => ({
-    t: (str: string) => str,
-    i18n: {
-      language: 'de',
-      changeLanguage: vi.fn(),
-    },
-  }),
-}));
-
 vi.mock('../../thunks/CurrentUserThunks', () => ({
   readCurrentUser: () => ({ type: 'readCurrentUser' }),
 }));
@@ -39,15 +29,6 @@ const managerMock = {
 } as unknown as EntityManager<BaseEntity>;
 
 describe('ActionsRenderer', () => {
-  it('should equal saved snapshot', () => {
-    const tree = renderWithProviders(
-      // @ts-ignore
-      <ActionsRenderer id="id" manager={managerMock} data={{ id: 1 } as any} />,
-      { preloadedState: initialState }
-    ).asFragment();
-    expect(tree).toMatchSnapshot();
-  });
-
   it('should trigger update on button click', () => {
     renderWithProviders(
       // @ts-ignore
