@@ -6,7 +6,7 @@ export const AdminDialog = () => {
   return (
     <MainLayout allowedAccessRights={['ADMIN']}>
       <Paper sx={{ margin: 1 }}>
-        <Stack direction={'column'} alignItems={'center'} justifyContent={'center'}>
+        <Stack direction={'column'} sx={{ alignItems: 'center', justifyContent: 'center' }}>
           <Typography variant="h4" color="primary">
             This is some very secret dialog with admin functions.
           </Typography>

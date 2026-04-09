@@ -9,7 +9,7 @@ export const NotFoundDialog = () => {
   return (
     <MainLayout allowedAccessRights={['UNRESTRICTED']}>
       <Paper sx={{ margin: 1 }}>
-        <Stack direction={'column'} alignItems={'center'} justifyContent={'center'}>
+        <Stack direction={'column'} sx={{ alignItems: 'center', justifyContent: 'center' }}>
           <Typography variant="h1" color="primary">
             404
           </Typography>

@@ -15,17 +15,26 @@ interface ExtendedRenderOptions extends Omit<RenderOptions, 'queries'> {
   path?: string;
 }
 
-export function renderWithProviders(
-  ui: ReactElement,
-  extendedRenderOptions: ExtendedRenderOptions = {}
-) {
-  const { preloadedState = {}, store = setupStore(preloadedState), initialEntries, path, ...renderOptions } = extendedRenderOptions;
+export function renderWithProviders(ui: ReactElement, extendedRenderOptions: ExtendedRenderOptions = {}) {
+  const {
+    preloadedState = {},
+    store = setupStore(preloadedState),
+    initialEntries,
+    path,
+    ...renderOptions
+  } = extendedRenderOptions;
   const locationRef = { current: '/' };
   const LocationCapture = () => {
     locationRef.current = useLocation().pathname;
     return null;
   };
-  const content = path ? <Routes><Route path={path} element={ui} /></Routes> : ui;
+  const content = path ? (
+    <Routes>
+      <Route path={path} element={ui} />
+    </Routes>
+  ) : (
+    ui
+  );
   const Wrapper = ({ children }: Readonly<PropsWithChildren<{}>>): ReactElement => (
     <MemoryRouter initialEntries={initialEntries}>
       <Provider store={store}>

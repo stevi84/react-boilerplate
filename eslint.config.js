@@ -13,11 +13,11 @@ const allRules = {
   // @eslint-react overrides (match previously disabled react/react-hooks rules)
   '@eslint-react/exhaustive-deps': 'off',
   '@eslint-react/component-hook-factories': 'off', // should be reviewed occasionally
-  
+
   // JSX a11y rules
   ...jsxA11y.flatConfigs.recommended.rules,
   'jsx-a11y/no-autofocus': 'off', // should be reviewed occasionally
-  
+
   // Import rules
   ...importPlugin.flatConfigs.recommended.rules,
   'import/no-unresolved': 'off', // TypeScript handles this
@@ -31,7 +31,7 @@ const allRules = {
   '@typescript-eslint/ban-ts-comment': 'off',
   '@typescript-eslint/no-empty-object-type': 'off',
   '@typescript-eslint/no-unused-expressions': 'off',
- '@typescript-eslint/no-deprecated': 'warn',
+  '@typescript-eslint/no-deprecated': 'warn',
   '@typescript-eslint/no-namespace': 'off',
 
   // General ESLint rules

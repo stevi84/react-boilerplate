@@ -16,7 +16,7 @@ export const Working = (props: WorkingProps) => {
   else if (isReading) statusText = t('reading');
 
   return (
-    <Stack direction={'column'} justifyContent={'center'} alignItems={'center'} style={{ height: '100%' }}>
+    <Stack direction={'column'} style={{ height: '100%' }} sx={{ justifyContent: 'center', alignItems: 'center' }}>
       <CircularProgress data-testid="loading-spinner" />
       {statusText}
     </Stack>
