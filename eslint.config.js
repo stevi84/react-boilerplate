@@ -33,6 +33,7 @@ const allRules = {
   '@typescript-eslint/no-unused-expressions': 'off',
   '@typescript-eslint/no-deprecated': 'warn',
   '@typescript-eslint/no-namespace': 'off',
+  '@typescript-eslint/no-require-imports': 'off',
 
   // General ESLint rules
   indent: 'off',
