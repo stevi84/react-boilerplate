@@ -41,7 +41,7 @@ describe('TodosThunk', () => {
       createTodoApiMock.mockResolvedValue(axiosResponse);
 
       const todo: Todo = await createTodo(todo1, 'de')(dispatch, getState, {});
-      expect(dispatch.mock.calls.length).toEqual(4);
+      expect(dispatch.mock.calls).toHaveLength(4);
       expect(dispatch.mock.calls[0][0]).toEqual(increaseSubmits());
       expect(dispatch.mock.calls[1][0]).toEqual(addTodo(todo1));
       expect(dispatch.mock.calls[2][0].payload.notification.options.variant).toEqual('success');
@@ -62,7 +62,7 @@ describe('TodosThunk', () => {
       createTodoApiMock.mockRejectedValue(axiosError);
 
       await expect(createTodo(todo1, 'de')(dispatch, getState, {})).rejects.toThrow('error');
-      expect(dispatch.mock.calls.length).toEqual(3);
+      expect(dispatch.mock.calls).toHaveLength(3);
       expect(dispatch.mock.calls[0][0]).toEqual(increaseSubmits());
       expect(dispatch.mock.calls[1][0].payload.notification.options.variant).toEqual('error');
       expect(dispatch.mock.calls[2][0]).toEqual(decreaseSubmits());
@@ -83,7 +83,7 @@ describe('TodosThunk', () => {
       readTodosApiMock.mockResolvedValue(axiosResponse);
 
       const todos: Todo[] = await readTodos('de')(dispatch, getState, {});
-      expect(dispatch.mock.calls.length).toEqual(3);
+      expect(dispatch.mock.calls).toHaveLength(3);
       expect(dispatch.mock.calls[0][0]).toEqual(increaseReads());
       expect(dispatch.mock.calls[1][0]).toEqual(setTodos([todo1, todo2, todo3]));
       expect(dispatch.mock.calls[2][0]).toEqual(decreaseReads());
@@ -103,7 +103,7 @@ describe('TodosThunk', () => {
       readTodosApiMock.mockRejectedValue(axiosError);
 
       await expect(readTodos('de')(dispatch, getState, {})).rejects.toThrow('error');
-      expect(dispatch.mock.calls.length).toEqual(3);
+      expect(dispatch.mock.calls).toHaveLength(3);
       expect(dispatch.mock.calls[0][0]).toEqual(increaseReads());
       expect(dispatch.mock.calls[1][0].payload.notification.options.variant).toEqual('error');
       expect(dispatch.mock.calls[2][0]).toEqual(decreaseReads());
@@ -124,7 +124,7 @@ describe('TodosThunk', () => {
       updateTodoApiMock.mockResolvedValue(axiosResponse);
 
       const todo: Todo = await updateTodo(todo1, 'de')(dispatch, getState, {});
-      expect(dispatch.mock.calls.length).toEqual(4);
+      expect(dispatch.mock.calls).toHaveLength(4);
       expect(dispatch.mock.calls[0][0]).toEqual(increaseSubmits());
       expect(dispatch.mock.calls[1][0]).toEqual(changeTodo(todo1));
       expect(dispatch.mock.calls[2][0].payload.notification.options.variant).toEqual('success');
@@ -145,7 +145,7 @@ describe('TodosThunk', () => {
       updateTodoApiMock.mockRejectedValue(axiosError);
 
       await expect(updateTodo(todo1, 'de')(dispatch, getState, {})).rejects.toThrow('error');
-      expect(dispatch.mock.calls.length).toEqual(3);
+      expect(dispatch.mock.calls).toHaveLength(3);
       expect(dispatch.mock.calls[0][0]).toEqual(increaseSubmits());
       expect(dispatch.mock.calls[1][0].payload.notification.options.variant).toEqual('error');
       expect(dispatch.mock.calls[2][0]).toEqual(decreaseSubmits());
@@ -166,7 +166,7 @@ describe('TodosThunk', () => {
       deleteTodoApiMock.mockResolvedValue(axiosResponse);
 
       await deleteTodo(1, 'de')(dispatch, getState, {});
-      expect(dispatch.mock.calls.length).toEqual(4);
+      expect(dispatch.mock.calls).toHaveLength(4);
       expect(dispatch.mock.calls[0][0]).toEqual(increaseSubmits());
       expect(dispatch.mock.calls[1][0]).toEqual(removeTodo(1));
       expect(dispatch.mock.calls[2][0].payload.notification.options.variant).toEqual('success');
@@ -186,7 +186,7 @@ describe('TodosThunk', () => {
       deleteTodoApiMock.mockRejectedValue(axiosError);
 
       await expect(deleteTodo(1, 'de')(dispatch, getState, {})).rejects.toThrow('error');
-      expect(dispatch.mock.calls.length).toEqual(3);
+      expect(dispatch.mock.calls).toHaveLength(3);
       expect(dispatch.mock.calls[0][0]).toEqual(increaseSubmits());
       expect(dispatch.mock.calls[1][0].payload.notification.options.variant).toEqual('error');
       expect(dispatch.mock.calls[2][0]).toEqual(decreaseSubmits());
@@ -206,7 +206,7 @@ describe('TodosThunk', () => {
       readTodoApiMock.mockResolvedValue(axiosResponse);
 
       const todo: Todo = await readTodo(1, 'de', dispatch);
-      expect(dispatch.mock.calls.length).toEqual(2);
+      expect(dispatch.mock.calls).toHaveLength(2);
       expect(dispatch.mock.calls[0][0]).toEqual(increaseReads());
       expect(dispatch.mock.calls[1][0]).toEqual(decreaseReads());
       expect(todo).toEqual(todo1);
@@ -224,7 +224,7 @@ describe('TodosThunk', () => {
       readTodoApiMock.mockRejectedValue(axiosError);
 
       await expect(readTodo(1, 'de', dispatch)).rejects.toThrow('error');
-      expect(dispatch.mock.calls.length).toEqual(3);
+      expect(dispatch.mock.calls).toHaveLength(3);
       expect(dispatch.mock.calls[0][0]).toEqual(increaseReads());
       expect(dispatch.mock.calls[1][0].payload.notification.options.variant).toEqual('error');
       expect(dispatch.mock.calls[2][0]).toEqual(decreaseReads());

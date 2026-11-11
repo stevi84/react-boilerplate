@@ -20,7 +20,7 @@ describe('TodoApi', () => {
       };
       axiosMock.post.mockResolvedValue(axiosResponse);
       const apiResponse: AxiosResponse<Todo> = await createTodo(todo1);
-      expect(axiosMock.post.mock.calls.length).toEqual(1);
+      expect(axiosMock.post.mock.calls).toHaveLength(1);
       expect(axiosMock.post.mock.calls[0][0]).toEqual(`${getUrl()}/todos`);
       expect(axiosMock.post.mock.calls[0][1]).toEqual({
         ...todo1,
@@ -44,7 +44,7 @@ describe('TodoApi', () => {
       };
       axiosMock.get.mockResolvedValue(axiosResponse);
       const apiResponse: AxiosResponse<Todo[]> = await readTodos();
-      expect(axiosMock.get.mock.calls.length).toEqual(1);
+      expect(axiosMock.get.mock.calls).toHaveLength(1);
       expect(axiosMock.get.mock.calls[0][0]).toEqual(`${getUrl()}/todos`);
       expect(apiResponse).toEqual(axiosResponse);
     });
@@ -61,7 +61,7 @@ describe('TodoApi', () => {
       };
       axiosMock.get.mockResolvedValue(axiosResponse);
       const apiResponse: AxiosResponse<Todo> = await readTodo(1);
-      expect(axiosMock.get.mock.calls.length).toEqual(1);
+      expect(axiosMock.get.mock.calls).toHaveLength(1);
       expect(axiosMock.get.mock.calls[0][0]).toEqual(`${getUrl()}/todos/1`);
       expect(apiResponse).toEqual(axiosResponse);
     });
@@ -78,7 +78,7 @@ describe('TodoApi', () => {
       };
       axiosMock.patch.mockResolvedValue(axiosResponse);
       const apiResponse: AxiosResponse<Todo> = await updateTodo(todo1);
-      expect(axiosMock.patch.mock.calls.length).toEqual(1);
+      expect(axiosMock.patch.mock.calls).toHaveLength(1);
       expect(axiosMock.patch.mock.calls[0][0]).toEqual(`${getUrl()}/todos/1`);
       expect(axiosMock.patch.mock.calls[0][1]).toEqual({
         ...todo1,
@@ -102,7 +102,7 @@ describe('TodoApi', () => {
       };
       axiosMock.post.mockResolvedValue(axiosResponse);
       const apiResponse: AxiosResponse<Todo> = await replaceTodo(todo1);
-      expect(axiosMock.post.mock.calls.length).toEqual(1);
+      expect(axiosMock.post.mock.calls).toHaveLength(1);
       expect(axiosMock.post.mock.calls[0][0]).toEqual(`${getUrl()}/todos/1`);
       expect(axiosMock.post.mock.calls[0][1]).toEqual({
         ...todo1,
@@ -126,7 +126,7 @@ describe('TodoApi', () => {
       };
       axiosMock.delete.mockResolvedValue(axiosResponse);
       const apiResponse: AxiosResponse = await deleteTodo(1);
-      expect(axiosMock.delete.mock.calls.length).toEqual(1);
+      expect(axiosMock.delete.mock.calls).toHaveLength(1);
       expect(axiosMock.delete.mock.calls[0][0]).toEqual(`${getUrl()}/todos/1`);
       expect(apiResponse).toEqual(axiosResponse);
     });

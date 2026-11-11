@@ -29,7 +29,7 @@ describe('CurrentUserReducer', () => {
       clientMock.readCurrentUser.mockResolvedValue(axiosResponse);
 
       const currentUser: CurrentUser = await readCurrentUser('de')(dispatch, getState, {});
-      expect(dispatch.mock.calls.length).toEqual(3);
+      expect(dispatch.mock.calls).toHaveLength(3);
       expect(dispatch.mock.calls[0][0]).toEqual(increaseReads());
       expect(dispatch.mock.calls[1][0]).toEqual(setCurrentUser(currentUserReader));
       expect(dispatch.mock.calls[2][0]).toEqual(decreaseReads());
@@ -50,7 +50,7 @@ describe('CurrentUserReducer', () => {
       clientMock.readCurrentUser.mockRejectedValue(axiosError);
 
       await expect(readCurrentUser('de')(dispatch, getState, {})).rejects.toThrow('error');
-      expect(dispatch.mock.calls.length).toEqual(3);
+      expect(dispatch.mock.calls).toHaveLength(3);
       expect(dispatch.mock.calls[0][0]).toEqual(increaseReads());
       expect(dispatch.mock.calls[1][0].payload.notification.options.variant).toEqual('error');
       expect(dispatch.mock.calls[2][0]).toEqual(decreaseReads());

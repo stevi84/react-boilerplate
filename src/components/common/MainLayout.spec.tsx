@@ -31,7 +31,7 @@ describe('MainLayout', () => {
       preloadedState: { ...initialState, currentUser: getEmptyCurrentUser() },
     });
     expect(screen.getByTestId('loading-spinner')).toBeTruthy();
-    expect(readCurrentUserMock.mock.calls.length).toEqual(1);
+    expect(readCurrentUserMock.mock.calls).toHaveLength(1);
   });
 
   it('should show NotAuthorized if current user is not authorized to see content', () => {

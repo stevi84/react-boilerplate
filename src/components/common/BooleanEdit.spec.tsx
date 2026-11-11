@@ -8,8 +8,8 @@ vi.mock('formik', () => ({ useField: () => [{ onChange: onChangeMock, checked: t
 describe('BooleanEdit', () => {
   it('should trigger onChange', () => {
     render(<BooleanEdit id="id" name="name" label="label" />);
-    expect(onChangeMock.mock.calls.length).toEqual(0);
+    expect(onChangeMock.mock.calls).toHaveLength(0);
     fireEvent.click(screen.getByTestId('CheckBoxIcon'));
-    expect(onChangeMock.mock.calls.length).toEqual(1);
+    expect(onChangeMock.mock.calls).toHaveLength(1);
   });
 });

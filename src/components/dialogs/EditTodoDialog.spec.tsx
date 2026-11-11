@@ -32,13 +32,13 @@ describe('EditTodoDialog', () => {
   });
 
   it('should load todo if updating', () => {
-    expect(readTodoMock.mock.calls.length).toEqual(0);
+    expect(readTodoMock.mock.calls).toHaveLength(0);
     renderWithProviders(<EditTodoDialog />, {
       preloadedState: initialState,
       initialEntries: ['/todos/1'],
       path: '/todos/:id',
     });
-    expect(readTodoMock.mock.calls.length).toEqual(1);
+    expect(readTodoMock.mock.calls).toHaveLength(1);
     expect(readTodoMock.mock.calls[0][0]).toEqual(1);
     expect(readTodoMock.mock.calls[0][1]).toEqual('de');
   });
@@ -49,28 +49,28 @@ describe('EditTodoDialog', () => {
       initialEntries: ['/todos/new'],
       path: '/todos/:id',
     });
-    expect(readTodoMock.mock.calls.length).toEqual(0);
+    expect(readTodoMock.mock.calls).toHaveLength(0);
   });
 
   // it('should dispatch createTodo on saving new todo', () => {
   //   useParamsMock.mockReturnValue({ id: 'new' });
-  //   expect(dispatchMock.mock.calls.length).toEqual(0);
+  //   expect(dispatchMock.mock.calls).toHaveLength(0);
   //   renderWithProviders(<EditTodoDialog />, { preloadedState: initialState });
   //   fireEvent.change(screen.getByLabelText('owner'), { target: { value: 'owner' } });
   //   fireEvent.change(screen.getByLabelText('dueDate'), { target: { value: '06.12.2023' } });
   //   fireEvent.change(screen.getByLabelText('description'), { target: { value: 'description' } });
   //   fireEvent.click(screen.getByText('save'));
-  //   expect(dispatchMock.mock.calls.length).toEqual(1);
+  //   expect(dispatchMock.mock.calls).toHaveLength(1);
   //   expect(dispatchMock.mock.calls[0][0]).toEqual({ type: 'createTodo' });
   // });
 
   // it('should dispatch updateTodo on saving existing todo', () => {
   //   useParamsMock.mockReturnValue({ id: '1' });
-  //   expect(dispatchMock.mock.calls.length).toEqual(0);
+  //   expect(dispatchMock.mock.calls).toHaveLength(0);
   //   renderWithProviders(<EditTodoDialog />, { preloadedState: initialState });
   //   fireEvent.change(screen.getByLabelText('owner'), { target: { value: 'change' } });
   //   fireEvent.click(screen.getByText('save'));
-  //   expect(dispatchMock.mock.calls.length).toEqual(1);
+  //   expect(dispatchMock.mock.calls).toHaveLength(1);
   //   expect(dispatchMock.mock.calls[0][0]).toEqual({ type: 'updateTodo' });
   // });
 

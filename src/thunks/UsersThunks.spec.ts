@@ -35,7 +35,7 @@ describe('UsersThunks', () => {
       clientMock.createUser.mockResolvedValue(axiosResponse);
 
       const user: User = await createUser(user1, 'de')(dispatch, getState, {});
-      expect(dispatch.mock.calls.length).toEqual(4);
+      expect(dispatch.mock.calls).toHaveLength(4);
       expect(dispatch.mock.calls[0][0]).toEqual(increaseSubmits());
       expect(dispatch.mock.calls[1][0]).toEqual(addUser(user1));
       expect(dispatch.mock.calls[2][0].payload.notification.options.variant).toEqual('success');
@@ -57,7 +57,7 @@ describe('UsersThunks', () => {
       clientMock.createUser.mockRejectedValue(axiosError);
 
       await expect(createUser(user1, 'de')(dispatch, getState, {})).rejects.toThrow('error');
-      expect(dispatch.mock.calls.length).toEqual(3);
+      expect(dispatch.mock.calls).toHaveLength(3);
       expect(dispatch.mock.calls[0][0]).toEqual(increaseSubmits());
       expect(dispatch.mock.calls[1][0].payload.notification.options.variant).toEqual('error');
       expect(dispatch.mock.calls[2][0]).toEqual(decreaseSubmits());
@@ -79,7 +79,7 @@ describe('UsersThunks', () => {
       clientMock.readUsers.mockResolvedValue(axiosResponse);
 
       const users: User[] = await readUsers('de')(dispatch, getState, {});
-      expect(dispatch.mock.calls.length).toEqual(3);
+      expect(dispatch.mock.calls).toHaveLength(3);
       expect(dispatch.mock.calls[0][0]).toEqual(increaseReads());
       expect(dispatch.mock.calls[1][0]).toEqual(setUsers([user1, user2, user3]));
       expect(dispatch.mock.calls[2][0]).toEqual(decreaseReads());
@@ -100,7 +100,7 @@ describe('UsersThunks', () => {
       clientMock.readUsers.mockRejectedValue(axiosError);
 
       await expect(readUsers('de')(dispatch, getState, {})).rejects.toThrow('error');
-      expect(dispatch.mock.calls.length).toEqual(3);
+      expect(dispatch.mock.calls).toHaveLength(3);
       expect(dispatch.mock.calls[0][0]).toEqual(increaseReads());
       expect(dispatch.mock.calls[1][0].payload.notification.options.variant).toEqual('error');
       expect(dispatch.mock.calls[2][0]).toEqual(decreaseReads());
@@ -122,7 +122,7 @@ describe('UsersThunks', () => {
       clientMock.updateUser.mockResolvedValue(axiosResponse);
 
       const user: User = await updateUser(user1, 'de')(dispatch, getState, {});
-      expect(dispatch.mock.calls.length).toEqual(4);
+      expect(dispatch.mock.calls).toHaveLength(4);
       expect(dispatch.mock.calls[0][0]).toEqual(increaseSubmits());
       expect(dispatch.mock.calls[1][0]).toEqual(changeUser(user1));
       expect(dispatch.mock.calls[2][0].payload.notification.options.variant).toEqual('success');
@@ -144,7 +144,7 @@ describe('UsersThunks', () => {
       clientMock.updateUser.mockRejectedValue(axiosError);
 
       await expect(updateUser(user1, 'de')(dispatch, getState, {})).rejects.toThrow('error');
-      expect(dispatch.mock.calls.length).toEqual(3);
+      expect(dispatch.mock.calls).toHaveLength(3);
       expect(dispatch.mock.calls[0][0]).toEqual(increaseSubmits());
       expect(dispatch.mock.calls[1][0].payload.notification.options.variant).toEqual('error');
       expect(dispatch.mock.calls[2][0]).toEqual(decreaseSubmits());
@@ -166,7 +166,7 @@ describe('UsersThunks', () => {
       clientMock.deleteUser.mockResolvedValue(axiosResponse);
 
       await deleteUser(1, 'de')(dispatch, getState, {});
-      expect(dispatch.mock.calls.length).toEqual(4);
+      expect(dispatch.mock.calls).toHaveLength(4);
       expect(dispatch.mock.calls[0][0]).toEqual(increaseSubmits());
       expect(dispatch.mock.calls[1][0]).toEqual(removeUser(1));
       expect(dispatch.mock.calls[2][0].payload.notification.options.variant).toEqual('success');
@@ -187,7 +187,7 @@ describe('UsersThunks', () => {
       clientMock.deleteUser.mockRejectedValue(axiosError);
 
       await expect(deleteUser(1, 'de')(dispatch, getState, {})).rejects.toThrow('error');
-      expect(dispatch.mock.calls.length).toEqual(3);
+      expect(dispatch.mock.calls).toHaveLength(3);
       expect(dispatch.mock.calls[0][0]).toEqual(increaseSubmits());
       expect(dispatch.mock.calls[1][0].payload.notification.options.variant).toEqual('error');
       expect(dispatch.mock.calls[2][0]).toEqual(decreaseSubmits());
@@ -208,7 +208,7 @@ describe('UsersThunks', () => {
       clientMock.readUser.mockResolvedValue(axiosResponse);
 
       const user: User = await readUser(1, 'de', dispatch);
-      expect(dispatch.mock.calls.length).toEqual(2);
+      expect(dispatch.mock.calls).toHaveLength(2);
       expect(dispatch.mock.calls[0][0]).toEqual(increaseReads());
       expect(dispatch.mock.calls[1][0]).toEqual(decreaseReads());
       expect(user).toEqual(user1);
@@ -227,7 +227,7 @@ describe('UsersThunks', () => {
       clientMock.readUser.mockRejectedValue(axiosError);
 
       await expect(readUser(1, 'de', dispatch)).rejects.toThrow('error');
-      expect(dispatch.mock.calls.length).toEqual(3);
+      expect(dispatch.mock.calls).toHaveLength(3);
       expect(dispatch.mock.calls[0][0]).toEqual(increaseReads());
       expect(dispatch.mock.calls[1][0].payload.notification.options.variant).toEqual('error');
       expect(dispatch.mock.calls[2][0]).toEqual(decreaseReads());

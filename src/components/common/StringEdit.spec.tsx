@@ -8,8 +8,8 @@ vi.mock('formik', () => ({ useField: () => [{ onChange: onChangeMock, value: 'va
 describe('StringEdit', () => {
   it('should trigger onChange', () => {
     render(<StringEdit id="id" name="name" label="label" />);
-    expect(onChangeMock.mock.calls.length).toEqual(0);
+    expect(onChangeMock.mock.calls).toHaveLength(0);
     fireEvent.change(screen.getByLabelText('label'), { target: { value: 'test' } });
-    expect(onChangeMock.mock.calls.length).toEqual(1);
+    expect(onChangeMock.mock.calls).toHaveLength(1);
   });
 });

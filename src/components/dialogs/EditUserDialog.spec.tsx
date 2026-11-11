@@ -34,13 +34,13 @@ describe('EditUserDialog', () => {
   });
 
   it('should load user if updating', () => {
-    expect(readUserMock.mock.calls.length).toEqual(0);
+    expect(readUserMock.mock.calls).toHaveLength(0);
     renderWithProviders(<EditUserDialog />, {
       preloadedState: initialState,
       initialEntries: ['/users/1'],
       path: '/users/:id',
     });
-    expect(readUserMock.mock.calls.length).toEqual(1);
+    expect(readUserMock.mock.calls).toHaveLength(1);
     expect(readUserMock.mock.calls[0][0]).toEqual(1);
     expect(readUserMock.mock.calls[0][1]).toEqual('de');
   });
@@ -51,12 +51,12 @@ describe('EditUserDialog', () => {
       initialEntries: ['/users/new'],
       path: '/users/:id',
     });
-    expect(readUserMock.mock.calls.length).toEqual(0);
+    expect(readUserMock.mock.calls).toHaveLength(0);
   });
 
   // it('should dispatch createUser on saving new user', () => {
   //   useParamsMock.mockReturnValue({ id: 'new' });
-  //   expect(dispatchMock.mock.calls.length).toEqual(0);
+  //   expect(dispatchMock.mock.calls).toHaveLength(0);
   //   renderWithProviders(<EditUserDialog />, { preloadedState: initialState });
   //   fireEvent.change(screen.getByLabelText('name'), { target: { value: 'name' } });
   //   fireEvent.change(screen.getByLabelText('dateOfBirth'), { target: { value: '06.12.2023' } });
@@ -65,17 +65,17 @@ describe('EditUserDialog', () => {
   //   fireEvent.change(screen.getByLabelText('email'), { target: { value: 'test@test.de' } });
   //   fireEvent.change(screen.getByLabelText('phone'), { target: { value: '0123/4567890' } });
   //   fireEvent.click(screen.getByText('save'));
-  //   expect(dispatchMock.mock.calls.length).toEqual(1);
+  //   expect(dispatchMock.mock.calls).toHaveLength(1);
   //   expect(dispatchMock.mock.calls[0][0]).toEqual({ type: 'createUser' });
   // });
 
   // it('should dispatch updateUser on saving existing user', () => {
   //   useParamsMock.mockReturnValue({ id: '1' });
-  //   expect(dispatchMock.mock.calls.length).toEqual(0);
+  //   expect(dispatchMock.mock.calls).toHaveLength(0);
   //   renderWithProviders(<EditUserDialog />, { preloadedState: initialState });
   //   fireEvent.change(screen.getByLabelText('name'), { target: { value: 'change' } });
   //   fireEvent.click(screen.getByText('save'));
-  //   expect(dispatchMock.mock.calls.length).toEqual(1);
+  //   expect(dispatchMock.mock.calls).toHaveLength(1);
   //   expect(dispatchMock.mock.calls[0][0]).toEqual({ type: 'updateUser' });
   // });
 

@@ -37,12 +37,12 @@ describe('Dashboard', () => {
 
   it('should load todos if not present', () => {
     renderWithProviders(<Dashboard />, { preloadedState: { ...initialState, todos: [] } });
-    expect(readTodosMock.mock.calls.length).toEqual(1);
+    expect(readTodosMock.mock.calls).toHaveLength(1);
   });
 
   it('should load users if not present', () => {
     renderWithProviders(<Dashboard />, { preloadedState: { ...initialState, users: [] } });
-    expect(readUsersMock.mock.calls.length).toEqual(1);
+    expect(readUsersMock.mock.calls).toHaveLength(1);
   });
 
   it('should navigate to todos on button click', () => {

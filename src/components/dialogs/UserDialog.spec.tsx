@@ -31,6 +31,6 @@ describe('UserDialog', () => {
 
   it('should load users if not present', () => {
     renderWithProviders(<UserDialog />, { preloadedState: { ...initialState, users: [] } });
-    expect(readUsersMock.mock.calls.length).toEqual(1);
+    expect(readUsersMock.mock.calls).toHaveLength(1);
   });
 });

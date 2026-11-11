@@ -33,18 +33,18 @@ describe('DataTable', () => {
     renderWithProviders(<DataTable id="id" columns={[]} rowsData={[]} manager={managerMock} />, {
       preloadedState: initialState,
     });
-    expect(readMock.mock.calls.length).toEqual(0);
+    expect(readMock.mock.calls).toHaveLength(0);
     fireEvent.click(screen.getByTestId('ReplayIcon'));
-    expect(readMock.mock.calls.length).toEqual(1);
+    expect(readMock.mock.calls).toHaveLength(1);
   });
 
   it('should trigger create on button click', () => {
     renderWithProviders(<DataTable id="id" columns={[]} rowsData={[]} manager={managerMock} />, {
       preloadedState: initialState,
     });
-    expect(createMock.mock.calls.length).toEqual(0);
+    expect(createMock.mock.calls).toHaveLength(0);
     fireEvent.click(screen.getByTestId('AddIcon'));
-    expect(createMock.mock.calls.length).toEqual(1);
+    expect(createMock.mock.calls).toHaveLength(1);
   });
 
   it('should show grid if not reading or submitting', () => {

@@ -31,6 +31,6 @@ describe('TodoDialog', () => {
 
   it('should load todos if not present', () => {
     renderWithProviders(<TodoDialog />, { preloadedState: { ...initialState, todos: [] } });
-    expect(readTodosMock.mock.calls.length).toEqual(1);
+    expect(readTodosMock.mock.calls).toHaveLength(1);
   });
 });

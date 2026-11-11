@@ -16,11 +16,11 @@ vi.mock('react-i18next', () => ({
 describe('LanguageSwitch', () => {
   it('should change the language', () => {
     render(<LanguageSwitch />);
-    expect(changeLanguageMock.mock.calls.length).toEqual(0);
+    expect(changeLanguageMock.mock.calls).toHaveLength(0);
     fireEvent.mouseDown(screen.getByText('de'));
     const listbox = within(screen.getByRole('listbox'));
     fireEvent.click(listbox.getByText('en'));
-    expect(changeLanguageMock.mock.calls.length).toEqual(1);
+    expect(changeLanguageMock.mock.calls).toHaveLength(1);
     expect(changeLanguageMock.mock.calls[0][0]).toEqual('en');
   });
 });

@@ -35,9 +35,9 @@ describe('ActionsRenderer', () => {
       <ActionsRenderer id="id" manager={managerMock} data={{ id: 1 } as any} />,
       { preloadedState: initialState }
     );
-    expect(updateMock.mock.calls.length).toEqual(0);
+    expect(updateMock.mock.calls).toHaveLength(0);
     fireEvent.click(screen.getByTestId('EditIcon'));
-    expect(updateMock.mock.calls.length).toEqual(1);
+    expect(updateMock.mock.calls).toHaveLength(1);
   });
 
   it('should trigger delete on button click', () => {
@@ -46,9 +46,9 @@ describe('ActionsRenderer', () => {
       <ActionsRenderer id="id" manager={managerMock} data={{ id: 1 } as any} />,
       { preloadedState: initialState }
     );
-    expect(deleteMock.mock.calls.length).toEqual(0);
+    expect(deleteMock.mock.calls).toHaveLength(0);
     fireEvent.click(screen.getByTestId('DeleteIcon'));
-    expect(deleteMock.mock.calls.length).toEqual(1);
+    expect(deleteMock.mock.calls).toHaveLength(1);
   });
 
   it('should hide buttons if not authorized', () => {

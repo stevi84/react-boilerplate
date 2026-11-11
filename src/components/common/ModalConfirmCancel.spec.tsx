@@ -18,8 +18,8 @@ describe('ModalConfirmCancel', () => {
       />
     );
     fireEvent.click(screen.getByText('confirm'));
-    expect(confirmAction.mock.calls.length).toEqual(1);
-    expect(cancelAction.mock.calls.length).toEqual(0);
+    expect(confirmAction.mock.calls).toHaveLength(1);
+    expect(cancelAction.mock.calls).toHaveLength(0);
   });
 
   it('should execute cancel when cancelButton is pressed', () => {
@@ -37,7 +37,7 @@ describe('ModalConfirmCancel', () => {
       />
     );
     fireEvent.click(screen.getByText('cancel'));
-    expect(confirmAction.mock.calls.length).toEqual(0);
-    expect(cancelAction.mock.calls.length).toEqual(1);
+    expect(confirmAction.mock.calls).toHaveLength(0);
+    expect(cancelAction.mock.calls).toHaveLength(1);
   });
 });

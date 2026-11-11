@@ -13,9 +13,9 @@ describe('NumberEdit', () => {
 
   it('should parse the input', () => {
     render(<NumberEdit id="id" name="name" label="label" />);
-    expect(setValueMock.mock.calls.length).toEqual(0);
+    expect(setValueMock.mock.calls).toHaveLength(0);
     fireEvent.change(screen.getByLabelText('label'), { target: { value: '1,02' } });
-    expect(setValueMock.mock.calls.length).toEqual(1);
+    expect(setValueMock.mock.calls).toHaveLength(1);
     expect(setValueMock.mock.calls[0][0]).toEqual(1.02);
   });
 });
