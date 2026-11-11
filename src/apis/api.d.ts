@@ -515,7 +515,7 @@ export interface OperationMethods {
    *
    * Read all todos.
    */
-  'readTodos'(
+  readTodos(
     parameters?: Parameters<UnknownParamsObject> | null,
     data?: any,
     config?: AxiosRequestConfig
@@ -525,7 +525,7 @@ export interface OperationMethods {
    *
    * Creates a new todos.
    */
-  'createTodo'(
+  createTodo(
     parameters?: Parameters<UnknownParamsObject> | null,
     data?: Paths.CreateTodo.RequestBody,
     config?: AxiosRequestConfig
@@ -535,7 +535,7 @@ export interface OperationMethods {
    *
    * Read a todo.
    */
-  'readTodo'(
+  readTodo(
     parameters?: Parameters<Paths.ReadTodo.PathParameters> | null,
     data?: any,
     config?: AxiosRequestConfig
@@ -545,7 +545,7 @@ export interface OperationMethods {
    *
    * Replace a todo.
    */
-  'replaceTodo'(
+  replaceTodo(
     parameters?: Parameters<Paths.ReplaceTodo.PathParameters> | null,
     data?: Paths.ReplaceTodo.RequestBody,
     config?: AxiosRequestConfig
@@ -555,7 +555,7 @@ export interface OperationMethods {
    *
    * Update a todo.
    */
-  'updateTodo'(
+  updateTodo(
     parameters?: Parameters<Paths.UpdateTodo.PathParameters> | null,
     data?: Paths.UpdateTodo.RequestBody,
     config?: AxiosRequestConfig
@@ -565,7 +565,7 @@ export interface OperationMethods {
    *
    * Delete a todo.
    */
-  'deleteTodo'(
+  deleteTodo(
     parameters?: Parameters<Paths.DeleteTodo.PathParameters> | null,
     data?: any,
     config?: AxiosRequestConfig
@@ -575,7 +575,7 @@ export interface OperationMethods {
    *
    * Read all users.
    */
-  'readUsers'(
+  readUsers(
     parameters?: Parameters<UnknownParamsObject> | null,
     data?: any,
     config?: AxiosRequestConfig
@@ -585,7 +585,7 @@ export interface OperationMethods {
    *
    * Creates a new user.
    */
-  'createUser'(
+  createUser(
     parameters?: Parameters<UnknownParamsObject> | null,
     data?: Paths.CreateUser.RequestBody,
     config?: AxiosRequestConfig
@@ -595,7 +595,7 @@ export interface OperationMethods {
    *
    * Read a user.
    */
-  'readUser'(
+  readUser(
     parameters?: Parameters<Paths.ReadUser.PathParameters> | null,
     data?: any,
     config?: AxiosRequestConfig
@@ -605,7 +605,7 @@ export interface OperationMethods {
    *
    * Replace a user.
    */
-  'replaceUser'(
+  replaceUser(
     parameters?: Parameters<Paths.ReplaceUser.PathParameters> | null,
     data?: Paths.ReplaceUser.RequestBody,
     config?: AxiosRequestConfig
@@ -615,7 +615,7 @@ export interface OperationMethods {
    *
    * Update a user.
    */
-  'updateUser'(
+  updateUser(
     parameters?: Parameters<Paths.UpdateUser.PathParameters> | null,
     data?: Paths.UpdateUser.RequestBody,
     config?: AxiosRequestConfig
@@ -625,7 +625,7 @@ export interface OperationMethods {
    *
    * Delete a user.
    */
-  'deleteUser'(
+  deleteUser(
     parameters?: Parameters<Paths.DeleteUser.PathParameters> | null,
     data?: any,
     config?: AxiosRequestConfig
@@ -635,7 +635,7 @@ export interface OperationMethods {
    *
    * Read details of the current user.
    */
-  'readCurrentUser'(
+  readCurrentUser(
     parameters?: Parameters<UnknownParamsObject> | null,
     data?: any,
     config?: AxiosRequestConfig
@@ -649,7 +649,7 @@ export interface PathsDictionary {
      *
      * Read all todos.
      */
-    'get'(
+    get(
       parameters?: Parameters<UnknownParamsObject> | null,
       data?: any,
       config?: AxiosRequestConfig
@@ -659,7 +659,7 @@ export interface PathsDictionary {
      *
      * Creates a new todos.
      */
-    'post'(
+    post(
       parameters?: Parameters<UnknownParamsObject> | null,
       data?: Paths.CreateTodo.RequestBody,
       config?: AxiosRequestConfig
@@ -671,7 +671,7 @@ export interface PathsDictionary {
      *
      * Read a todo.
      */
-    'get'(
+    get(
       parameters?: Parameters<Paths.ReadTodo.PathParameters> | null,
       data?: any,
       config?: AxiosRequestConfig
@@ -681,7 +681,7 @@ export interface PathsDictionary {
      *
      * Replace a todo.
      */
-    'put'(
+    put(
       parameters?: Parameters<Paths.ReplaceTodo.PathParameters> | null,
       data?: Paths.ReplaceTodo.RequestBody,
       config?: AxiosRequestConfig
@@ -691,7 +691,7 @@ export interface PathsDictionary {
      *
      * Update a todo.
      */
-    'patch'(
+    patch(
       parameters?: Parameters<Paths.UpdateTodo.PathParameters> | null,
       data?: Paths.UpdateTodo.RequestBody,
       config?: AxiosRequestConfig
@@ -701,7 +701,7 @@ export interface PathsDictionary {
      *
      * Delete a todo.
      */
-    'delete'(
+    delete(
       parameters?: Parameters<Paths.DeleteTodo.PathParameters> | null,
       data?: any,
       config?: AxiosRequestConfig
@@ -713,7 +713,7 @@ export interface PathsDictionary {
      *
      * Read all users.
      */
-    'get'(
+    get(
       parameters?: Parameters<UnknownParamsObject> | null,
       data?: any,
       config?: AxiosRequestConfig
@@ -723,7 +723,7 @@ export interface PathsDictionary {
      *
      * Creates a new user.
      */
-    'post'(
+    post(
       parameters?: Parameters<UnknownParamsObject> | null,
       data?: Paths.CreateUser.RequestBody,
       config?: AxiosRequestConfig
@@ -735,7 +735,7 @@ export interface PathsDictionary {
      *
      * Read a user.
      */
-    'get'(
+    get(
       parameters?: Parameters<Paths.ReadUser.PathParameters> | null,
       data?: any,
       config?: AxiosRequestConfig
@@ -745,7 +745,7 @@ export interface PathsDictionary {
      *
      * Replace a user.
      */
-    'put'(
+    put(
       parameters?: Parameters<Paths.ReplaceUser.PathParameters> | null,
       data?: Paths.ReplaceUser.RequestBody,
       config?: AxiosRequestConfig
@@ -755,7 +755,7 @@ export interface PathsDictionary {
      *
      * Update a user.
      */
-    'patch'(
+    patch(
       parameters?: Parameters<Paths.UpdateUser.PathParameters> | null,
       data?: Paths.UpdateUser.RequestBody,
       config?: AxiosRequestConfig
@@ -765,7 +765,7 @@ export interface PathsDictionary {
      *
      * Delete a user.
      */
-    'delete'(
+    delete(
       parameters?: Parameters<Paths.DeleteUser.PathParameters> | null,
       data?: any,
       config?: AxiosRequestConfig
@@ -777,7 +777,7 @@ export interface PathsDictionary {
      *
      * Read details of the current user.
      */
-    'get'(
+    get(
       parameters?: Parameters<UnknownParamsObject> | null,
       data?: any,
       config?: AxiosRequestConfig
