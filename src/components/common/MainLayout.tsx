@@ -28,7 +28,7 @@ export const MainLayout = (props: React.PropsWithChildren<MainLayoutProps>) => {
 
   useEffect(() => {
     if (!currentUser.loginName) {
-      dispatch(readCurrentUser(lang));
+      void dispatch(readCurrentUser(lang));
     }
   }, []);
 

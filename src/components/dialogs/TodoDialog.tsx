@@ -22,7 +22,7 @@ export const TodoDialog = () => {
 
   useEffect(() => {
     if (todos.length === 0) {
-      dispatch(readTodos(lang));
+      void dispatch(readTodos(lang));
     }
   }, []);
 
@@ -67,7 +67,7 @@ export const TodoDialog = () => {
           confirmButtonText={t('delete')}
           cancelButtonText={t('cancel')}
           confirmAction={() => {
-            dispatch(deleteTodo(deleteModalState.entityId, lang));
+            void dispatch(deleteTodo(deleteModalState.entityId, lang));
             setDeleteModalState({ visible: false, entityId: -1 });
           }}
           cancelAction={() => setDeleteModalState({ visible: false, entityId: -1 })}

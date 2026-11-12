@@ -27,7 +27,7 @@ export const NumberEdit = (props: NumberEditProps) => {
   const parse = (value: string): number => parseNumber(value, lang);
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setStateValue(event.target.value);
-    helper.setValue(parse(event.target.value));
+    void helper.setValue(parse(event.target.value));
   };
 
   return (

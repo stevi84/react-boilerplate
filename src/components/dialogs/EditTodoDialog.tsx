@@ -33,7 +33,7 @@ export const EditTodoDialog = () => {
   if (id === 'new') mode = CrudMode.CREATE;
   else if (/^\d+$/.test(id!)) mode = CrudMode.UPDATE;
   useEffect(() => {
-    (async () => {
+    void (async () => {
       if (mode === CrudMode.UPDATE) {
         setTodo(await readTodo(Number(id), lang, dispatch));
       }
@@ -43,17 +43,17 @@ export const EditTodoDialog = () => {
   const save = (values: Todo, form: FormikHelpers<Todo>) => {
     switch (mode) {
       case CrudMode.CREATE:
-        dispatch(createTodo(values, lang));
+        void dispatch(createTodo(values, lang));
         break;
       case CrudMode.UPDATE:
-        dispatch(updateTodo(values, lang));
+        void dispatch(updateTodo(values, lang));
     }
     doCancel(form)();
   };
 
   const doCancel = (form: FormikHelpers<Todo>) => () => {
     form.resetForm({ values: getEmptyTodo() });
-    navigate('/todos');
+    void navigate('/todos');
   };
 
   const getSaveTooltip = (isDirty: boolean, isValid: boolean): string => {

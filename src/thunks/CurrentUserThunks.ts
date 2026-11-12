@@ -18,7 +18,7 @@ export const readCurrentUser =
       dispatch(setCurrentUser(response.data));
       return response.data;
     } catch (error) {
-      createErrorLog(error);
+      void createErrorLog(error);
       dispatch(
         enqueueSnackbar(createMessage('read', 'currentUser', false, lang), {
           variant: 'error',

@@ -22,7 +22,7 @@ export const UserDialog = () => {
 
   useEffect(() => {
     if (users.length === 0) {
-      dispatch(readUsers(lang));
+      void dispatch(readUsers(lang));
     }
   }, []);
 
@@ -83,7 +83,7 @@ export const UserDialog = () => {
           confirmButtonText={t('delete')}
           cancelButtonText={t('cancel')}
           confirmAction={() => {
-            dispatch(deleteUser(deleteModalState.entityId, lang));
+            void dispatch(deleteUser(deleteModalState.entityId, lang));
             setDeleteModalState({ visible: false, entityId: -1 });
           }}
           cancelAction={() => setDeleteModalState({ visible: false, entityId: -1 })}

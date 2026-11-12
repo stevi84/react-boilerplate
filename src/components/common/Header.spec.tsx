@@ -11,24 +11,14 @@ describe('Header', () => {
     expect(screen.getByText(/testenv/)).toBeTruthy();
   });
 
-  it('should navigate to dashboard', () => {
+  it.each([
+    { destination: 'dashboard', menuItem: 'Home', route: '/' },
+    { destination: 'users', menuItem: 'Users', route: '/users' },
+    { destination: 'todos', menuItem: 'Todos', route: '/todos' },
+  ])('should navigate to $destination', ({ menuItem, route }) => {
     const { getLocation } = renderWithProviders(<Header />);
     fireEvent.click(screen.getByTestId('MenuIcon'));
-    fireEvent.click(screen.getByText('Home'));
-    expect(getLocation()).toEqual('/');
-  });
-
-  it('should navigate to users', () => {
-    const { getLocation } = renderWithProviders(<Header />);
-    fireEvent.click(screen.getByTestId('MenuIcon'));
-    fireEvent.click(screen.getByText('Users'));
-    expect(getLocation()).toEqual('/users');
-  });
-
-  it('should navigate to todos', () => {
-    const { getLocation } = renderWithProviders(<Header />);
-    fireEvent.click(screen.getByTestId('MenuIcon'));
-    fireEvent.click(screen.getByText('Todos'));
-    expect(getLocation()).toEqual('/todos');
+    fireEvent.click(screen.getByText(menuItem));
+    expect(getLocation()).toEqual(route);
   });
 });

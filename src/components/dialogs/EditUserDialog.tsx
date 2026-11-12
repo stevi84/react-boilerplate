@@ -33,7 +33,7 @@ export const EditUserDialog = () => {
   if (id === 'new') mode = CrudMode.CREATE;
   else if (/^\d+$/.test(id!)) mode = CrudMode.UPDATE;
   useEffect(() => {
-    (async () => {
+    void (async () => {
       if (mode === CrudMode.UPDATE) {
         setUser(await readUser(Number(id), lang, dispatch));
       }
@@ -43,17 +43,17 @@ export const EditUserDialog = () => {
   const save = (values: User, form: FormikHelpers<User>) => {
     switch (mode) {
       case CrudMode.CREATE:
-        dispatch(createUser(values, lang));
+        void dispatch(createUser(values, lang));
         break;
       case CrudMode.UPDATE:
-        dispatch(updateUser(values, lang));
+        void dispatch(updateUser(values, lang));
     }
     doCancel(form)();
   };
 
   const doCancel = (form: FormikHelpers<User>) => () => {
     form.resetForm({ values: getEmptyUser() });
-    navigate('/users');
+    void navigate('/users');
   };
 
   const getSaveTooltip = (isDirty: boolean, isValid: boolean): string => {

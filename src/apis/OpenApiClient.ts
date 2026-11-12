@@ -3,4 +3,4 @@ import apiYml from './api.yml';
 import { getEnv } from '../globals/Environments';
 
 export const api = new OpenAPIClientAxios({ definition: apiYml, withServer: getEnv() });
-api.init();
+void api.init();

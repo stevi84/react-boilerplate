@@ -36,11 +36,11 @@ describe('Formatters', () => {
     });
 
     it('should return NaN for invalid number', () => {
-      expect(parseNumber('1234.56', 'de')).toEqual(Number.NaN);
-      expect(parseNumber('1234,56', 'en')).toEqual(Number.NaN);
-      expect(parseNumber('1234,', 'de')).toEqual(Number.NaN);
-      expect(parseNumber('unknown', 'de')).toEqual(Number.NaN);
-      expect(parseNumber('', 'de')).toEqual(Number.NaN);
+      expect(parseNumber('1234.56', 'de')).toBeNaN();
+      expect(parseNumber('1234,56', 'en')).toBeNaN();
+      expect(parseNumber('1234,', 'de')).toBeNaN();
+      expect(parseNumber('unknown', 'de')).toBeNaN();
+      expect(parseNumber('', 'de')).toBeNaN();
     });
   });
 

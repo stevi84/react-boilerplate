@@ -18,7 +18,7 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
   }
 
   componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-    createErrorLog({ error, errorInfo });
+    void createErrorLog({ error, errorInfo });
   }
 
   render() {

@@ -45,22 +45,14 @@ describe('Dashboard', () => {
     expect(readUsersMock.mock.calls).toHaveLength(1);
   });
 
-  it('should navigate to todos on button click', () => {
+  it.each([
+    { destination: 'todos', iconTestId: 'EditNoteIcon', route: '/todos' },
+    { destination: 'users', iconTestId: 'PeopleIcon', route: '/users' },
+    { destination: 'settings', iconTestId: 'SettingsIcon', route: '/admin' },
+  ])('should navigate to $destination on button click', ({ iconTestId, route }) => {
     const { getLocation } = renderWithProviders(<Dashboard />, { preloadedState: initialState });
-    fireEvent.click(screen.getByTestId('EditNoteIcon'));
-    expect(getLocation()).toEqual('/todos');
-  });
-
-  it('should navigate to users on button click', () => {
-    const { getLocation } = renderWithProviders(<Dashboard />, { preloadedState: initialState });
-    fireEvent.click(screen.getByTestId('PeopleIcon'));
-    expect(getLocation()).toEqual('/users');
-  });
-
-  it('should navigate to settings on button click', () => {
-    const { getLocation } = renderWithProviders(<Dashboard />, { preloadedState: initialState });
-    fireEvent.click(screen.getByTestId('SettingsIcon'));
-    expect(getLocation()).toEqual('/admin');
+    fireEvent.click(screen.getByTestId(iconTestId));
+    expect(getLocation()).toEqual(route);
   });
 
   it('should show dashboard if not reading or submitting', () => {
